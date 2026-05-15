@@ -6,7 +6,8 @@ import '../utils/app_theme.dart';
 import '../utils/las_vegas_calculator.dart';
 
 class HoleScoreCard extends StatefulWidget {
-  final Game game;
+  final TeamAssignment assignment;
+  final TeamFormationMode teamFormationMode;
   final HoleScore holeScore;
   final int cumulativeDelta;
   final bool birdieFlipEnabled;
@@ -14,7 +15,8 @@ class HoleScoreCard extends StatefulWidget {
 
   const HoleScoreCard({
     super.key,
-    required this.game,
+    required this.assignment,
+    required this.teamFormationMode,
     required this.holeScore,
     required this.cumulativeDelta,
     required this.birdieFlipEnabled,
@@ -50,9 +52,7 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
     super.dispose();
   }
 
-  void _notify() {
-    widget.onChanged(_hole);
-  }
+  void _notify() => widget.onChanged(_hole);
 
   void _updateScore(String field, String value) {
     final v = int.tryParse(value);
@@ -72,7 +72,6 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
           break;
         case 'par':
           _hole = _hole.copyWith(parScore: v ?? 4);
-          // フリップ権利が無くなったらフリップを解除
           if (!LasVegasCalculator.canFlipA(_hole)) {
             _hole = _hole.copyWith(flipA: false);
           }
@@ -99,11 +98,14 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
 
   @override
   Widget build(BuildContext context) {
+    final a = widget.assignment;
     final comboA = LasVegasCalculator.getComboA(_hole);
     final comboB = LasVegasCalculator.getComboB(_hole);
     final delta = LasVegasCalculator.getHoleDelta(_hole);
-    final canFlipA = widget.birdieFlipEnabled && LasVegasCalculator.canFlipA(_hole);
-    final canFlipB = widget.birdieFlipEnabled && LasVegasCalculator.canFlipB(_hole);
+    final canFlipA =
+        widget.birdieFlipEnabled && LasVegasCalculator.canFlipA(_hole);
+    final canFlipB =
+        widget.birdieFlipEnabled && LasVegasCalculator.canFlipB(_hole);
 
     Color deltaColor = AppTheme.neutralColor;
     String deltaText = '-';
@@ -138,13 +140,13 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            // ホールヘッダー
+            // ── ホールヘッダー ──
             Row(
               children: [
                 Container(
                   width: 36,
                   height: 36,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: AppTheme.primaryColor,
                     shape: BoxShape.circle,
                   ),
@@ -160,22 +162,32 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                const Text('Par', style: TextStyle(fontSize: 13, color: Colors.grey)),
+                const Text('Par',
+                    style: TextStyle(fontSize: 13, color: Colors.grey)),
                 const SizedBox(width: 4),
                 SizedBox(
                   width: 48,
-                  child: _scoreInput(_parCtrl, 'Par', (v) => _updateScore('par', v), maxVal: 5, minVal: 3),
+                  child: _scoreInput(
+                      _parCtrl, 'Par', (v) => _updateScore('par', v)),
                 ),
+                // ローテーションバッジ
+                if (widget.teamFormationMode == TeamFormationMode.rotation) ...[
+                  const SizedBox(width: 8),
+                  _rotationBadge(a.rotationRound),
+                ],
                 const Spacer(),
-                // デルタ・累計
                 if (delta != null) ...[
                   Text(
                     deltaText,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: deltaColor),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: deltaColor),
                   ),
                   const SizedBox(width: 12),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                       color: cumulColor.withAlpha(30),
                       borderRadius: BorderRadius.circular(12),
@@ -183,18 +195,28 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
                     ),
                     child: Text(
                       '累計 $cumulText',
-                      style: TextStyle(fontSize: 12, color: cumulColor, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: cumulColor,
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
               ],
             ),
+
+            // ローテーション：今ホールのチーム表示
+            if (widget.teamFormationMode == TeamFormationMode.rotation) ...[
+              const SizedBox(height: 6),
+              _teamMatchupBanner(a),
+            ],
+
             const SizedBox(height: 10),
-            // チームA
+
+            // ── チームA ──
             _teamRow(
-              teamName: widget.game.teamAName,
-              p1Name: widget.game.player1Name,
-              p2Name: widget.game.player2Name,
+              p1Name: a.p1Name,
+              p2Name: a.p2Name,
               ctrl1: _a1Ctrl,
               ctrl2: _a2Ctrl,
               combo: comboA,
@@ -206,11 +228,11 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
               onScore2: (v) => _updateScore('a2', v),
             ),
             const SizedBox(height: 6),
-            // チームB
+
+            // ── チームB ──
             _teamRow(
-              teamName: widget.game.teamBName,
-              p1Name: widget.game.player3Name,
-              p2Name: widget.game.player4Name,
+              p1Name: a.p3Name,
+              p2Name: a.p4Name,
               ctrl1: _b1Ctrl,
               ctrl2: _b2Ctrl,
               combo: comboB,
@@ -227,8 +249,54 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
     );
   }
 
+  Widget _rotationBadge(int round) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        color: Colors.orange.withAlpha(30),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.orange.withAlpha(120)),
+      ),
+      child: Text(
+        'R$round',
+        style: const TextStyle(
+            fontSize: 11,
+            color: Colors.orange,
+            fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _teamMatchupBanner(TeamAssignment a) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: Colors.orange.withAlpha(15),
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(color: Colors.orange.withAlpha(60)),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.sync, size: 12, color: Colors.orange),
+          const SizedBox(width: 4),
+          Flexible(
+            child: Text(
+              '${a.teamALabel}  vs  ${a.teamBLabel}',
+              style: const TextStyle(
+                  fontSize: 11,
+                  color: Colors.orange,
+                  fontWeight: FontWeight.w600),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _teamRow({
-    required String teamName,
     required String p1Name,
     required String p2Name,
     required TextEditingController ctrl1,
@@ -253,7 +321,8 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
           Container(
             width: 3,
             height: 36,
-            decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(2)),
+            decoration: BoxDecoration(
+                color: color, borderRadius: BorderRadius.circular(2)),
           ),
           const SizedBox(width: 8),
           Expanded(
@@ -266,20 +335,15 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
             ),
           ),
           const SizedBox(width: 8),
-          // コンボ表示
           SizedBox(
             width: 44,
             child: Text(
               combo != null ? '$combo' : '-',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: color,
-              ),
+                  fontSize: 22, fontWeight: FontWeight.bold, color: color),
             ),
           ),
-          // フリップボタン
           if (canFlip || isFlipped)
             GestureDetector(
               onTap: canFlip ? onFlip : null,
@@ -293,7 +357,9 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
                 child: Icon(
                   Icons.swap_horiz,
                   size: 18,
-                  color: isFlipped ? Colors.white : (canFlip ? color : Colors.grey),
+                  color: isFlipped
+                      ? Colors.white
+                      : (canFlip ? color : Colors.grey),
                 ),
               ),
             )
@@ -304,11 +370,14 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
     );
   }
 
-  Widget _labeledInput(TextEditingController ctrl, String label, ValueChanged<String> onChanged) {
+  Widget _labeledInput(TextEditingController ctrl, String label,
+      ValueChanged<String> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: const TextStyle(fontSize: 10, color: Colors.grey)),
+        Text(label,
+            style: const TextStyle(fontSize: 10, color: Colors.grey),
+            overflow: TextOverflow.ellipsis),
         const SizedBox(height: 2),
         TextField(
           controller: ctrl,
@@ -329,10 +398,8 @@ class _HoleScoreCardState extends State<HoleScoreCard> {
   Widget _scoreInput(
     TextEditingController ctrl,
     String label,
-    ValueChanged<String> onChanged, {
-    int minVal = 1,
-    int maxVal = 20,
-  }) {
+    ValueChanged<String> onChanged,
+  ) {
     return TextField(
       controller: ctrl,
       keyboardType: TextInputType.number,

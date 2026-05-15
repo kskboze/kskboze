@@ -1,5 +1,45 @@
 import 'hole_score.dart';
 
+enum TeamFormationMode {
+  fixed,      // 固定チーム
+  rotation,   // ローテーション（1ホールごと）
+  oneAndFour, // 1&4 vs 2&3 固定
+}
+
+extension TeamFormationModeX on TeamFormationMode {
+  String get displayName {
+    switch (this) {
+      case TeamFormationMode.fixed:      return '固定チーム';
+      case TeamFormationMode.rotation:   return 'ローテーション';
+      case TeamFormationMode.oneAndFour: return '1&4 vs 2&3';
+    }
+  }
+
+  String get description {
+    switch (this) {
+      case TeamFormationMode.fixed:      return 'ユーザーが自由に2チームに振り分け';
+      case TeamFormationMode.rotation:   return '1ホールごとにパートナーが変わる';
+      case TeamFormationMode.oneAndFour: return '1番目＆4番目 vs 2番目＆3番目';
+    }
+  }
+
+  String get dbValue {
+    switch (this) {
+      case TeamFormationMode.fixed:      return 'fixed';
+      case TeamFormationMode.rotation:   return 'rotation';
+      case TeamFormationMode.oneAndFour: return 'oneAndFour';
+    }
+  }
+}
+
+TeamFormationMode teamFormationModeFromDb(String? v) {
+  switch (v) {
+    case 'rotation':   return TeamFormationMode.rotation;
+    case 'oneAndFour': return TeamFormationMode.oneAndFour;
+    default:           return TeamFormationMode.fixed;
+  }
+}
+
 class Game {
   int? id;
   String teamAName;
@@ -11,6 +51,7 @@ class Game {
   int betPerPoint;
   bool birdieFlipEnabled;
   int totalHoles; // 9 or 18
+  TeamFormationMode teamFormationMode;
   DateTime createdAt;
   List<HoleScore> holeScores;
 
@@ -25,6 +66,7 @@ class Game {
     required this.betPerPoint,
     required this.birdieFlipEnabled,
     required this.totalHoles,
+    this.teamFormationMode = TeamFormationMode.fixed,
     required this.createdAt,
     this.holeScores = const [],
   });
@@ -41,6 +83,7 @@ class Game {
       'bet_per_point': betPerPoint,
       'birdie_flip_enabled': birdieFlipEnabled ? 1 : 0,
       'total_holes': totalHoles,
+      'team_formation_mode': teamFormationMode.dbValue,
       'created_at': createdAt.toIso8601String(),
     };
   }
@@ -57,6 +100,7 @@ class Game {
       betPerPoint: map['bet_per_point'] as int? ?? 100,
       birdieFlipEnabled: (map['birdie_flip_enabled'] as int?) == 1,
       totalHoles: map['total_holes'] as int? ?? 18,
+      teamFormationMode: teamFormationModeFromDb(map['team_formation_mode'] as String?),
       createdAt: DateTime.parse(map['created_at'] as String),
     );
   }
@@ -72,6 +116,7 @@ class Game {
     int? betPerPoint,
     bool? birdieFlipEnabled,
     int? totalHoles,
+    TeamFormationMode? teamFormationMode,
     DateTime? createdAt,
     List<HoleScore>? holeScores,
   }) {
@@ -86,6 +131,7 @@ class Game {
       betPerPoint: betPerPoint ?? this.betPerPoint,
       birdieFlipEnabled: birdieFlipEnabled ?? this.birdieFlipEnabled,
       totalHoles: totalHoles ?? this.totalHoles,
+      teamFormationMode: teamFormationMode ?? this.teamFormationMode,
       createdAt: createdAt ?? this.createdAt,
       holeScores: holeScores ?? this.holeScores,
     );

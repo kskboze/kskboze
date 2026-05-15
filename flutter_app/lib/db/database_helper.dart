@@ -20,9 +20,18 @@ class DatabaseHelper {
     final path = join(dbPath, 'golf_las_vegas.db');
     return await openDatabase(
       path,
-      version: 1,
+      version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      await db.execute(
+        "ALTER TABLE games ADD COLUMN team_formation_mode TEXT NOT NULL DEFAULT 'fixed'",
+      );
+    }
   }
 
   Future<void> _onCreate(Database db, int version) async {
@@ -38,6 +47,7 @@ class DatabaseHelper {
         bet_per_point INTEGER NOT NULL DEFAULT 100,
         birdie_flip_enabled INTEGER NOT NULL DEFAULT 1,
         total_holes INTEGER NOT NULL DEFAULT 18,
+        team_formation_mode TEXT NOT NULL DEFAULT 'fixed',
         created_at TEXT NOT NULL
       )
     ''');

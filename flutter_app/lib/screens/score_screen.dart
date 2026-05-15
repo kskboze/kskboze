@@ -89,8 +89,11 @@ class _ScoreScreenState extends State<ScoreScreen> {
                 final cumulativeDelta =
                     index < cumulativeDeltas.length ? cumulativeDeltas[index] : 0;
 
+                final assignment = LasVegasCalculator.getAssignmentForHole(
+                    hole.holeNumber, _game);
                 return HoleScoreCard(
-                  game: _game,
+                  assignment: assignment,
+                  teamFormationMode: _game.teamFormationMode,
                   holeScore: hole,
                   cumulativeDelta: cumulativeDelta,
                   birdieFlipEnabled: _game.birdieFlipEnabled,

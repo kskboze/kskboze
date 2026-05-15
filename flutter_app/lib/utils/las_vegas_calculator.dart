@@ -1,7 +1,90 @@
 import 'dart:math';
+import '../models/game.dart';
 import '../models/hole_score.dart';
 
+/// ホールごとのチーム割り当て情報
+class TeamAssignment {
+  final String teamALabel;
+  final String teamBLabel;
+  final String p1Name; // Team A player 1
+  final String p2Name; // Team A player 2
+  final String p3Name; // Team B player 1
+  final String p4Name; // Team B player 2
+  /// ローテーションのラウンド番号（1〜3）。固定モードは0。
+  final int rotationRound;
+
+  const TeamAssignment({
+    required this.teamALabel,
+    required this.teamBLabel,
+    required this.p1Name,
+    required this.p2Name,
+    required this.p3Name,
+    required this.p4Name,
+    this.rotationRound = 0,
+  });
+}
+
 class LasVegasCalculator {
+  /// ホールごとのチーム割り当てを返す
+  static TeamAssignment getAssignmentForHole(int holeNumber, Game game) {
+    switch (game.teamFormationMode) {
+      case TeamFormationMode.fixed:
+        return TeamAssignment(
+          teamALabel: game.teamAName,
+          teamBLabel: game.teamBName,
+          p1Name: game.player1Name,
+          p2Name: game.player2Name,
+          p3Name: game.player3Name,
+          p4Name: game.player4Name,
+        );
+
+      case TeamFormationMode.rotation:
+        final round = (holeNumber - 1) % 3 + 1; // 1, 2, 3
+        switch (round) {
+          case 1: // P1&P2 vs P3&P4
+            return TeamAssignment(
+              teamALabel: '${game.player1Name} & ${game.player2Name}',
+              teamBLabel: '${game.player3Name} & ${game.player4Name}',
+              p1Name: game.player1Name,
+              p2Name: game.player2Name,
+              p3Name: game.player3Name,
+              p4Name: game.player4Name,
+              rotationRound: round,
+            );
+          case 2: // P1&P3 vs P2&P4
+            return TeamAssignment(
+              teamALabel: '${game.player1Name} & ${game.player3Name}',
+              teamBLabel: '${game.player2Name} & ${game.player4Name}',
+              p1Name: game.player1Name,
+              p2Name: game.player3Name,
+              p3Name: game.player2Name,
+              p4Name: game.player4Name,
+              rotationRound: round,
+            );
+          default: // P1&P4 vs P2&P3
+            return TeamAssignment(
+              teamALabel: '${game.player1Name} & ${game.player4Name}',
+              teamBLabel: '${game.player2Name} & ${game.player3Name}',
+              p1Name: game.player1Name,
+              p2Name: game.player4Name,
+              p3Name: game.player2Name,
+              p4Name: game.player3Name,
+              rotationRound: round,
+            );
+        }
+
+      case TeamFormationMode.oneAndFour: // P1&P4 vs P2&P3（固定）
+        return TeamAssignment(
+          teamALabel: '${game.player1Name} & ${game.player4Name}',
+          teamBLabel: '${game.player2Name} & ${game.player3Name}',
+          p1Name: game.player1Name,
+          p2Name: game.player4Name,
+          p3Name: game.player2Name,
+          p4Name: game.player3Name,
+        );
+    }
+  }
+
   /// 2つのスコアから2桁数字を作る（低い方が十の位）
   static int makeCombo(int s1, int s2) {
     int lo = min(s1, s2);
