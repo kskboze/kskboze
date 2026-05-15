@@ -91,14 +91,24 @@ class _SetupScreenState extends State<SetupScreen> {
       createdAt: DateTime.now(),
     );
 
-    final id = await DatabaseHelper.instance.insertGame(game);
-    final savedGame = await DatabaseHelper.instance.getGame(id);
-    if (!mounted || savedGame == null) return;
+    try {
+      final id = await DatabaseHelper.instance.insertGame(game);
+      final savedGame = await DatabaseHelper.instance.getGame(id);
+      if (!mounted || savedGame == null) return;
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (_) => ScoreScreen(game: savedGame)),
-    );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => ScoreScreen(game: savedGame)),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('エラーが発生しました: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override

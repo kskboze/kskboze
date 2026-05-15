@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/game.dart';
@@ -6,6 +7,12 @@ import '../models/hole_score.dart';
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._internal();
   static Database? _database;
+
+  // Web in-memory storage
+  static final List<Map<String, dynamic>> _webGames = [];
+  static final List<Map<String, dynamic>> _webHoleScores = [];
+  static int _webGameId = 1;
+  static int _webHoleScoreId = 1;
 
   DatabaseHelper._internal();
 
@@ -69,51 +76,75 @@ class DatabaseHelper {
     ''');
   }
 
-  // ゲームの挿入
+  // ── ゲームの挿入 ──────────────────────────────────────────
   Future<int> insertGame(Game game) async {
-    final db = await database;
-    final id = await db.insert('games', game.toMap());
+    if (kIsWeb) {
+      final id = _webGameId++;
+      final map = Map<String, dynamic>.from(game.toMap());
+      map['id'] = id;
+      _webGames.add(map);
 
-    // ホールスコアの初期レコードを作成
-    for (int i = 1; i <= game.totalHoles; i++) {
-      final holeScore = HoleScore(
-        gameId: id,
-        holeNumber: i,
-        parScore: 4,
-      );
-      await db.insert('hole_scores', holeScore.toMap());
+      for (int i = 1; i <= game.totalHoles; i++) {
+        final hole = HoleScore(gameId: id, holeNumber: i, parScore: 4);
+        final holeMap = Map<String, dynamic>.from(hole.toMap());
+        holeMap['id'] = _webHoleScoreId++;
+        _webHoleScores.add(holeMap);
+      }
+      return id;
     }
 
+    final db = await database;
+    final id = await db.insert('games', game.toMap());
+    for (int i = 1; i <= game.totalHoles; i++) {
+      final holeScore = HoleScore(gameId: id, holeNumber: i, parScore: 4);
+      await db.insert('hole_scores', holeScore.toMap());
+    }
     return id;
   }
 
-  // 全ゲームを取得（最新順）
+  // ── 全ゲームを取得（最新順） ──────────────────────────────
   Future<List<Game>> getAllGames() async {
+    if (kIsWeb) {
+      final sorted = List<Map<String, dynamic>>.from(_webGames)
+        ..sort((a, b) => (b['created_at'] as String)
+            .compareTo(a['created_at'] as String));
+      return sorted.map((m) => Game.fromMap(m)).toList();
+    }
+
     final db = await database;
-    final maps = await db.query(
-      'games',
-      orderBy: 'created_at DESC',
-    );
+    final maps = await db.query('games', orderBy: 'created_at DESC');
     return maps.map((m) => Game.fromMap(m)).toList();
   }
 
-  // ゲームIDでゲームを取得（ホールスコア含む）
+  // ── ゲームIDでゲームを取得（ホールスコア含む） ─────────────
   Future<Game?> getGame(int id) async {
-    final db = await database;
-    final maps = await db.query(
-      'games',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
-    if (maps.isEmpty) return null;
+    if (kIsWeb) {
+      final maps = _webGames.where((m) => m['id'] == id).toList();
+      if (maps.isEmpty) return null;
+      final game = Game.fromMap(maps.first);
+      final holeScores = await getHoleScores(id);
+      return game.copyWith(holeScores: holeScores);
+    }
 
+    final db = await database;
+    final maps = await db.query('games', where: 'id = ?', whereArgs: [id]);
+    if (maps.isEmpty) return null;
     final game = Game.fromMap(maps.first);
     final holeScores = await getHoleScores(id);
     return game.copyWith(holeScores: holeScores);
   }
 
-  // ゲームのホールスコアを取得
+  // ── ホールスコアを取得 ────────────────────────────────────
   Future<List<HoleScore>> getHoleScores(int gameId) async {
+    if (kIsWeb) {
+      final maps = _webHoleScores
+          .where((m) => m['game_id'] == gameId)
+          .toList()
+        ..sort((a, b) =>
+            (a['hole_number'] as int).compareTo(b['hole_number'] as int));
+      return maps.map((m) => HoleScore.fromMap(m)).toList();
+    }
+
     final db = await database;
     final maps = await db.query(
       'hole_scores',
@@ -124,8 +155,20 @@ class DatabaseHelper {
     return maps.map((m) => HoleScore.fromMap(m)).toList();
   }
 
-  // ホールスコアの更新
+  // ── ホールスコアの更新 ────────────────────────────────────
   Future<int> updateHoleScore(HoleScore holeScore) async {
+    if (kIsWeb) {
+      final idx = _webHoleScores.indexWhere((m) =>
+          m['game_id'] == holeScore.gameId &&
+          m['hole_number'] == holeScore.holeNumber);
+      if (idx >= 0) {
+        final updated = Map<String, dynamic>.from(holeScore.toMap());
+        updated['id'] = _webHoleScores[idx]['id'];
+        _webHoleScores[idx] = updated;
+      }
+      return 1;
+    }
+
     final db = await database;
     if (holeScore.id != null) {
       return await db.update(
@@ -135,7 +178,6 @@ class DatabaseHelper {
         whereArgs: [holeScore.id],
       );
     } else {
-      // IDがない場合はgame_idとhole_numberで検索して更新
       final existing = await db.query(
         'hole_scores',
         where: 'game_id = ? AND hole_number = ?',
@@ -155,23 +197,32 @@ class DatabaseHelper {
     }
   }
 
-  // ゲームの削除
+  // ── ゲームの削除 ──────────────────────────────────────────
   Future<int> deleteGame(int id) async {
+    if (kIsWeb) {
+      _webHoleScores.removeWhere((m) => m['game_id'] == id);
+      final removed = _webGames.where((m) => m['id'] == id).length;
+      _webGames.removeWhere((m) => m['id'] == id);
+      return removed;
+    }
+
     final db = await database;
-    await db.delete(
-      'hole_scores',
-      where: 'game_id = ?',
-      whereArgs: [id],
-    );
-    return await db.delete(
-      'games',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    await db.delete('hole_scores', where: 'game_id = ?', whereArgs: [id]);
+    return await db.delete('games', where: 'id = ?', whereArgs: [id]);
   }
 
-  // ゲーム情報の更新（スコアを除く）
+  // ── ゲーム情報の更新（スコアを除く） ─────────────────────
   Future<int> updateGame(Game game) async {
+    if (kIsWeb) {
+      final idx = _webGames.indexWhere((m) => m['id'] == game.id);
+      if (idx >= 0) {
+        final updated = Map<String, dynamic>.from(game.toMap());
+        updated['id'] = game.id;
+        _webGames[idx] = updated;
+      }
+      return 1;
+    }
+
     final db = await database;
     return await db.update(
       'games',
