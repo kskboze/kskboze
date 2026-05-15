@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golf Las Vegas</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a472a;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #0d2b18;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #f5c518;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #f5c518;
+      letter-spacing: 1px;
+    }
+
+    header .dice { font-size: 1.8rem; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
+
+    /* Setup screen */
+    #setup-screen { display: block; }
+    #game-screen  { display: none; }
+
+    .setup-card {
+      background: #0d2b18;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+      border: 1px solid #2d6a4f;
+    }
+
+    .setup-card h2 {
+      color: #f5c518;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .teams-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 500px) {
+      .teams-grid { grid-template-columns: 1fr; }
+    }
+
+    .team-block h3 {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #74c69d;
+    }
+
+    label { display: block; font-size: 0.85rem; color: #b7e4c7; margin-bottom: 4px; }
+
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #2d6a4f;
+      background: #1a472a;
+      color: #fff;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    input[type="number"] { -moz-appearance: textfield; }
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+
+    .btn-primary { background: #f5c518; color: #1a1a1a; }
+    .btn-danger  { background: #e63946; color: #fff; }
+    .btn-sm      { padding: 6px 14px; font-size: 0.85rem; }
+
+    /* Scoreboard */
+    .scoreboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .score-banner {
+      display: flex;
+      gap: 16px;
+      background: #0d2b18;
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #2d6a4f;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .score-banner .team-score {
+      text-align: center;
+    }
+
+    .score-banner .team-name {
+      font-size: 0.8rem;
+      color: #74c69d;
+    }
+
+    .score-banner .points {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f5c518;
+    }
+
+    .score-banner .vs {
+      color: #aaa;
+      font-size: 1.1rem;
+      align-self: center;
+    }
+
+    .hole-table-wrapper { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: #0d2b18;
+      padding: 10px 8px;
+      text-align: center;
+      color: #f5c518;
+      border: 1px solid #2d6a4f;
+    }
+
+    td {
+      padding: 8px 6px;
+      text-align: center;
+      border: 1px solid #2d6a4f;
+      background: #1a472a;
+    }
+
+    tr:nth-child(even) td { background: #163d24; }
+
+    td.player-name { text-align: left; padding-left: 10px; color: #b7e4c7; white-space: nowrap; }
+
+    td input[type="number"] {
+      width: 54px;
+      margin: 0;
+      text-align: center;
+      padding: 4px 6px;
+    }
+
+    .team-combo {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .hole-delta.positive { color: #f5c518; }
+    .hole-delta.negative { color: #e63946; }
+    .hole-delta.zero     { color: #aaa; }
+
+    .running-total { font-weight: 600; color: #74c69d; }
+
+    .section-label {
+      background: #0a2015 !important;
+      color: #74c69d !important;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .unit-row {
+      background: #0d2b18;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+      color: #b7e4c7;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .unit-row label { margin: 0; display: inline; }
+    .unit-row input { width: 80px; margin: 0; display: inline; }
+
+    .result-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .result-modal.show { display: flex; }
+
+    .result-box {
+      background: #0d2b18;
+      border: 2px solid #f5c518;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .result-box h2 { color: #f5c518; margin-bottom: 16px; }
+    .result-box .winner { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+    .result-box .payout { font-size: 1rem; color: #74c69d; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="dice">🎲</span>
+  <h1>Golf Las Vegas</h1>
+</header>
+
+<div class="container">
+
+  <!-- Setup Screen -->
+  <div id="setup-screen">
+    <div class="setup-card">
+      <h2>チーム設定</h2>
+      <div class="teams-grid">
+        <div class="team-block">
+          <h3>チームA</h3>
+          <label>チーム名</label>
+          <input type="text" id="team-a-name" value="チームA" />
+          <label>プレイヤー1</label>
+          <input type="text" id="a1-name" value="プレイヤー1" />
+          <label>プレイヤー2</label>
+          <input type="text" id="a2-name" value="プレイヤー2" />
+        </div>
+        <div class="team-block">
+          <h3>チームB</h3>
+          <label>チーム名</label>
+          <input type="text" id="team-b-name" value="チームB" />
+          <label>プレイヤー1</label>
+          <input type="text" id="b1-name" value="プレイヤー3" />
+          <label>プレイヤー2</label>
+          <input type="text" id="b2-name" value="プレイヤー4" />
+        </div>
+      </div>
+    </div>
+
+    <div class="setup-card">
+      <h2>コース設定</h2>
+      <label>ホール数</label>
+      <select id="num-holes" style="width:auto;display:inline-block;margin-right:16px">
+        <option value="9">9ホール</option>
+        <option value="18" selected>18ホール</option>
+      </select>
+      <label style="display:inline;margin-right:8px">賭け単位（円）</label>
+      <input type="number" id="unit-value" value="100" style="width:100px;display:inline-block" min="1" />
+    </div>
+
+    <button class="btn btn-primary" onclick="startGame()">ゲーム開始</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen">
+    <div class="scoreboard-header">
+      <h2 id="game-title" style="color:#f5c518"></h2>
+      <div>
+        <button class="btn btn-sm btn-danger" onclick="resetGame()">リセット</button>
+      </div>
+    </div>
+
+    <div class="score-banner">
+      <div class="team-score">
+        <div class="team-name" id="banner-a-name">チームA</div>
+        <div class="points" id="banner-a-pts">0</div>
+        <div style="font-size:0.75rem;color:#aaa">ポイント</div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="team-score">
+        <div class="team-name" id="banner-b-name">チームB</div>
+        <div class="points" id="banner-b-pts">0</div>
+        <div style="font-size:0.75rem;color:#aaa">ポイント</div>
+      </div>
+      <div style="margin-left:auto;text-align:right">
+        <div style="font-size:0.8rem;color:#aaa">精算額</div>
+        <div id="payout-display" style="font-size:1.2rem;font-weight:700;color:#f5c518">¥0</div>
+      </div>
+    </div>
+
+    <div class="unit-row">
+      <label>賭け単位（円）：</label>
+      <input type="number" id="game-unit" value="100" min="1" oninput="recalcAll()" />
+    </div>
+
+    <div class="hole-table-wrapper">
+      <table id="score-table">
+        <thead id="table-head"></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+
+    <br />
+    <button class="btn btn-primary" onclick="showResult()">結果を確認</button>
+  </div>
+
+</div>
+
+<!-- Result Modal -->
+<div class="result-modal" id="result-modal">
+  <div class="result-box">
+    <h2>最終結果</h2>
+    <div class="winner" id="result-winner"></div>
+    <div class="payout" id="result-payout"></div>
+    <button class="btn btn-primary" onclick="closeResult()">閉じる</button>
+    <br/><br/>
+    <button class="btn btn-sm btn-danger" onclick="resetGame()">新しいゲーム</button>
+  </div>
+</div>
+
+<script>
+  let state = {};
+
+  function startGame() {
+    state = {
+      teamA: {
+        name: document.getElementById('team-a-name').value || 'チームA',
+        p1: document.getElementById('a1-name').value || 'P1',
+        p2: document.getElementById('a2-name').value || 'P2',
+      },
+      teamB: {
+        name: document.getElementById('team-b-name').value || 'チームB',
+        p1: document.getElementById('b1-name').value || 'P3',
+        p2: document.getElementById('b2-name').value || 'P4',
+      },
+      holes: parseInt(document.getElementById('num-holes').value),
+      unit: parseInt(document.getElementById('unit-value').value) || 100,
+      scores: [], // [{a1,a2,b1,b2}]
+    };
+
+    for (let i = 0; i < state.holes; i++) {
+      state.scores.push({ a1: '', a2: '', b1: '', b2: '' });
+    }
+
+    document.getElementById('setup-screen').style.display = 'none';
+    document.getElementById('game-screen').style.display = 'block';
+    document.getElementById('game-title').textContent =
+      `${state.teamA.name} vs ${state.teamB.name}`;
+    document.getElementById('banner-a-name').textContent = state.teamA.name;
+    document.getElementById('banner-b-name').textContent = state.teamB.name;
+    document.getElementById('game-unit').value = state.unit;
+
+    buildTable();
+    recalcAll();
+  }
+
+  function buildTable() {
+    const head = document.getElementById('table-head');
+    const body = document.getElementById('table-body');
+
+    head.innerHTML = `
+      <tr>
+        <th>ホール</th>
+        <th>${state.teamA.p1}</th>
+        <th>${state.teamA.p2}</th>
+        <th style="color:#74c69d">${state.teamA.name}<br/>合計</th>
+        <th>${state.teamB.p1}</th>
+        <th>${state.teamB.p2}</th>
+        <th style="color:#74c69d">${state.teamB.name}<br/>合計</th>
+        <th>差</th>
+        <th>累計</th>
+      </tr>`;
+
+    body.innerHTML = '';
+    const half = state.holes / 2;
+
+    for (let i = 0; i < state.holes; i++) {
+      if (state.holes === 18 && i === 9) {
+        const sep = document.createElement('tr');
+        sep.innerHTML = `<td class="section-label" colspan="9">後半スタート</td>`;
+        body.appendChild(sep);
+      }
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><strong>${i + 1}</strong></td>
+        <td><input type="number" min="1" max="20" id="a1-${i}" oninput="onScoreInput(${i})" /></td>
+        <td><input type="number" min="1" max="20" id="a2-${i}" oninput="onScoreInput(${i})" /></td>
+        <td class="team-combo" id="combo-a-${i}">—</td>
+        <td><input type="number" min="1" max="20" id="b1-${i}" oninput="onScoreInput(${i})" /></td>
+        <td><input type="number" min="1" max="20" id="b2-${i}" oninput="onScoreInput(${i})" /></td>
+        <td class="team-combo" id="combo-b-${i}">—</td>
+        <td id="delta-${i}">—</td>
+        <td class="running-total" id="running-${i}">—</td>`;
+      body.appendChild(tr);
+    }
+  }
+
+  function getVal(id) {
+    const v = parseInt(document.getElementById(id).value);
+    return isNaN(v) ? null : v;
+  }
+
+  function lasVegasCombo(low, high) {
+    // lower score goes first (forms larger number is worse for the team)
+    // but in Las Vegas golf: combine so the lower digit is in tens place
+    // → team score = min*10 + max  (lower number = better)
+    return Math.min(low, high) * 10 + Math.max(low, high);
+  }
+
+  function onScoreInput(hole) {
+    const a1 = getVal(`a1-${hole}`);
+    const a2 = getVal(`a2-${hole}`);
+    const b1 = getVal(`b1-${hole}`);
+    const b2 = getVal(`b2-${hole}`);
+
+    state.scores[hole] = { a1, a2, b1, b2 };
+    recalcAll();
+  }
+
+  function recalcAll() {
+    state.unit = parseInt(document.getElementById('game-unit').value) || 100;
+    let running = 0; // positive = A winning, negative = B winning
+
+    for (let i = 0; i < state.holes; i++) {
+      const s = state.scores[i];
+      const comboA = (s.a1 !== null && s.a2 !== null)
+        ? lasVegasCombo(s.a1, s.a2) : null;
+      const comboB = (s.b1 !== null && s.b2 !== null)
+        ? lasVegasCombo(s.b1, s.b2) : null;
+
+      document.getElementById(`combo-a-${i}`).textContent =
+        comboA !== null ? comboA : '—';
+      document.getElementById(`combo-b-${i}`).textContent =
+        comboB !== null ? comboB : '—';
+
+      const deltaEl = document.getElementById(`delta-${i}`);
+      const runEl   = document.getElementById(`running-${i}`);
+
+      if (comboA !== null && comboB !== null) {
+        const diff = comboB - comboA; // positive → A wins this hole
+        running += diff;
+
+        const sign = diff > 0 ? '+' : '';
+        deltaEl.textContent = sign + diff;
+        deltaEl.className = `hole-delta ${diff > 0 ? 'positive' : diff < 0 ? 'negative' : 'zero'}`;
+
+        const rsign = running > 0 ? '+' : '';
+        runEl.textContent = rsign + running;
+        runEl.style.color = running > 0 ? '#f5c518' : running < 0 ? '#e63946' : '#aaa';
+      } else {
+        deltaEl.textContent = '—';
+        deltaEl.className = 'hole-delta zero';
+        runEl.textContent = '—';
+        runEl.style.color = '#aaa';
+      }
+    }
+
+    // Banner
+    const aFinal = running > 0 ? running : 0;
+    const bFinal = running < 0 ? -running : 0;
+    document.getElementById('banner-a-pts').textContent = running > 0 ? `+${running}` : running;
+    document.getElementById('banner-b-pts').textContent = running < 0 ? `+${-running}` : -running;
+
+    const payout = Math.abs(running) * state.unit;
+    document.getElementById('payout-display').textContent =
+      `¥${payout.toLocaleString()}`;
+  }
+
+  function showResult() {
+    recalcAll();
+    const running = calcRunning();
+    const payout = Math.abs(running) * state.unit;
+    const winnerEl = document.getElementById('result-winner');
+    const payoutEl = document.getElementById('result-payout');
+
+    if (running > 0) {
+      winnerEl.textContent = `${state.teamA.name} の勝ち！`;
+      payoutEl.textContent = `${state.teamB.name} → ${state.teamA.name} へ ¥${payout.toLocaleString()}`;
+    } else if (running < 0) {
+      winnerEl.textContent = `${state.teamB.name} の勝ち！`;
+      payoutEl.textContent = `${state.teamA.name} → ${state.teamB.name} へ ¥${payout.toLocaleString()}`;
+    } else {
+      winnerEl.textContent = '引き分け！';
+      payoutEl.textContent = '精算なし';
+    }
+
+    document.getElementById('result-modal').classList.add('show');
+  }
+
+  function calcRunning() {
+    let running = 0;
+    for (let i = 0; i < state.holes; i++) {
+      const s = state.scores[i];
+      const comboA = (s.a1 !== null && s.a2 !== null)
+        ? lasVegasCombo(s.a1, s.a2) : null;
+      const comboB = (s.b1 !== null && s.b2 !== null)
+        ? lasVegasCombo(s.b1, s.b2) : null;
+      if (comboA !== null && comboB !== null) running += comboB - comboA;
+    }
+    return running;
+  }
+
+  function closeResult() {
+    document.getElementById('result-modal').classList.remove('show');
+  }
+
+  function resetGame() {
+    document.getElementById('result-modal').classList.remove('show');
+    document.getElementById('game-screen').style.display = 'none';
+    document.getElementById('setup-screen').style.display = 'block';
+    state = {};
+  }
+</script>
+</body>
+</html>
