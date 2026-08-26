@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ゴルフ規則スコアカード</title>
-<meta name="description" content="2023年ゴルフ規則の理解度を測る全78問のテスト問題アプリ。">
+<meta name="description" content="2023年ゴルフ規則の理解度を測る全261問のテスト問題アプリ。罰の区分とその後の処置まで解説します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap">
@@ -15,6 +15,7 @@
 <header class="masthead">
   <div class="masthead__inner">
     <h1 class="masthead__title">ゴルフ規則スコアカード</h1>
+    <span class="masthead__meta"><a class="masthead__link" href="handbook.html">問題集を開く &rarr;</a></span>
     <span class="masthead__meta">Rules of Golf 2023 &middot; 全<span id="bank-total">0</span>問</span>
   </div>
 </header>
@@ -25,7 +26,7 @@
   <section class="screen" id="screen-home">
     <p class="lede">
       2023年に施行された<strong>5つの重要な変更</strong>と<strong>追加の詳説(2023年10月5日更新)</strong>を中心に、
-      ゴルフ規則全体から出題します。1問ごとに根拠となる規則番号と解説が付きます。
+      ゴルフ規則全体から出題します。1問ごとに<strong>罰の区分</strong>・理由・<strong>その後の処置</strong>・根拠条文が付き、要点には図解を添えています。
     </p>
 
     <ul class="sources">
@@ -49,7 +50,7 @@
           <button class="linkish" type="button" id="cat-all">すべて選択</button>
           <button class="linkish" type="button" id="cat-none">選択解除</button>
         </div>
-        <div class="chips" id="cat-chips" role="group" aria-label="出題範囲"></div>
+        <div class="bands" id="cat-chips" role="group" aria-label="出題範囲"></div>
       </div>
 
       <div class="field">
@@ -115,11 +116,8 @@
         <h2 class="qtext" id="q-text"></h2>
         <div class="choices" id="q-choices"></div>
       </div>
-      <div class="verdict" id="q-verdict" hidden>
-        <div class="verdict__head" id="verdict-head"></div>
-        <p class="verdict__body" id="verdict-why"></p>
-        <span class="verdict__ref" id="verdict-ref"></span>
-      </div>
+      <!-- 罰の区分・理由・その後の処置・補足・図解は app.js が組み立てる -->
+      <div class="verdict" id="q-verdict" hidden></div>
     </article>
 
     <div class="qfoot">
@@ -171,7 +169,16 @@
 
 </main>
 
-<script src="data/questions.js"></script>
+<script src="data/categories.js"></script>
+<script src="data/q-updates.js"></script>
+<script src="data/q-foundation.js"></script>
+<script src="data/q-round.js"></script>
+<script src="data/q-play.js"></script>
+<script src="data/q-course.js"></script>
+<script src="data/q-procedure.js"></script>
+<script src="data/q-penalty.js"></script>
+<script src="data/q-admin.js"></script>
+<script src="assets/figures.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

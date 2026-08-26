@@ -3,12 +3,16 @@
 
   var BANK = window.GOLF_QUIZ_QUESTIONS;
   var CATS = window.GOLF_QUIZ_CATEGORIES;
+  var BANDS = window.GOLF_QUIZ_BANDS;
+  var PENS = window.GOLF_QUIZ_PENALTIES;
+  var FIGS = window.GOLF_FIGURES;
+
   var CAT_BY_ID = {};
   CATS.forEach(function (c) { CAT_BY_ID[c.id] = c; });
 
-  var STORE_KEY = 'golfRulesScorecard.v1';
+  var STORE_KEY = 'golfRulesScorecard.v2';
   var PASS_RATE = 0.7;
-  var COUNT_OPTIONS = [10, 20, 30, 50, 0];
+  var COUNT_OPTIONS = [10, 20, 30, 50, 100, 0];
   var KEYS = ['A', 'B', 'C', 'D'];
 
   var MODES = [
@@ -44,7 +48,7 @@
 
   /* ── 状態 ──────────────────────────────────────── */
 
-  var setup = { mode: 'practice', cats: CATS.map(function (c) { return c.id; }), count: 10 };
+  var setup = { mode: 'practice', cats: CATS.map(function (c) { return c.id; }), count: 20 };
   var run = null;
   var timerId = null;
 
@@ -74,12 +78,54 @@
   }
 
   function pool() {
-    return BANK.filter(function (q) { return setup.cats.indexOf(q.category) !== -1; });
+    return BANK.filter(function (q) { return setup.cats.indexOf(q.cat) !== -1; });
   }
 
   function show(name) {
     ['home', 'quiz', 'result'].forEach(function (s) { $('screen-' + s).hidden = (s !== name); });
     window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  function penTag(code) {
+    var p = PENS[code] || PENS.info;
+    var s = el('span', 'pen pen--' + p.tone);
+    s.appendChild(el('span', null, p.label));
+    return s;
+  }
+
+  /* 解説ブロック(理由 / その後の処置 / 補足 / 図解)を組み立てる */
+  function buildExplanation(q, opts) {
+    var box = el('div', 'expl');
+
+    var why = el('div', 'expl__block');
+    why.appendChild(el('div', 'expl__label', 'なぜそうなるか'));
+    why.appendChild(el('p', 'expl__text', q.why));
+    box.appendChild(why);
+
+    if (q.next && q.next.length) {
+      var nx = el('div', 'expl__block');
+      nx.appendChild(el('div', 'expl__label', 'その後の処置'));
+      var ol = el('ol', 'steps');
+      q.next.forEach(function (step) { ol.appendChild(el('li', null, step)); });
+      nx.appendChild(ol);
+      box.appendChild(nx);
+    }
+
+    if (q.note) {
+      var nt = el('div', 'expl__block');
+      nt.appendChild(el('div', 'expl__label', '補足'));
+      nt.appendChild(el('p', 'expl__note', q.note));
+      box.appendChild(nt);
+    }
+
+    if (q.fig && FIGS.has(q.fig) && (!opts || opts.figure !== false)) {
+      var fg = el('div', 'expl__block');
+      fg.appendChild(el('div', 'expl__label', '図解'));
+      fg.appendChild(FIGS.render(q.fig));
+      box.appendChild(fg);
+    }
+
+    return box;
   }
 
   /* ── ホーム画面の組み立て ──────────────────────── */
@@ -101,20 +147,47 @@
   function renderCatChips() {
     var box = $('cat-chips');
     box.textContent = '';
-    CATS.forEach(function (c) {
-      var n = BANK.filter(function (q) { return q.category === c.id; }).length;
-      var b = el('button', 'chip');
-      b.type = 'button';
-      b.setAttribute('aria-pressed', String(setup.cats.indexOf(c.id) !== -1));
-      b.appendChild(el('span', null, c.name));
-      b.appendChild(el('span', 'chip__n', n));
-      b.addEventListener('click', function () {
-        var i = setup.cats.indexOf(c.id);
-        if (i === -1) setup.cats.push(c.id); else setup.cats.splice(i, 1);
-        renderCatChips();
-        renderCountChips();
+
+    BANDS.forEach(function (band) {
+      var inBand = CATS.filter(function (c) { return c.band === band.id; });
+      if (!inBand.length) return;
+
+      var sec = el('div', 'band');
+      var head = el('div', 'band__head');
+      head.appendChild(el('span', 'band__name', band.name));
+      head.appendChild(el('span', 'band__rules', band.note));
+
+      var allOn = inBand.every(function (c) { return setup.cats.indexOf(c.id) !== -1; });
+      var tog = el('button', 'band__toggle', allOn ? 'この部を外す' : 'この部を選ぶ');
+      tog.type = 'button';
+      tog.addEventListener('click', function () {
+        inBand.forEach(function (c) {
+          var i = setup.cats.indexOf(c.id);
+          if (allOn && i !== -1) setup.cats.splice(i, 1);
+          if (!allOn && i === -1) setup.cats.push(c.id);
+        });
+        renderCatChips(); renderCountChips();
       });
-      box.appendChild(b);
+      head.appendChild(tog);
+      sec.appendChild(head);
+
+      var chips = el('div', 'chips');
+      inBand.forEach(function (c) {
+        var n = BANK.filter(function (q) { return q.cat === c.id; }).length;
+        var b = el('button', 'chip chip--sm');
+        b.type = 'button';
+        b.setAttribute('aria-pressed', String(setup.cats.indexOf(c.id) !== -1));
+        b.appendChild(el('span', null, c.name));
+        b.appendChild(el('span', 'chip__n', n));
+        b.addEventListener('click', function () {
+          var i = setup.cats.indexOf(c.id);
+          if (i === -1) setup.cats.push(c.id); else setup.cats.splice(i, 1);
+          renderCatChips(); renderCountChips();
+        });
+        chips.appendChild(b);
+      });
+      sec.appendChild(chips);
+      box.appendChild(sec);
     });
   }
 
@@ -123,7 +196,7 @@
     var box = $('count-chips');
     box.textContent = '';
 
-    if (COUNT_OPTIONS.indexOf(setup.count) === -1) setup.count = 10;
+    if (COUNT_OPTIONS.indexOf(setup.count) === -1) setup.count = 20;
 
     COUNT_OPTIONS.forEach(function (n) {
       var usable = n === 0 ? avail > 0 : n <= avail;
@@ -140,7 +213,6 @@
     $('pool-hint').textContent = '選択中の範囲に ' + avail + ' 問';
     $('start-btn').disabled = avail === 0;
 
-    // 選択数が範囲を超えていたら、収まる最大の選択肢に落とす
     if (setup.count !== 0 && setup.count > avail) {
       var fit = COUNT_OPTIONS.filter(function (n) { return n !== 0 && n <= avail; }).pop();
       setup.count = fit || 0;
@@ -181,8 +253,8 @@
         var order = shuffle([0, 1, 2, 3]);
         return {
           q: q,
-          order: order,                                  // 表示位置 → 元の選択肢index
-          correctAt: order.indexOf(0),                   // choices[0] が常に正解
+          order: order,                 // 表示位置 → 元の選択肢index
+          correctAt: order.indexOf(0),  // choices[0] が常に正解
           picked: null
         };
       }),
@@ -268,7 +340,7 @@
       onPick: function (i) { run.at = i; renderQuestion(); }
     });
 
-    $('q-cat').textContent = CAT_BY_ID[q.category].name;
+    $('q-cat').textContent = CAT_BY_ID[q.cat].name;
     $('q-rule').textContent = q.rule;
 
     var lv = $('q-level');
@@ -300,14 +372,21 @@
     });
 
     var vd = $('q-verdict');
+    vd.textContent = '';
     if (reveal) {
       var ok = item.picked === item.correctAt;
       vd.hidden = false;
-      var head = $('verdict-head');
-      head.className = 'verdict__head ' + (ok ? 'verdict__head--good' : 'verdict__head--bad');
-      head.textContent = ok ? '正解' : '不正解';
-      $('verdict-why').textContent = q.why;
-      $('verdict-ref').textContent = '根拠 — ' + q.rule;
+
+      var head = el('div', 'verdict__head ' + (ok ? 'verdict__head--good' : 'verdict__head--bad'));
+      head.appendChild(el('span', null, ok ? '正解' : '不正解'));
+      head.appendChild(penTag(q.pen));
+      head.appendChild(el('span', 'verdict__ref', q.rule));
+      vd.appendChild(head);
+
+      var pinfo = PENS[q.pen] || PENS.info;
+      if (pinfo.note) vd.appendChild(el('p', 'expl__text', pinfo.note));
+
+      vd.appendChild(buildExplanation(q));
     } else {
       vd.hidden = true;
     }
@@ -378,8 +457,8 @@
     badge.textContent = passed ? '合格' : '不合格';
 
     $('res-line').textContent = passed
-      ? '正答率 ' + rate + '%。規則の勘どころは押さえられています。間違えた問題の根拠条文を確認しておきましょう。'
-      : '正答率 ' + rate + '%(合格は70%以上)。下の見直しで、間違えた問題の根拠条文を追いましょう。';
+      ? '正答率 ' + rate + '%。規則の勘どころは押さえられています。間違えた問題は、その後の処置まで読み直しておきましょう。'
+      : '正答率 ' + rate + '%(合格は70%以上)。下の見直しで、罰の区分とその後の処置を確認しましょう。';
 
     var meta = $('res-meta');
     meta.textContent = '';
@@ -403,7 +482,7 @@
   function renderBreakdown() {
     var tally = {};
     run.items.forEach(function (item) {
-      var c = item.q.category;
+      var c = item.q.cat;
       if (!tally[c]) tally[c] = { got: 0, of: 0 };
       tally[c].of++;
       if (item.picked === item.correctAt) tally[c].got++;
@@ -441,30 +520,32 @@
 
       var head = el('div', 'rv__head');
       head.appendChild(el('span', null, String(i + 1).padStart(2, '0')));
-      head.appendChild(el('span', null, CAT_BY_ID[q.category].name));
+      head.appendChild(el('span', null, CAT_BY_ID[q.cat].name));
       head.appendChild(el('span', null, q.rule));
-      var m = el('span', ok ? 'mark mark--good' : 'mark mark--bad', '');
-      head.appendChild(m);
+      head.appendChild(penTag(q.pen));
+      head.appendChild(el('span', ok ? 'mark mark--good' : 'mark mark--bad', ''));
       card.appendChild(head);
 
       card.appendChild(el('h3', 'rv__q', q.q));
 
       var lines = el('div', 'rv__lines');
-
       if (!ok) {
         var mine = el('div', 'rv__line');
         mine.appendChild(el('span', 'rv__tag', 'あなた'));
         mine.appendChild(el('span', 'rv__val--bad', q.choices[item.order[item.picked]]));
         lines.appendChild(mine);
       }
-
       var right = el('div', 'rv__line');
       right.appendChild(el('span', 'rv__tag', '正解'));
       right.appendChild(el('span', 'rv__val--good', q.choices[0]));
       lines.appendChild(right);
-
       card.appendChild(lines);
-      card.appendChild(el('p', 'rv__why', q.why));
+
+      var why = el('div', 'rv__why');
+      // 見直しでは図解を省き、必要なら問題集で確認してもらう
+      why.appendChild(buildExplanation(q, { figure: !ok }));
+      card.appendChild(why);
+
       box.appendChild(card);
     });
 

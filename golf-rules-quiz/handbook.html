@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゴルフ規則 問題集</title>
+<meta name="description" content="2023年ゴルフ規則のカテゴリー別問題集。全261問を20章に分け、罰の区分・理由・その後の処置・図解つきで収録。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/handbook.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <h1 class="masthead__title">ゴルフ規則 問題集</h1>
+    <span class="masthead__meta"><a class="masthead__link" href="index.html">&larr; テストに戻る</a></span>
+    <span class="masthead__meta">Rules of Golf 2023 &middot; 全<span id="hb-total">0</span>問</span>
+  </div>
+</header>
+
+<div class="hb">
+
+  <!-- ── 目次 ──────────────────────────────────────── -->
+  <aside class="hb__nav" id="hb-nav">
+    <div class="hb__navinner">
+      <div class="hb__navhead">目次</div>
+      <nav id="hb-toc" aria-label="目次"></nav>
+    </div>
+  </aside>
+
+  <main class="hb__main">
+
+    <section class="hb__intro">
+      <p class="lede">
+        2023年ゴルフ規則の問題を、規則の構成に沿って<strong>6部20章</strong>に分けた問題集です。
+        1問ごとに <strong>罰の区分</strong>・なぜそうなるか・<strong>その後の処置</strong>・根拠条文を示し、
+        手続きが空間的な規則には図解を添えています。
+      </p>
+
+      <div class="hb__tools">
+        <div class="hb__toolrow">
+          <label class="hb__label" for="hb-search">検索</label>
+          <input class="hb__search" id="hb-search" type="search" placeholder="規則番号、語句(例: 後方線上、規則17.1、バンカー)" autocomplete="off">
+          <span class="hb__count" id="hb-hits"></span>
+        </div>
+        <div class="hb__toolrow">
+          <span class="hb__label">絞り込み</span>
+          <div class="chips" id="hb-penfilter" role="group" aria-label="罰の区分で絞り込み"></div>
+        </div>
+        <div class="hb__toolrow">
+          <span class="hb__label">解答</span>
+          <div class="chips" id="hb-answermode" role="group" aria-label="解答の表示"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 罰の体系(早見表) ───────────────────────── -->
+    <section class="hb__section" id="sec-penalties">
+      <h2 class="hb__h2">罰の体系</h2>
+      <p class="hb__note">
+        規則の罰は4段階しかありません。どの規則の違反かを特定できれば、罰の重さはこの表で決まります。
+        いちばん間違えやすいのは<strong>一般の罰</strong>で、これは競技形式によって意味が変わります。
+      </p>
+
+      <div class="tablewrap">
+        <table class="hb__table">
+          <thead>
+            <tr><th>罰の区分</th><th>ストロークプレー</th><th>マッチプレー</th><th>代表的な場面</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="pen pen--good">罰なし</span></th>
+              <td>加算なし</td>
+              <td>影響なし</td>
+              <td>異常なコース状態の救済、目玉の球、グリーン上で球を動かした、動かせる障害物の取り除き</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pen pen--warn">1打の罰</span></th>
+              <td>1打を加える</td>
+              <td>1打を加える</td>
+              <td>ストロークと距離、ペナルティーエリア、アンプレヤブル、止まっている自分の球を動かした、誤って取り替えた球</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pen pen--bad">一般の罰</span></th>
+              <td><strong>2打</strong>を加える</td>
+              <td><strong>そのホールの負け</strong></td>
+              <td>誤球、誤所からのプレー、アドバイス、バンカーで砂に触れる、クラブ本数超過、グリーン面のテスト</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="pen pen--bad">失格</span></th>
+              <td colspan="2">競技から除外される</td>
+              <td>実際より少ないスコアの提出、署名のないスコアカード、ホールアウトの訂正をしない、適合しないクラブや球の使用、即時中断に従わない</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="hb__note">
+        罰打は、行ったストロークの数とは<strong>別に</strong>加算します。ストロークが消えるわけではありません。
+        たとえばティーショット(1打)がOBになれば、1打 + 1罰打 で、打ち直しは3打目です。
+      </p>
+      <div id="fig-stroke-count"></div>
+
+      <h3 class="hb__h3">罰が重ならない場合</h3>
+      <p class="hb__note">
+        1つのホールで複数の違反があれば、原則としてそれぞれに罰が科されます(規則1.3c(4))。
+        ただし、<strong>1つの行為から複数の違反が生じた場合は罰も1つ</strong>で、そのうち重い方が適用されます。
+        たとえば、1打の罰でリプレースすべき球をリプレースせずにプレーした場合、1打の罰は重ねて科されず、
+        誤所からのプレーの一般の罰だけが適用されます。
+      </p>
+    </section>
+
+    <!-- ── 救済の型 ────────────────────────────────── -->
+    <section class="hb__section" id="sec-relief">
+      <h2 class="hb__h2">救済の型</h2>
+      <p class="hb__note">
+        救済の手続きは種類が多く見えますが、実際には
+        <strong>基点をどこに取るか</strong>と<strong>救済エリアの広さ</strong>の組み合わせでできています。
+        この表の型を覚えると、個々の規則を思い出しやすくなります。
+      </p>
+
+      <div class="tablewrap">
+        <table class="hb__table">
+          <thead>
+            <tr><th>救済</th><th>罰</th><th>基点</th><th>救済エリア</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">異常なコース状態<br><span class="hb__sub">規則16.1</span></th>
+              <td><span class="pen pen--good">罰なし</span></td>
+              <td>完全な救済のニヤレストポイント</td>
+              <td>1クラブレングス／ホールに近づかない／同じコースエリア</td>
+            </tr>
+            <tr>
+              <th scope="row">目玉の球<br><span class="hb__sub">規則16.3</span></th>
+              <td><span class="pen pen--good">罰なし</span></td>
+              <td>球の直後の箇所</td>
+              <td>1クラブレングス／ホールに近づかない／ジェネラルエリア</td>
+            </tr>
+            <tr>
+              <th scope="row">ストロークと距離<br><span class="hb__sub">規則18.1</span></th>
+              <td><span class="pen pen--warn">1打</span></td>
+              <td>直前のストロークを行った箇所</td>
+              <td>1クラブレングス／ホールに近づかない／同じコースエリア<br>(ティーイングエリアならその区域内)</td>
+            </tr>
+            <tr>
+              <th scope="row">後方線上<br><span class="hb__sub">規則17.1d(2) / 19.2b</span></th>
+              <td><span class="pen pen--warn">1打</span></td>
+              <td>ホールと基点を結んで後方に伸ばした<strong>線</strong></td>
+              <td>線上にドロップし、どの方向にも1クラブレングスまで転がってよい<span class="hb__new">2023年から</span></td>
+            </tr>
+            <tr>
+              <th scope="row">ラテラル(レッドPA)<br><span class="hb__sub">規則17.1d(3)</span></th>
+              <td><span class="pen pen--warn">1打</span></td>
+              <td>球が最後に縁を横切った地点</td>
+              <td><strong>2クラブレングス</strong>／ホールに近づかない／PAの外</td>
+            </tr>
+            <tr>
+              <th scope="row">ラテラル(アンプレヤブル)<br><span class="hb__sub">規則19.2c</span></th>
+              <td><span class="pen pen--warn">1打</span></td>
+              <td>球があった箇所</td>
+              <td><strong>2クラブレングス</strong>／ホールに近づかない</td>
+            </tr>
+            <tr>
+              <th scope="row">バンカー外へのアンプレヤブル<br><span class="hb__sub">規則19.3b</span></th>
+              <td><span class="pen pen--bad">2打</span></td>
+              <td>ホールと球の箇所を結ぶ線</td>
+              <td>線上ならバンカーの外のどこまで下がってもよい</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="hb__note">
+        覚え方としては、<strong>罰なしの救済は1クラブレングス、罰ありのラテラル救済は2クラブレングス</strong>。
+        後方線上だけは「エリアの広さ」ではなく「線」で決まります。
+      </p>
+
+      <div id="fig-nearest-point"></div>
+      <div id="fig-back-on-line"></div>
+      <div id="fig-penalty-area"></div>
+      <div id="fig-unplayable"></div>
+      <div id="fig-bunker-unplayable"></div>
+      <div id="fig-embedded"></div>
+      <div id="fig-drop-flow"></div>
+      <div id="fig-provisional"></div>
+      <div id="fig-course-areas"></div>
+    </section>
+
+    <!-- ── 章ごとの問題 ────────────────────────────── -->
+    <div id="hb-body"></div>
+
+    <p class="footnote">
+      本問題集は学習用の教材です。競技での正式な判断は、R&amp;A / USGA および日本ゴルフ協会が発行する
+      ゴルフ規則の原文と委員会の裁定によります。
+    </p>
+  </main>
+</div>
+
+<button class="hb__top" id="hb-top" type="button" aria-label="先頭に戻る">↑</button>
+
+<script src="data/categories.js"></script>
+<script src="data/q-updates.js"></script>
+<script src="data/q-foundation.js"></script>
+<script src="data/q-round.js"></script>
+<script src="data/q-play.js"></script>
+<script src="data/q-course.js"></script>
+<script src="data/q-procedure.js"></script>
+<script src="data/q-penalty.js"></script>
+<script src="data/q-admin.js"></script>
+<script src="assets/figures.js"></script>
+<script src="assets/handbook.js"></script>
+</body>
+</html>
