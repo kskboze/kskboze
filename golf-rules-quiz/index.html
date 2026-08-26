@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゴルフ規則スコアカード</title>
+<meta name="description" content="2023年ゴルフ規則の理解度を測る全78問のテスト問題アプリ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <h1 class="masthead__title">ゴルフ規則スコアカード</h1>
+    <span class="masthead__meta">Rules of Golf 2023 &middot; 全<span id="bank-total">0</span>問</span>
+  </div>
+</header>
+
+<main class="shell">
+
+  <!-- ── ホーム ────────────────────────────────────── -->
+  <section class="screen" id="screen-home">
+    <p class="lede">
+      2023年に施行された<strong>5つの重要な変更</strong>と<strong>追加の詳説(2023年10月5日更新)</strong>を中心に、
+      ゴルフ規則全体から出題します。1問ごとに根拠となる規則番号と解説が付きます。
+    </p>
+
+    <ul class="sources">
+      <li>2023ゴルフ規則: 5つの重要な変更 (R&amp;A / USGA)</li>
+      <li>2023年ゴルフ規則の追加の詳説 (2023年10月5日更新)</li>
+      <li>ゴルフ規則 2023年版 規則1〜25</li>
+    </ul>
+
+    <div class="setup">
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">出題形式</span>
+        </div>
+        <div class="chips" id="mode-chips" role="group" aria-label="出題形式"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">出題範囲</span>
+          <button class="linkish" type="button" id="cat-all">すべて選択</button>
+          <button class="linkish" type="button" id="cat-none">選択解除</button>
+        </div>
+        <div class="chips" id="cat-chips" role="group" aria-label="出題範囲"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">問題数</span>
+          <span class="field__hint" id="pool-hint"></span>
+        </div>
+        <div class="chips" id="count-chips" role="group" aria-label="問題数"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn--lg" id="start-btn" type="button">ラウンド開始</button>
+        <button class="btn btn--ghost" id="wrong-btn" type="button" hidden>間違えた問題だけ (<span id="wrong-count">0</span>)</button>
+      </div>
+    </div>
+
+    <div class="record" id="record" hidden>
+      <div class="record__stat">
+        <span class="record__value" id="rec-rounds">0</span>
+        <span class="record__label">ラウンド</span>
+      </div>
+      <div class="record__stat">
+        <span class="record__value" id="rec-best">—</span>
+        <span class="record__label">ベスト正答率</span>
+      </div>
+      <div class="record__stat">
+        <span class="record__value" id="rec-last">—</span>
+        <span class="record__label">前回</span>
+      </div>
+      <div class="record__stat">
+        <span class="record__value" id="rec-seen">0</span>
+        <span class="record__label">出題済みの問題</span>
+      </div>
+      <button class="linkish" type="button" id="reset-record" style="align-self:center">記録を消去</button>
+    </div>
+
+    <p class="footnote">
+      本アプリは学習用の教材です。競技での正式な判断は、R&amp;A / USGA および日本ゴルフ協会が発行する
+      ゴルフ規則の原文と委員会の裁定によります。
+    </p>
+  </section>
+
+  <!-- ── 出題 ──────────────────────────────────────── -->
+  <section class="screen" id="screen-quiz" hidden>
+    <div class="round-bar">
+      <span class="round-bar__mode" id="quiz-mode">練習ラウンド</span>
+      <span id="quiz-scope"></span>
+      <span class="round-bar__right">
+        <span id="quiz-timer">00:00</span>
+        <span class="round-bar__count"><span id="quiz-pos">1</span> / <span id="quiz-total">10</span></span>
+      </span>
+    </div>
+
+    <div class="card-strip" id="quiz-strip" role="group" aria-label="進捗"></div>
+
+    <article class="qcard">
+      <div class="qcard__head">
+        <span class="tag" id="q-cat">カテゴリー</span>
+        <span class="tag tag--rule" id="q-rule">規則</span>
+        <span class="level" id="q-level" aria-label="難易度"></span>
+      </div>
+      <div class="qcard__body">
+        <h2 class="qtext" id="q-text"></h2>
+        <div class="choices" id="q-choices"></div>
+      </div>
+      <div class="verdict" id="q-verdict" hidden>
+        <div class="verdict__head" id="verdict-head"></div>
+        <p class="verdict__body" id="verdict-why"></p>
+        <span class="verdict__ref" id="verdict-ref"></span>
+      </div>
+    </article>
+
+    <div class="qfoot">
+      <button class="btn btn--stake" id="next-btn" type="button" disabled>次の問題 <span class="btn__key">Enter</span></button>
+      <button class="btn btn--ghost" id="quit-btn" type="button">中断する</button>
+      <span class="qfoot__note">1〜4 キーで解答</span>
+    </div>
+  </section>
+
+  <!-- ── 結果 ──────────────────────────────────────── -->
+  <section class="screen" id="screen-result" hidden>
+    <div class="verdict-banner">
+      <div class="score">
+        <span class="score__got" id="res-got">0</span>
+        <span class="score__of">/ <span id="res-of">0</span></span>
+      </div>
+      <div class="grade">
+        <span class="grade__badge" id="res-badge">—</span>
+        <span class="grade__line" id="res-line"></span>
+      </div>
+      <div class="result-meta" id="res-meta"></div>
+    </div>
+
+    <div class="section">
+      <h2 class="section__title">スコアカード</h2>
+      <div class="card-strip" id="res-strip" role="group" aria-label="結果一覧"></div>
+    </div>
+
+    <div class="section">
+      <h2 class="section__title">範囲別の正答率</h2>
+      <div class="breakdown" id="res-breakdown"></div>
+    </div>
+
+    <div class="section">
+      <h2 class="section__title">見直し</h2>
+      <div class="actions" style="margin-bottom:1.25rem">
+        <button class="linkish" type="button" id="rv-all">すべて表示</button>
+        <button class="linkish" type="button" id="rv-bad">間違えた問題のみ</button>
+      </div>
+      <div class="review" id="res-review"></div>
+    </div>
+
+    <div class="section actions">
+      <button class="btn" id="again-btn" type="button">同じ設定でもう一度</button>
+      <button class="btn btn--stake" id="retry-wrong-btn" type="button" hidden>間違えた問題を復習</button>
+      <button class="btn btn--ghost" id="home-btn" type="button">設定に戻る</button>
+    </div>
+  </section>
+
+</main>
+
+<script src="data/questions.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
