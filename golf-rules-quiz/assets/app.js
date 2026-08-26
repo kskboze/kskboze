@@ -5,7 +5,6 @@
   var CATS = window.GOLF_QUIZ_CATEGORIES;
   var BANDS = window.GOLF_QUIZ_BANDS;
   var PENS = window.GOLF_QUIZ_PENALTIES;
-  var ROLES = window.GOLF_QUIZ_ROLES;
   var FIGS = window.GOLF_FIGURES;
 
   var CAT_BY_ID = {};
@@ -121,7 +120,7 @@
   }
 
   function refreshHome() {
-    renderPresetChips(); renderRoleChips(); renderCatChips();
+    renderPresetChips(); renderCatChips();
     renderLevelChips(); renderCountChips();
   }
 
@@ -228,39 +227,6 @@
       b.addEventListener('click', function () { setup.mode = m.id; renderModeChips(); });
       box.appendChild(b);
     });
-  }
-
-  function renderRoleChips() {
-    var box = $('role-chips');
-    box.textContent = '';
-
-    ROLES.forEach(function (r) {
-      var n = BANK.filter(function (q) { return r.cats.indexOf(q.cat) !== -1; }).length;
-      // 現在の選択がちょうどこの役割の範囲と一致しているか
-      var on = r.cats.length === setup.cats.length &&
-               r.cats.every(function (c) { return setup.cats.indexOf(c) !== -1; });
-      var b = el('button', 'chip chip--wide');
-      b.type = 'button';
-      b.setAttribute('aria-pressed', String(on));
-      b.appendChild(el('span', null, r.name));
-      b.appendChild(el('span', 'chip__sub', r.note + ' · ' + n + '問'));
-      b.addEventListener('click', function () {
-        setup.cats = r.cats.slice();
-        refreshHome();
-      });
-      box.appendChild(b);
-    });
-
-    var all = el('button', 'chip chip--wide');
-    all.type = 'button';
-    all.setAttribute('aria-pressed', String(setup.cats.length === CATS.length));
-    all.appendChild(el('span', null, 'すべて'));
-    all.appendChild(el('span', 'chip__sub', '規則1〜25の全範囲 · ' + BANK.length + '問'));
-    all.addEventListener('click', function () {
-      setup.cats = CATS.map(function (c) { return c.id; });
-      refreshHome();
-    });
-    box.appendChild(all);
   }
 
   function renderCatChips() {
