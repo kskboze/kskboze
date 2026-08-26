@@ -9,7 +9,21 @@ window.GOLF_QUIZ_BANDS = [
   { id: 'playing',    name: '球のプレー',       note: '規則7〜11' },
   { id: 'course',     name: '特別なコースエリア', note: '規則12〜13' },
   { id: 'relief',     name: '救済',             note: '規則14〜19' },
-  { id: 'admin',      name: '競技の運営',       note: '規則20〜25' }
+  { id: 'admin',      name: '競技の運営',       note: '規則20〜25' },
+  { id: 'onsite',     name: '現場対応',         note: 'ゴルフ場スタッフの実務' },
+  { id: 'tricky',     name: 'まぎらわしい規則', note: '混同しやすい対比' }
+];
+
+/* 役割 — 「どの立場で覚えるか」で範囲を絞れるようにする */
+window.GOLF_QUIZ_ROLES = [
+  { id: 'caddie',    name: 'キャディー',           note: 'コースでお客様に付く',
+    cats: ['onsite','tricky','ballmoved','stroke','inmotion','bunker','green','procedure','freerelief','penaltyarea','lostob','unplayable','search','improve'] },
+  { id: 'committee', name: '競技運営・マスター室', note: '競技の管理と裁定',
+    cats: ['onsite','tricky','basics','round','equipment','disputes','formats','disability','changes2023'] },
+  { id: 'reception', name: 'フロント・プロショップ', note: 'お客様への説明',
+    cats: ['onsite','tricky','changes2023','basics','penaltyarea','lostob','unplayable','green','bunker'] },
+  { id: 'greenkeep', name: 'コース管理',           note: '標示と整備',
+    cats: ['onsite','tricky','freerelief','penaltyarea','bunker','green','basics'] }
 ];
 
 window.GOLF_QUIZ_CATEGORIES = [
@@ -37,7 +51,11 @@ window.GOLF_QUIZ_CATEGORIES = [
 
   { id: 'disputes',       band: 'admin',      name: '規則問題の解決',       short: '裁定',   rules: '規則20' },
   { id: 'formats',        band: 'admin',      name: '他の競技形式',         short: '形式',   rules: '規則21〜24' },
-  { id: 'disability',     band: 'admin',      name: '障がいを持つプレーヤー', short: '規則25', rules: '規則25' }
+  { id: 'disability',     band: 'admin',      name: '障がいを持つプレーヤー', short: '規則25', rules: '規則25' },
+
+  { id: 'onsite',         band: 'onsite',     name: '現場対応(ゴルフ場スタッフ)', short: '現場', rules: 'キャディー・競技運営・接客・コース管理' },
+
+  { id: 'tricky',         band: 'tricky',     name: 'まぎらわしい規則',     short: 'ひっかけ', rules: '間違えやすい対比を並べて確認' }
 ];
 
 /* 罰の区分。解説の見出しと色分けに使う */

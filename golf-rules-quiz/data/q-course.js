@@ -4,7 +4,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ バンカー(規則12) ═════════════════════════════ */
 
 {
-  id: 'k01', cat: 'bunker', rule: '規則15.1a', level: 1, pen: 'none',
+  id: 'k01', must: true, cat: 'bunker', rule: '規則15.1a', level: 1, pen: 'none',
   q: 'バンカー内にあるルースインペディメント(小石や葉など)はどう扱われるか。',
   choices: [
     '罰なしに取り除くことができる',
@@ -21,7 +21,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'k02', cat: 'bunker', rule: '規則12.2b(1)', level: 2, pen: 'general',
+  id: 'k02', must: true, cat: 'bunker', rule: '規則12.2b(1)', level: 2, pen: 'general',
   q: 'バンカー内で、球の直前や直後の砂に故意にクラブで触れた。裁定はどれか。',
   choices: ['一般の罰', '1打の罰', '罰なし', '失格'],
   why: '規則12.2b(1)により、バンカー内では3つの行為が禁じられています。①球の直前・直後の砂に故意に触れること、②練習スイングで砂に触れること、③バックスイングで砂に触れること。バンカーからのショットの難しさを保つための規定です。',
@@ -33,7 +33,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '一方、認められる行為もあります。クラブや用具を砂に置くこと、バンカーをならすこと(コース保護のため)、転倒を防ぐために砂に触れること、怒りや落胆から砂を叩くことなどです(規則12.2b(2))。'
 },
 {
-  id: 'k03', cat: 'bunker', rule: '規則19.3b', level: 2, pen: 'varies', fig: 'bunker-unplayable',
+  id: 'k03', must: true, cat: 'bunker', rule: '規則19.3b', level: 2, pen: 'varies', fig: 'bunker-unplayable',
   q: 'バンカー内の球をアンプレヤブルとして、バンカーの外に救済を受ける方法はどれか。',
   choices: [
     '合計2打の罰を加えて、後方線上の救済を受ける',
@@ -200,7 +200,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ パッティンググリーン(規則13) ══════════════════ */
 
 {
-  id: 'g01', cat: 'green', rule: '規則13.1c(2)', level: 1, pen: 'none',
+  id: 'g01', must: true, cat: 'green', rule: '規則13.1c(2)', level: 1, pen: 'none',
   q: 'パッティンググリーン上のスパイクマークや古いホールの埋跡を修理することはどう扱われるか。',
   choices: [
     '罰なしに修理することが認められる',
@@ -216,7 +216,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'g02', cat: 'green', rule: '規則13.2a(1)', level: 1, pen: 'none',
+  id: 'g02', must: true, cat: 'green', rule: '規則13.2a(1)', level: 1, pen: 'none',
   q: '旗竿をホールに立てたままパッティングして、球が旗竿に当たった。裁定はどれか。',
   choices: [
     '罰はなく、球はあるがままにプレーする',
@@ -232,7 +232,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'g03', cat: 'green', rule: '規則13.1e', level: 2, pen: 'general',
+  id: 'g03', must: true, cat: 'green', rule: '規則13.1e', level: 2, pen: 'general',
   q: 'ラウンド中に、パッティンググリーン面を故意にこすったり球を転がして面をテストすることはどう扱われるか。',
   choices: ['一般の罰', '罰なし', '1打の罰', '自分がプレーするグリーンでのみ認められる'],
   why: '規則13.1eにより、ラウンド中にパッティンググリーンやウェッジのグリーンの面を故意にこすったり、球を転がすことによってテストすることは禁じられており、一般の罰です。',
@@ -259,7 +259,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'g05', cat: 'green', rule: '規則13.1d(1)', level: 1, pen: 'none',
+  id: 'g05', must: true, cat: 'green', rule: '規則13.1d(1)', level: 1, pen: 'none',
   q: 'パッティンググリーン上で、プレーヤーが偶然に自分の球を動かしてしまった。裁定はどれか。',
   choices: [
     '罰はなく、元の箇所にリプレースする',
@@ -307,7 +307,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'g08', cat: 'green', rule: '規則13.1f', level: 2, pen: 'general',
+  id: 'g08', must: true, cat: 'green', rule: '規則13.1f', level: 2, pen: 'general',
   q: '球が他のホールのパッティンググリーン(目的外グリーン)に止まった。どうするか。',
   choices: [
     'あるがままにプレーしてはならず、罰なしの救済を受けなければならない',

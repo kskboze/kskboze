@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ゴルフ規則スコアカード</title>
-<meta name="description" content="2023年ゴルフ規則の理解度を測る全261問のテスト問題アプリ。罰の区分とその後の処置まで解説します。">
+<title>ゴルフ場スタッフのための規則研修</title>
+<meta name="description" content="ゴルフ場で働く人のための規則研修アプリ。キャディー・競技運営・接客・コース管理の役割別に、全297問で実務に必要な規則を身につけます。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap">
@@ -14,7 +14,7 @@
 
 <header class="masthead">
   <div class="masthead__inner">
-    <h1 class="masthead__title">ゴルフ規則スコアカード</h1>
+    <h1 class="masthead__title">ゴルフ場スタッフのための規則研修</h1>
     <span class="masthead__meta"><a class="masthead__link" href="handbook.html">問題集を開く &rarr;</a></span>
     <span class="masthead__meta">Rules of Golf 2023 &middot; 全<span id="bank-total">0</span>問</span>
   </div>
@@ -25,14 +25,15 @@
   <!-- ── ホーム ────────────────────────────────────── -->
   <section class="screen" id="screen-home">
     <p class="lede">
-      2023年に施行された<strong>5つの重要な変更</strong>と<strong>追加の詳説(2023年10月5日更新)</strong>を中心に、
-      ゴルフ規則全体から出題します。1問ごとに<strong>罰の区分</strong>・理由・<strong>その後の処置</strong>・根拠条文が付き、要点には図解を添えています。
+      コースで働く人が、お客様に自信をもって規則を説明できるようになるための研修アプリです。
+      <strong>キャディー・競技運営・フロント・コース管理</strong>の役割ごとに範囲を絞って出題できます。
+      1問ごとに<strong>罰の区分</strong>・理由・<strong>その後の処置</strong>・根拠条文が付き、要点には図解を添えています。
     </p>
 
     <ul class="sources">
-      <li>2023ゴルフ規則: 5つの重要な変更 (R&amp;A / USGA)</li>
-      <li>2023年ゴルフ規則の追加の詳説 (2023年10月5日更新)</li>
-      <li>ゴルフ規則 2023年版 規則1〜25</li>
+      <li>ゴルフ規則 2023年版 規則1〜25 および 定義</li>
+      <li>オフィシャルガイド(詳説・委員会の措置・ローカルルールひな型)</li>
+      <li>2023ゴルフ規則: 5つの重要な変更 / 追加の詳説(2023年10月5日更新)</li>
     </ul>
 
     <div class="setup">
@@ -46,11 +47,35 @@
 
       <div class="field">
         <div class="field__head">
-          <span class="field__label">出題範囲</span>
+          <span class="field__label">テストを選ぶ</span>
+          <span class="field__hint">まずはここから。押すだけで範囲と難易度が決まります</span>
+        </div>
+        <div class="chips" id="preset-chips" role="group" aria-label="テストの型"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">役割から選ぶ</span>
+          <span class="field__hint">押すとその立場で必要な範囲がまとめて選ばれます</span>
+        </div>
+        <div class="chips" id="role-chips" role="group" aria-label="役割"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">範囲を細かく調整する</span>
           <button class="linkish" type="button" id="cat-all">すべて選択</button>
           <button class="linkish" type="button" id="cat-none">選択解除</button>
         </div>
         <div class="bands" id="cat-chips" role="group" aria-label="出題範囲"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">難易度</span>
+          <span class="field__hint">複数選べます</span>
+        </div>
+        <div class="chips" id="level-chips" role="group" aria-label="難易度"></div>
       </div>
 
       <div class="field">
@@ -62,7 +87,7 @@
       </div>
 
       <div class="actions">
-        <button class="btn btn--lg" id="start-btn" type="button">ラウンド開始</button>
+        <button class="btn btn--lg" id="start-btn" type="button">研修を始める</button>
         <button class="btn btn--ghost" id="wrong-btn" type="button" hidden>間違えた問題だけ (<span id="wrong-count">0</span>)</button>
       </div>
     </div>
@@ -88,9 +113,10 @@
     </div>
 
     <p class="footnote">
-      <b>本アプリは学習用の教材です。</b>問題と解説はゴルフ規則2023年版に基づいて作成していますが、
-      規則の原文との逐条照合は行っていません。誤りが含まれている可能性があります。
-      競技での正式な判断は、R&amp;A / USGA および日本ゴルフ協会が発行するゴルフ規則の原文と委員会の裁定によります。
+      <b>本アプリは学習用の教材です。</b>問題と解説は、ゴルフ規則2023年版の原文・定義集・オフィシャルガイドと
+      照合して作成しています。主要な条文については突き合わせを行い、判明した誤りは修正済みですが、
+      全問の逐条照合は完了していません。競技での正式な判断は、R&amp;A / USGA および
+      日本ゴルフ協会が発行するゴルフ規則の原文と委員会の裁定によります。
     </p>
   </section>
 
@@ -179,6 +205,8 @@
 <script src="data/q-procedure.js"></script>
 <script src="data/q-penalty.js"></script>
 <script src="data/q-admin.js"></script>
+<script src="data/q-onsite.js"></script>
+<script src="data/q-tricky.js"></script>
 <script src="assets/figures.js"></script>
 <script src="assets/app.js"></script>
 </body>

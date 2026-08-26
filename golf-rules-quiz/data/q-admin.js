@@ -4,7 +4,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 規則問題の解決(規則20) ═══════════════════════ */
 
 {
-  id: 'z01', cat: 'disputes', rule: '規則20.1c(3)', level: 2, pen: 'info',
+  id: 'z01', must: true, cat: 'disputes', rule: '規則20.1c(3)', level: 2, pen: 'info',
   q: 'ストロークプレーで、プレーヤーが自分の権利や正しい手続きに疑問があり、どう進めるべきか分からない場合にできることはどれか。',
   choices: [
     '2つの球をプレーして、後で委員会に裁定を求めることができる',
@@ -174,7 +174,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 他の競技形式(規則21〜24) ═════════════════════ */
 
 {
-  id: 'y01', cat: 'formats', rule: '規則23.1', level: 2, pen: 'info',
+  id: 'y01', must: true, cat: 'formats', rule: '規則23.1', level: 2, pen: 'info',
   q: 'フォアボール(ベストボール)とはどのような競技形式か。',
   choices: [
     '2人1組のサイドで、各自が自分の球をプレーし、そのホールの良い方のスコアをサイドのスコアとする',
@@ -191,7 +191,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'y02', cat: 'formats', rule: '規則22.1', level: 2, pen: 'info',
+  id: 'y02', must: true, cat: 'formats', rule: '規則22.1', level: 2, pen: 'info',
   q: 'フォアサム(オルタネートショット)とはどのような競技形式か。',
   choices: [
     '2人1組のサイドが1つの球を交互にストロークする',
@@ -377,7 +377,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 障がいを持つプレーヤー(規則25) ═══════════════ */
 
 {
-  id: 'v01', cat: 'disability', rule: '規則25.1', level: 2, pen: 'info',
+  id: 'v01', must: true, cat: 'disability', rule: '規則25.1', level: 2, pen: 'info',
   q: '規則25(障がいを持つプレーヤー)の適用について正しいものはどれか。',
   choices: [
     '2023年から規則の一部となり、委員会の採用を待たずにすべての競技に適用される',

@@ -4,7 +4,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ ラウンドとホールのプレー(規則5〜6) ═════════════ */
 
 {
-  id: 'r01', cat: 'round', rule: '規則6.3a', level: 1, pen: 'info',
+  id: 'r01', must: true, cat: 'round', rule: '規則6.3a', level: 1, pen: 'info',
   q: 'ホールをプレーしている間、球についてプレーヤーが守らなければならないことはどれか。',
   choices: [
     '規則が取り替えを認める場合を除き、ティーイングエリアからプレーした球でホールアウトする',
@@ -20,7 +20,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'r02', cat: 'round', rule: '規則5.6b', level: 1, pen: 'info',
+  id: 'r02', must: true, cat: 'round', rule: '規則5.6b', level: 1, pen: 'info',
   q: 'ストロークを行うための推奨時間として規則5.6bが示しているのはどれか。',
   choices: ['40秒以内', '30秒以内', '60秒以内', '時間の目安は示されていない'],
   why: '規則5.6bの推奨では、プレーヤーは自分の順番になり、球にたどり着いてストロークを行える状況になってから40秒以内にストロークを行うべきとされています。これは推奨であり、これを超えただけで自動的に罰があるわけではありません。',
@@ -93,7 +93,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'r07', cat: 'round', rule: '規則5.7b', level: 2, pen: 'dq',
+  id: 'r07', must: true, cat: 'round', rule: '規則5.7b', level: 2, pen: 'dq',
   q: '雷などの差し迫った危険により、委員会がプレーの即時中断を宣言した。プレーヤーはどうしなければならないか。',
   choices: [
     'ただちにプレーを中止しなければならず、違反すると失格となる',
@@ -223,7 +223,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'r15', cat: 'round', rule: '規則6.3c(1)', level: 2, pen: 'general',
+  id: 'r15', must: true, cat: 'round', rule: '規則6.3c(1)', level: 2, pen: 'general',
   q: 'ストロークプレーでプレーヤーが誤球をプレーした。裁定はどれか。',
   choices: [
     '一般の罰を受け、正しい球でプレーして誤りを訂正しなければならない',
@@ -260,7 +260,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 球の捜索と特定(規則7) ═════════════════════════ */
 
 {
-  id: 's01', cat: 'search', rule: '規則18.2a(1)', level: 1, pen: 'info',
+  id: 's01', must: true, cat: 'search', rule: '規則18.2a(1)', level: 1, pen: 'info',
   q: '球を探すことができる時間はどれだけか。',
   choices: ['3分', '5分', '2分', '制限はない'],
   why: 'プレーヤーやキャディーが球を探し始めてから3分以内に見つけて特定できなければ、その球は紛失球となります。2019年の改訂で5分から3分に短縮されました。プレーのペースを保つための変更です。',
@@ -272,7 +272,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 's02', cat: 'search', rule: '規則7.4', level: 2, pen: 'none',
+  id: 's02', must: true, cat: 'search', rule: '規則7.4', level: 2, pen: 'none',
   q: '球を探している間に、プレーヤーが自分の球を偶然に動かしてしまった。裁定はどれか。',
   choices: [
     '罰はなく、その球を元の箇所にリプレースしなければならない',
@@ -385,7 +385,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ コースはあるがまま(規則8) ═════════════════════ */
 
 {
-  id: 'i01', cat: 'improve', rule: '規則8.1a', level: 1, pen: 'general',
+  id: 'i01', must: true, cat: 'improve', rule: '規則8.1a', level: 1, pen: 'general',
   q: '規則8.1aが禁じている「ストロークに影響を及ぼす状態」に含まれないものはどれか。',
   choices: [
     'ホールまでの距離',

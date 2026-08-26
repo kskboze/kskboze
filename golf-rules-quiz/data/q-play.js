@@ -4,7 +4,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 球が動かされたとき(規則9) ═════════════════════ */
 
 {
-  id: 'm01', cat: 'ballmoved', rule: '規則9.4b', level: 2, pen: 'one',
+  id: 'm01', must: true, cat: 'ballmoved', rule: '規則9.4b', level: 2, pen: 'one',
   q: 'ジェネラルエリアで、プレーヤーが自分の止まっている球を偶然に動かしてしまった。裁定はどれか。',
   choices: [
     '1打の罰を受け、元の箇所にリプレースする',
@@ -22,7 +22,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '罰がない例外は、①球を探している間(規則7.4)、②パッティンググリーン上(規則13.1d)、③規則に基づいて拾い上げるとき、④動かせる障害物やルースインペディメントを取り除く過程(グリーン上と捜索中)など。'
 },
 {
-  id: 'm02', cat: 'ballmoved', rule: '規則9.6', level: 2, pen: 'none',
+  id: 'm02', must: true, cat: 'ballmoved', rule: '規則9.6', level: 2, pen: 'none',
   q: '動物(外的影響)がプレーヤーの止まっている球を動かした。どうするか。',
   choices: [
     '罰なしに元の箇所にリプレースする',
@@ -39,7 +39,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: 'カラスが球をくわえて持ち去ったような場合、球が見つからなくても紛失球ではなく、元の箇所に別の球をリプレースします。'
 },
 {
-  id: 'm03', cat: 'ballmoved', rule: '規則9.3', level: 2, pen: 'none',
+  id: 'm03', must: true, cat: 'ballmoved', rule: '規則9.3', level: 2, pen: 'none',
   q: 'ジェネラルエリアで止まっていた球が、風によって動いた。どうするか。',
   choices: [
     '罰なしに、新しい位置からあるがままにプレーする',
@@ -221,26 +221,27 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm14', cat: 'ballmoved', rule: '規則14.2b', level: 2, pen: 'info',
-  q: '球をリプレースするとき、誰が置くことができるか。',
+  q: '球をリプレースできるのは誰か。',
   choices: [
-    'プレーヤー本人またはそのキャディー',
+    'プレーヤー本人、またはその球を拾い上げた人・動かす原因となった人',
+    'プレーヤー本人またはそのキャディー(誰が拾い上げたかを問わない)',
     'プレーヤー本人だけ',
-    '誰でもよい',
-    'マーカーの立会いが必要'
+    '誰でもよい'
   ],
-  why: '規則14.2bにより、球をリプレースできるのはプレーヤー本人またはそのキャディーだけです。他の人が置いた場合は、正しくリプレースされたことになりません。',
+  why: '規則14.2b(1)により、球をリプレースできるのは「プレーヤー本人」と「その球を拾い上げた人、またはその球を動かす原因となった人」だけです。キャディーだから常にリプレースできるわけではなく、そのキャディーが拾い上げたり動かしたりした場合に限られます。',
   next: [
-    '球を拾い上げた人と置く人が違ってもよい(どちらもプレーヤー本人かキャディーであれば)。',
-    '誤った人がリプレースし、それに気づかずにプレーすると1打の罰(規則14.2c)。',
-    'ドロップは必ずプレーヤー本人が行わなければならない(キャディーは不可)。'
+    '自分が拾い上げた球は、自分でリプレースする。',
+    'キャディーが拾い上げた球は、キャディーがリプレースしてもよい。',
+    '同伴競技者が誤って動かした球は、その人がリプレースしてもよい。',
+    '認められていない人がリプレースした球をプレーすると1打の罰。'
   ],
-  note: 'ドロップとリプレースで、行える人の範囲が違う点に注意します。'
+  note: 'ドロップはプレーヤー自身しかできません(規則14.3b(1))。リプレースの方が行える人が広い、と覚えます。'
 },
 
 /* ══ ストローク・アドバイス・キャディー(規則10) ═════ */
 
 {
-  id: 'a01', cat: 'stroke', rule: '規則10.2a', level: 1, pen: 'general',
+  id: 'a01', must: true, cat: 'stroke', rule: '規則10.2a', level: 1, pen: 'general',
   q: 'ラウンド中にアドバイスを求めたり与えたりした場合の罰はどれか。',
   choices: ['一般の罰', '1打の罰', '罰なし', '失格'],
   why: '規則10.2aにより、ラウンド中に自分のキャディーやパートナー(およびそのキャディー)以外の人にアドバイスを求めたり、コース上で競技している他のプレーヤーにアドバイスを与えたりすると一般の罰です。自分の判断でプレーすることがゴルフの技術の一部だという考え方です。',
@@ -251,7 +252,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'a02', cat: 'stroke', rule: 'アドバイスの定義', level: 2, pen: 'info',
+  id: 'a02', must: true, cat: 'stroke', rule: 'アドバイスの定義', level: 2, pen: 'info',
   q: '「アドバイス」に【含まれない】ものはどれか。',
   choices: [
     '規則や競技の条件、コース上の物の位置、距離などの一般的な情報',
@@ -267,7 +268,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'a03', cat: 'stroke', rule: '規則10.3a(1)', level: 1, pen: 'general',
+  id: 'a03', must: true, cat: 'stroke', rule: '規則10.3a(1)', level: 1, pen: 'general',
   q: 'プレーヤーが同時に持つことができるキャディーの人数はどれだけか。',
   choices: ['1人', '2人', '人数の制限はない', 'キャディーは認められない'],
   why: '規則10.3a(1)により、プレーヤーは一度に1人のキャディーしか持つことができません。複数のキャディーから援助を受けることは競技の公平性を損なうためです。ラウンド中にキャディーを交代することはできます。',
@@ -278,7 +279,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'a04', cat: 'stroke', rule: '規則10.2b(4)', level: 2, pen: 'general',
+  id: 'a04', must: true, cat: 'stroke', rule: '規則10.2b(4)', level: 2, pen: 'general',
   q: 'プレーヤーがストロークのためのスタンスをとり始めてから、キャディーが故意にプレーの線の後方に立つことはどう扱われるか。',
   choices: [
     '認められず、違反すると一般の罰',
@@ -457,7 +458,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 動いている球(規則11) ═════════════════════════ */
 
 {
-  id: 'n01', cat: 'inmotion', rule: '規則11.1a', level: 2, pen: 'none',
+  id: 'n01', must: true, cat: 'inmotion', rule: '規則11.1a', level: 2, pen: 'none',
   q: 'ストロークの後、動いている自分の球が偶然に自分自身やキャディー、自分の用具に当たった。裁定はどれか。',
   choices: [
     '罰はなく、球はあるがままにプレーする',
@@ -473,7 +474,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'n02', cat: 'inmotion', rule: '規則11.1b 例外', level: 3, pen: 'none',
+  id: 'n02', must: true, cat: 'inmotion', rule: '規則11.1b 例外', level: 3, pen: 'none',
   q: 'ストロークプレーで、パッティンググリーンからプレーした球が偶然にグリーン上の人や動物、動かせる障害物に当たった。裁定はどれか。',
   choices: [
     'そのストロークはカウントせず、球を元の箇所にリプレースして再プレーしなければならない',

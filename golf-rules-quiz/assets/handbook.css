@@ -290,8 +290,13 @@ mark { background: var(--stake-soft); color: var(--ink); padding: 0 .1em; border
 .hb__top.is-on { opacity: 1; pointer-events: auto; }
 .hb__top:hover { color: var(--ink); }
 
-.masthead__link { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.masthead__link:hover { color: var(--stake); }
+.masthead__link {
+  color: var(--stake);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.masthead__link:hover { color: var(--on-turf); }
 
 .hb__empty {
   margin-top: 3rem;

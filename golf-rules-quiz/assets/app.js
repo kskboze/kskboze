@@ -5,6 +5,7 @@
   var CATS = window.GOLF_QUIZ_CATEGORIES;
   var BANDS = window.GOLF_QUIZ_BANDS;
   var PENS = window.GOLF_QUIZ_PENALTIES;
+  var ROLES = window.GOLF_QUIZ_ROLES;
   var FIGS = window.GOLF_FIGURES;
 
   var CAT_BY_ID = {};
@@ -48,7 +49,7 @@
 
   /* ── 状態 ──────────────────────────────────────── */
 
-  var setup = { mode: 'practice', cats: CATS.map(function (c) { return c.id; }), count: 20 };
+  var setup = { mode: 'practice', cats: CATS.map(function (c) { return c.id; }), count: 20, levels: [1,2,3], must: false };
   var run = null;
   var timerId = null;
 
@@ -78,7 +79,92 @@
   }
 
   function pool() {
-    return BANK.filter(function (q) { return setup.cats.indexOf(q.cat) !== -1; });
+    return BANK.filter(function (q) {
+      if (setup.cats.indexOf(q.cat) === -1) return false;
+      if (setup.levels.indexOf(q.level) === -1) return false;
+      if (setup.must && !q.must) return false;
+      return true;
+    });
+  }
+
+  /* テストの型 — 押すと範囲・難易度・問題数がまとめて決まる */
+  var PRESETS = [
+    { id: 'must',   name: '必修テスト',   sub: 'これだけは知っておきたい',
+      apply: function () { setup.cats = CATS.map(function (c) { return c.id; }); setup.levels = [1,2,3]; setup.must = true;  setup.count = 0;  } },
+    { id: 'easy',   name: '初級',         sub: '難易度★ の基本問題',
+      apply: function () { setup.cats = CATS.map(function (c) { return c.id; }); setup.levels = [1];     setup.must = false; setup.count = 0;  } },
+    { id: 'mid',    name: '中級',         sub: '難易度★★ 実務でよく出会う',
+      apply: function () { setup.cats = CATS.map(function (c) { return c.id; }); setup.levels = [2];     setup.must = false; setup.count = 20; } },
+    { id: 'hard',   name: '上級',         sub: '難易度★★★ 判断に迷う場面',
+      apply: function () { setup.cats = CATS.map(function (c) { return c.id; }); setup.levels = [3];     setup.must = false; setup.count = 20; } },
+    { id: 'random', name: 'ランダム',     sub: '全範囲からまんべんなく',
+      apply: function () { setup.cats = CATS.map(function (c) { return c.id; }); setup.levels = [1,2,3]; setup.must = false; setup.count = 20; } },
+    { id: 'full',   name: '総合テスト',   sub: '全問に挑戦',
+      apply: function () { setup.cats = CATS.map(function (c) { return c.id; }); setup.levels = [1,2,3]; setup.must = false; setup.count = 0;  } }
+  ];
+
+  function presetMatches(p) {
+    var before = JSON.stringify([setup.cats.slice().sort(), setup.levels.slice().sort(), setup.must, setup.count]);
+    var snap = { cats: setup.cats.slice(), levels: setup.levels.slice(), must: setup.must, count: setup.count };
+    p.apply();
+    var after = JSON.stringify([setup.cats.slice().sort(), setup.levels.slice().sort(), setup.must, setup.count]);
+    setup.cats = snap.cats; setup.levels = snap.levels; setup.must = snap.must; setup.count = snap.count;
+    return before === after;
+  }
+
+  function presetCount(p) {
+    var snap = { cats: setup.cats.slice(), levels: setup.levels.slice(), must: setup.must, count: setup.count };
+    p.apply();
+    var n = pool().length;
+    setup.cats = snap.cats; setup.levels = snap.levels; setup.must = snap.must; setup.count = snap.count;
+    return n;
+  }
+
+  function refreshHome() {
+    renderPresetChips(); renderRoleChips(); renderCatChips();
+    renderLevelChips(); renderCountChips();
+  }
+
+  function renderPresetChips() {
+    var box = $('preset-chips');
+    box.textContent = '';
+    PRESETS.forEach(function (p) {
+      var b = el('button', 'chip chip--wide');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(presetMatches(p)));
+      b.appendChild(el('span', null, p.name));
+      b.appendChild(el('span', 'chip__sub', p.sub + ' · ' + presetCount(p) + '問'));
+      b.addEventListener('click', function () { p.apply(); refreshHome(); });
+      box.appendChild(b);
+    });
+  }
+
+  function renderLevelChips() {
+    var box = $('level-chips');
+    box.textContent = '';
+    [{ n: 1, label: '★ 初級' }, { n: 2, label: '★★ 中級' }, { n: 3, label: '★★★ 上級' }].forEach(function (L) {
+      var n = BANK.filter(function (q) { return q.level === L.n && setup.cats.indexOf(q.cat) !== -1; }).length;
+      var b = el('button', 'chip chip--sm');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(setup.levels.indexOf(L.n) !== -1));
+      b.appendChild(el('span', null, L.label));
+      b.appendChild(el('span', 'chip__n', n));
+      b.addEventListener('click', function () {
+        var i = setup.levels.indexOf(L.n);
+        if (i === -1) setup.levels.push(L.n);
+        else if (setup.levels.length > 1) setup.levels.splice(i, 1);
+        refreshHome();
+      });
+      box.appendChild(b);
+    });
+
+    var mb = el('button', 'chip chip--sm');
+    mb.type = 'button';
+    mb.setAttribute('aria-pressed', String(setup.must));
+    mb.appendChild(el('span', null, '必修のみ'));
+    mb.appendChild(el('span', 'chip__n', BANK.filter(function (q) { return q.must; }).length));
+    mb.addEventListener('click', function () { setup.must = !setup.must; refreshHome(); });
+    box.appendChild(mb);
   }
 
   function show(name) {
@@ -144,6 +230,39 @@
     });
   }
 
+  function renderRoleChips() {
+    var box = $('role-chips');
+    box.textContent = '';
+
+    ROLES.forEach(function (r) {
+      var n = BANK.filter(function (q) { return r.cats.indexOf(q.cat) !== -1; }).length;
+      // 現在の選択がちょうどこの役割の範囲と一致しているか
+      var on = r.cats.length === setup.cats.length &&
+               r.cats.every(function (c) { return setup.cats.indexOf(c) !== -1; });
+      var b = el('button', 'chip chip--wide');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(on));
+      b.appendChild(el('span', null, r.name));
+      b.appendChild(el('span', 'chip__sub', r.note + ' · ' + n + '問'));
+      b.addEventListener('click', function () {
+        setup.cats = r.cats.slice();
+        refreshHome();
+      });
+      box.appendChild(b);
+    });
+
+    var all = el('button', 'chip chip--wide');
+    all.type = 'button';
+    all.setAttribute('aria-pressed', String(setup.cats.length === CATS.length));
+    all.appendChild(el('span', null, 'すべて'));
+    all.appendChild(el('span', 'chip__sub', '規則1〜25の全範囲 · ' + BANK.length + '問'));
+    all.addEventListener('click', function () {
+      setup.cats = CATS.map(function (c) { return c.id; });
+      refreshHome();
+    });
+    box.appendChild(all);
+  }
+
   function renderCatChips() {
     var box = $('cat-chips');
     box.textContent = '';
@@ -166,7 +285,7 @@
           if (allOn && i !== -1) setup.cats.splice(i, 1);
           if (!allOn && i === -1) setup.cats.push(c.id);
         });
-        renderCatChips(); renderCountChips();
+        refreshHome();
       });
       head.appendChild(tog);
       sec.appendChild(head);
@@ -182,7 +301,7 @@
         b.addEventListener('click', function () {
           var i = setup.cats.indexOf(c.id);
           if (i === -1) setup.cats.push(c.id); else setup.cats.splice(i, 1);
-          renderCatChips(); renderCountChips();
+          refreshHome();
         });
         chips.appendChild(b);
       });
@@ -270,9 +389,10 @@
   function startRound() {
     var list = shuffle(pool());
     var n = setup.count === 0 ? list.length : Math.min(setup.count, list.length);
-    var names = setup.cats.length === CATS.length
-      ? '全範囲'
+    var names = setup.must ? '必修'
+      : setup.cats.length === CATS.length ? '全範囲'
       : setup.cats.map(function (id) { return CAT_BY_ID[id].short; }).join('・');
+    if (setup.levels.length < 3) names += ' / ' + setup.levels.map(function (n) { return '★'.repeat(n); }).join('・');
     prepare(list.slice(0, n), setup.mode, names);
   }
 
@@ -569,12 +689,12 @@
 
   $('cat-all').addEventListener('click', function () {
     setup.cats = CATS.map(function (c) { return c.id; });
-    renderCatChips(); renderCountChips();
+    refreshHome();
   });
 
   $('cat-none').addEventListener('click', function () {
     setup.cats = [];
-    renderCatChips(); renderCountChips();
+    refreshHome();
   });
 
   $('rv-all').addEventListener('click', function () { renderReview(false); });
@@ -627,8 +747,7 @@
 
   $('bank-total').textContent = BANK.length;
   renderModeChips();
-  renderCatChips();
-  renderCountChips();
+  refreshHome();
   renderRecord();
   show('home');
 })();

@@ -808,3 +808,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .band__toggle:hover { color: var(--ink); }
 
 .chip--sm { padding: .38rem .7rem; font-size: .875rem; }
+
+/* ヘッダー内のページ間リンク */
+.masthead__link {
+  color: var(--stake);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.masthead__link:hover { color: var(--on-turf); }

@@ -8,7 +8,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 2023年の主な変更点 ══════════════════════════════ */
 
 {
-  id: 'c01', cat: 'changes2023', rule: '規則3.3b', level: 1, pen: 'none',
+  id: 'c01', must: true, cat: 'changes2023', rule: '規則3.3b', level: 1, pen: 'none',
   q: '2023年の規則改訂で、ストロークプレーにおけるスコアカードのハンディキャップの扱いはどうなったか。',
   choices: [
     'スコアカードにハンディキャップを記入する必要はなく、間違ったハンディキャップを記入しても罰はない',
@@ -25,7 +25,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: 'この軽減は、規則全体で罰を実質的な違反に絞る方針の一環です。同じ2023年改訂で、誤って取り替えた球をプレーした罰も一般の罰から1打の罰に軽減されました。マッチプレーには適用されません(ストロークプレーに限る)。'
 },
 {
-  id: 'c02', cat: 'changes2023', rule: '規則14.7a', level: 1, pen: 'info', fig: 'back-on-line',
+  id: 'c02', must: true, cat: 'changes2023', rule: '規則14.7a', level: 1, pen: 'info', fig: 'back-on-line',
   q: '2023年の規則改訂で、後方線上の救済はどのように簡潔化されたか。',
   choices: [
     '球を線上にドロップし、その球はどの方向にも1クラブレングスまで転がることができる',
@@ -43,7 +43,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '「ホールに近づかない」という条件は残ります。線上にドロップした球が、基点よりホールに近い位置に転がって止まった場合は救済エリアの外です。'
 },
 {
-  id: 'c03', cat: 'changes2023', rule: '規則4.1a(2)', level: 1, pen: 'info',
+  id: 'c03', must: true, cat: 'changes2023', rule: '規則4.1a(2)', level: 1, pen: 'info',
   q: 'ラウンド中に(乱暴に扱った場合を除いて)クラブを損傷した場合、2023年規則でプレーヤーができることはどれか。',
   choices: [
     '取り替える、修理する、そのまま使用する のいずれも選択できる',
@@ -61,7 +61,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '取り替えるためにコース上の他のプレーヤーのクラブを借りることはできません(規則4.1b(2))。'
 },
 {
-  id: 'c04', cat: 'changes2023', rule: '規則9.3 例外2', level: 2, pen: 'none',
+  id: 'c04', must: true, cat: 'changes2023', rule: '規則9.3 例外2', level: 2, pen: 'none',
   q: '救済を受けてドロップし、止まった球が、その後で自然の力によって他のコースエリアに転がっていった。2023年規則ではどうするか。',
   choices: [
     '罰なしに、その球を元の箇所にリプレースしなければならない',
@@ -79,7 +79,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '「他のコースエリア」に加えて、球がOBに出た場合にもこの例外が適用され、リプレースします。'
 },
 {
-  id: 'c05', cat: 'changes2023', rule: '規則25', level: 1, pen: 'info',
+  id: 'c05', must: true, cat: 'changes2023', rule: '規則25', level: 1, pen: 'info',
   q: '障がいを持つゴルファーのための規則の修正について、2023年からの扱いとして正しいものはどれか。',
   choices: [
     '規則の一部(規則25)となり、すべての競技と該当するすべてのプレーヤーに施行される',

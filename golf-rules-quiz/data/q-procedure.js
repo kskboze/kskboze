@@ -4,7 +4,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 救済の手続き(規則14) ═════════════════════════ */
 
 {
-  id: 'p01', cat: 'procedure', rule: '規則14.3b(2)', level: 1, pen: 'general', fig: 'drop-flow',
+  id: 'p01', must: true, cat: 'procedure', rule: '規則14.3b(2)', level: 1, pen: 'general', fig: 'drop-flow',
   q: '球をドロップする正しい高さはどれか。',
   choices: ['膝の高さ', '肩の高さ', '腰の高さ', '地面すれすれ'],
   why: '規則14.3b(2)により、2019年からプレーヤーは膝の高さから球をドロップしなければなりません。「膝の高さ」とは、まっすぐ立ったときの地面から膝までの高さです。肩の高さからのドロップ(2018年まで)より球が救済エリアに留まりやすくなりました。',
@@ -16,7 +16,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'p02', cat: 'procedure', rule: '規則14.3c(2)', level: 2, pen: 'info', fig: 'drop-flow',
+  id: 'p02', must: true, cat: 'procedure', rule: '規則14.3c(2)', level: 2, pen: 'info', fig: 'drop-flow',
   q: 'ドロップした球が救済エリアの外に止まった。どうするか。',
   choices: [
     '再ドロップし、2回目も救済エリア外に止まったら、2回目のドロップで球が最初に地面に触れた箇所にプレースする',
@@ -50,7 +50,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'p04', cat: 'procedure', rule: '規則14.1a', level: 1, pen: 'one',
+  id: 'p04', must: true, cat: 'procedure', rule: '規則14.1a', level: 1, pen: 'one',
   q: 'リプレースする球を拾い上げる前に、必ずしなければならないことはどれか。',
   choices: [
     'その球の箇所をマークすること',
@@ -67,7 +67,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'p05', cat: 'procedure', rule: '規則14.7a', level: 2, pen: 'general',
+  id: 'p05', must: true, cat: 'procedure', rule: '規則14.7a', level: 2, pen: 'general',
   q: '誤所から球をプレーした。ストロークプレーでの裁定はどれか。',
   choices: [
     '一般の罰。重大な違反であれば正しい場所からプレーして訂正しなければならない',
@@ -263,7 +263,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 罰なしの救済(規則15〜16) ═════════════════════ */
 
 {
-  id: 'f01', cat: 'freerelief', rule: '規則15.2a', level: 1, pen: 'none',
+  id: 'f01', must: true, cat: 'freerelief', rule: '規則15.2a', level: 1, pen: 'none',
   q: '動かせる障害物(バンカーレーキ、空き缶など)が球のすぐ近くにある。どう扱われるか。',
   choices: [
     'コース上のどこでも罰なしに取り除くことができ、球が動いた場合は罰なしにリプレースする',
@@ -280,7 +280,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: 'ルースインペディメント(自然物)を取り除いて球が動くと1打の罰。動かせる障害物(人工物)なら罰なし。この違いを覚えておきます。'
 },
 {
-  id: 'f02', cat: 'freerelief', rule: '規則15.1a', level: 1, pen: 'none',
+  id: 'f02', must: true, cat: 'freerelief', rule: '規則15.1a', level: 1, pen: 'none',
   q: 'ルースインペディメント(石、葉、枝、動物の糞など)を取り除くことができる場所はどこか。',
   choices: [
     'コース上のどこでも(ペナルティーエリアやバンカーを含む)',
@@ -296,7 +296,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'f03', cat: 'freerelief', rule: '規則16.1a', level: 1, pen: 'none', fig: 'nearest-point',
+  id: 'f03', must: true, cat: 'freerelief', rule: '規則16.1a', level: 1, pen: 'none', fig: 'nearest-point',
   q: '動かせない障害物(カート道路など)が球やスタンス、スイング区域の障害になっている。どうすることができるか。',
   choices: [
     '罰なしの救済を受けることができる',
@@ -314,7 +314,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: 'パッティンググリーン上ではドロップではなくプレースします(規則16.1d)。'
 },
 {
-  id: 'f04', cat: 'freerelief', rule: '規則16.3a', level: 2, pen: 'none', fig: 'embedded',
+  id: 'f04', must: true, cat: 'freerelief', rule: '規則16.3a', level: 2, pen: 'none', fig: 'embedded',
   q: 'ジェネラルエリアで球が自らのピッチマークの中に食い込んでいた(目玉の球)。どうするか。',
   choices: [
     '罰なしの救済を受けることができる',
@@ -332,7 +332,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '砂に潜り込んだ球でも、ジェネラルエリア(バンカー外)で自らのピッチマークにあれば救済の対象です。'
 },
 {
-  id: 'f05', cat: 'freerelief', rule: '規則16.1b', level: 2, pen: 'info', fig: 'nearest-point',
+  id: 'f05', must: true, cat: 'freerelief', rule: '規則16.1b', level: 2, pen: 'info', fig: 'nearest-point',
   q: 'ジェネラルエリアで一時的な水(カジュアルウォーター)から救済を受ける場合、救済エリアの基点はどこか。',
   choices: [
     '完全な救済のニヤレストポイント',
@@ -476,7 +476,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   why: '規則16.3aにより、目玉の球の罰なしの救済はジェネラルエリアの球にだけ適用されます。バンカー内やペナルティーエリア内の球には適用されません。',
   next: [
     'バンカー内の球はあるがままにプレーするか、アンプレヤブル(規則19.3)を選ぶ。',
-    'ジェネラルエリアであれば、フェアウェイでもラフでも救済を受けられる。',
+    'ジェネラルエリアであれば、フェアウェイでもラフでも救済を受けられる。ただし、フェアウェイの長さかそれ以下に刈っていない区域の砂の中にくい込んでいる場合は、規則16.3aの例外により救済がない。',
     '委員会がローカルルールでフェアウェイに限定することもできる(ひな型F-2)。'
   ]
 },
