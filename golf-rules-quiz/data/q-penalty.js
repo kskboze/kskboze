@@ -241,7 +241,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ 紛失球・OB・暫定球(規則18) ═══════════════════ */
 
 {
-  id: 'o01', cat: 'lostob', rule: '規則18.2b', level: 1, pen: 'one', fig: 'stroke-count',
+  id: 'o01', cat: 'lostob', rule: '規則6.3c', level: 1, pen: 'one', fig: 'stroke-count',
   q: 'ティーショットがOBになった。どうするか。',
   choices: [
     '1打の罰を加えて、直前のストロークを行った場所から再びプレーする',
@@ -477,7 +477,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 /* ══ アンプレヤブル(規則19) ═══════════════════════ */
 
 {
-  id: 'u01', cat: 'unplayable', rule: '規則19.2', level: 2, pen: 'one', fig: 'unplayable',
+  id: 'u01', cat: 'unplayable', rule: '規則14.3a', level: 2, pen: 'one', fig: 'unplayable',
   q: 'ジェネラルエリアでアンプレヤブルの救済を受ける場合の選択肢として、【正しくない】ものはどれか。',
   choices: [
     '罰なしにラテラルに2クラブレングス以内にドロップする',

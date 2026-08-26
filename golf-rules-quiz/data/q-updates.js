@@ -25,7 +25,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: 'この軽減は、規則全体で罰を実質的な違反に絞る方針の一環です。同じ2023年改訂で、誤って取り替えた球をプレーした罰も一般の罰から1打の罰に軽減されました。マッチプレーには適用されません(ストロークプレーに限る)。'
 },
 {
-  id: 'c02', cat: 'changes2023', rule: '規則14.3b', level: 1, pen: 'info', fig: 'back-on-line',
+  id: 'c02', cat: 'changes2023', rule: '規則14.7a', level: 1, pen: 'info', fig: 'back-on-line',
   q: '2023年の規則改訂で、後方線上の救済はどのように簡潔化されたか。',
   choices: [
     '球を線上にドロップし、その球はどの方向にも1クラブレングスまで転がることができる',

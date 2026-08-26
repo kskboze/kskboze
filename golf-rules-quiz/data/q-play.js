@@ -72,7 +72,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'm05', cat: 'ballmoved', rule: '規則9.4b 例外', level: 2, pen: 'none',
+  id: 'm05', cat: 'ballmoved', rule: '規則13.1d', level: 2, pen: 'none',
   q: 'ルースインペディメントを取り除こうとして、パッティンググリーン上の自分の球を動かした。裁定はどれか。',
   choices: [
     '罰はなく、元の箇所にリプレースする',
@@ -170,20 +170,22 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'm11', cat: 'ballmoved', rule: '規則9.7', level: 3, pen: 'one',
-  q: 'プレーヤーが自分のボールマーカーを偶然に動かしてしまった(パッティンググリーン以外の場所で)。裁定はどれか。',
+  id: 'm11', cat: 'ballmoved', rule: '規則9.7b', level: 3, pen: 'one',
+  q: 'パッティンググリーン以外の場所で球を拾い上げた後、プレーヤーが自分のボールマーカーを歩いていて偶然に蹴って動かしてしまった。裁定はどれか。',
   choices: [
-    '罰はなく、ボールマーカーを元の箇所に戻す',
-    '1打の罰',
+    '1打の罰を受け、ボールマーカーまたは球を元の箇所に戻す',
+    '罰はなく、元の箇所に戻す',
     '一般の罰',
-    '球をあるがままにプレーする'
+    'そのままの位置に球をリプレースしてよい'
   ],
-  why: '規則9.7bにより、球を拾い上げる前や後にボールマーカーを動かす原因となった場合、その動きが球やボールマーカーを拾い上げる過程で生じたのであれば罰はありません。ボールマーカーを元の箇所に戻します。',
+  why: '規則9.7bにより、プレーヤーが自分のボールマーカーを動かす原因となった場合は1打の罰を受けます。ただし、球やボールマーカーをマークする・拾い上げる・リプレースするという行為の過程で動いた場合は罰がありません。歩いていて蹴ってしまったのはその過程ではないので、罰が適用されます。',
   next: [
-    'ボールマーカーを元の箇所に戻す。',
-    'その箇所が分からない場合は推定する。',
-    '球をリプレースしてプレーする。'
-  ]
+    '1打の罰を加える。',
+    'ボールマーカーを元の箇所に戻すか、その箇所に球をリプレースする。',
+    '元の箇所が分からない場合は推定する。',
+    'パッティンググリーン上であれば、規則13.1dにより罰はない。'
+  ],
+  note: 'グリーン上とグリーン外で扱いが分かれます。グリーン上は罰なし、グリーン外は原則1打の罰です。'
 },
 {
   id: 'm12', cat: 'ballmoved', rule: '規則9.1a', level: 1, pen: 'info',
@@ -218,7 +220,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'm14', cat: 'ballmoved', rule: '規則14.2c', level: 2, pen: 'info',
+  id: 'm14', cat: 'ballmoved', rule: '規則14.2b', level: 2, pen: 'info',
   q: '球をリプレースするとき、誰が置くことができるか。',
   choices: [
     'プレーヤー本人またはそのキャディー',
@@ -309,7 +311,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'a06', cat: 'stroke', rule: '規則10.1b', level: 2, pen: 'general',
+  id: 'a06', cat: 'stroke', rule: '規則10.2b(1)', level: 2, pen: 'general',
   q: '動いている球にクラブが当たった(意図的にストロークを行った場合)。裁定はどれか。',
   choices: [
     '一般の罰',
@@ -356,7 +358,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'a09', cat: 'stroke', rule: '規則10.3b(1)', level: 2, pen: 'varies',
+  id: 'a09', cat: 'stroke', rule: '規則10.3c', level: 2, pen: 'varies',
   q: 'キャディーが規則に違反した場合、その責任は誰が負うか。',
   choices: [
     'プレーヤーが負い、プレーヤーが罰を受ける',
@@ -553,7 +555,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'n07', cat: 'inmotion', rule: '規則11.1b(2)', level: 3, pen: 'none',
+  id: 'n07', cat: 'inmotion', rule: '規則11.1a', level: 3, pen: 'none',
   q: 'ストロークした球が偶然に人に当たり、その人の衣服やポケットの中に止まった。どうするか。',
   choices: [
     '罰なしに、球が止まったところの真下の箇所を基点として救済を受ける',
@@ -602,7 +604,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'n10', cat: 'inmotion', rule: '規則11.1a 例外', level: 3, pen: 'general',
+  id: 'n10', cat: 'inmotion', rule: '規則11.2', level: 3, pen: 'general',
   q: '動いている自分の球が、自分が故意に置いた物に当たった。裁定はどれか。',
   choices: [
     '故意に影響を及ぼしたとして一般の罰',

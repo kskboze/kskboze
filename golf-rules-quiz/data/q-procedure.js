@@ -194,7 +194,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   ]
 },
 {
-  id: 'p13', cat: 'procedure', rule: '規則14.3c(1)', level: 2, pen: 'info',
+  id: 'p13', cat: 'procedure', rule: '規則14.3b(2)', level: 2, pen: 'info',
   q: 'ドロップした球が、救済エリアに落ちる前にプレーヤーの体や用具に当たった。どうするか。',
   choices: [
     '罰なしに再ドロップする(この回数は数えない)',

@@ -290,7 +290,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
   note: '「探している間」に限られます。探し終わって球が見つかった後に動かせば、通常どおり規則9.4bの1打の罰です。'
 },
 {
-  id: 's03', cat: 'search', rule: '規則7.1a', level: 2, pen: 'none',
+  id: 's03', cat: 'search', rule: '規則8.1a', level: 2, pen: 'none',
   q: '球を探すために、砂の中の球を掘り起こしたり、長い草を分けたりすることは認められるか。',
   choices: [
     '球を見つけて特定するための合理的な行為として認められる',
