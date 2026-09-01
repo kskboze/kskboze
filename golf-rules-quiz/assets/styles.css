@@ -817,3 +817,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-weight: 500;
 }
 .masthead__link:hover { color: var(--on-turf); }
+
+/* 単一ファイル版では行き先のページが存在しないことがある。
+   リンクにせず、同じ位置に同じ調子で置いておく */
+.masthead__link--off { text-decoration: none; cursor: default; opacity: .45; }
+.masthead__link--off:hover { color: inherit; }

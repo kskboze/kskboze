@@ -1,0 +1,178 @@
+/* ============================================================
+   印刷用ページ — 画面では設定パネル、紙では問題用紙だけが出る
+   A4 縦・余白は綴じ代を左に少し多めに取る
+   ============================================================ */
+
+.pr {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem 4rem;
+}
+
+.pr__lede {
+  max-width: 34em;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  margin: 0 0 1.75rem;
+}
+
+/* ── 出力の種類 ────────────────────────────────── */
+
+.sheetpick {
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.sheet {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  text-align: left;
+  padding: .9rem 1rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  background: var(--surface);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.sheet:hover { border-color: var(--turf); }
+.sheet[aria-pressed="true"] {
+  background: var(--turf);
+  border-color: var(--turf);
+  color: var(--on-turf);
+}
+.sheet__name { font-weight: 700; }
+.sheet__sub { font-size: .8125rem; opacity: .74; line-height: 1.6; }
+
+/* ── 紙面のプレビュー ──────────────────────────── */
+
+.paper {
+  margin-top: 2rem;
+  background: #fff;
+  color: #101a15;
+  border: 1px solid var(--rule-strong);
+  padding: 2rem 1.75rem;
+}
+
+.sheethead {
+  border-bottom: 2px solid #101a15;
+  padding-bottom: .6rem;
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .5rem 1rem;
+}
+.sheethead__title { font-family: var(--font-display); font-size: 1.25rem; margin: 0; }
+.sheethead__meta { font-size: .8125rem; color: #5c6961; }
+.sheethead__name {
+  margin-left: auto;
+  font-size: .8125rem;
+  border-bottom: 1px solid #101a15;
+  min-width: 13em;
+  padding-bottom: .1rem;
+}
+
+/* 段組み。2段は日本語でも 40 字前後に収まる */
+.sheetbody[data-cols="2"] { column-count: 2; column-gap: 1.6rem; }
+.sheetbody[data-cols="2"] .pq,
+.sheetbody[data-cols="2"] .pa { break-inside: avoid; }
+
+/* ── 問題用紙の1問 ─────────────────────────────── */
+
+.pq {
+  margin: 0 0 1.15rem;
+  padding-bottom: .95rem;
+  border-bottom: 1px dotted #b3bfb5;
+  break-inside: avoid;
+}
+.pq__head {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin-bottom: .35rem;
+}
+.pq__no {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: .8125rem;
+  min-width: 3.2em;
+}
+.pq__tag { font-size: .6875rem; color: #5c6961; }
+.pq__q { font-size: .875rem; line-height: 1.75; margin: 0 0 .45rem; }
+.pq__c { margin: 0; padding: 0; list-style: none; font-size: .8125rem; line-height: 1.7; }
+.pq__c li { padding-left: 1.6em; text-indent: -1.6em; margin-bottom: .1rem; }
+.pq__k { font-family: var(--font-mono); font-weight: 500; margin-right: .35em; }
+.pq__box {
+  margin-top: .45rem;
+  font-size: .75rem;
+  color: #5c6961;
+}
+.pq__box i {
+  display: inline-block;
+  width: 3.2em;
+  height: 1.5em;
+  border: 1px solid #101a15;
+  vertical-align: -.45em;
+  margin-left: .35em;
+}
+
+/* 問題用紙の図解は小さく。説明文は print.js が落とすので見出しだけ残る */
+.pq .fig { margin: .5rem 0 0; }
+.pq .fig__svg { max-height: 128px; }
+.pq .fig__cap { font-size: .6875rem; padding: .35rem .5rem; }
+.pq .fig__cap b { display: block; font-size: .6875rem; margin: 0; }
+
+/* ── 解答用紙の1問 ─────────────────────────────── */
+
+.pa {
+  margin: 0 0 1rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px dotted #b3bfb5;
+  break-inside: avoid;
+  font-size: .8125rem;
+  line-height: 1.7;
+}
+.pa__head { display: flex; align-items: baseline; gap: .5rem; flex-wrap: wrap; }
+.pa__no { font-family: var(--font-mono); font-weight: 500; min-width: 3.2em; }
+.pa__ans {
+  font-weight: 700;
+  background: #f6e6c0;
+  padding: 0 .4em;
+  border-radius: 2px;
+}
+.pa__rule { font-family: var(--font-mono); font-size: .75rem; color: #5c6961; }
+.pa__pen { font-size: .6875rem; border: 1px solid #b3bfb5; padding: 0 .4em; border-radius: 2px; }
+.pa__q { color: #5c6961; margin: .15rem 0 .3rem; }
+.pa__why { margin: 0 0 .3rem; }
+.pa__next { margin: 0; padding-left: 1.3em; }
+.pa__next li { margin-bottom: .1rem; }
+
+/* ── 図解シート ────────────────────────────────── */
+
+.figsheet { display: block; }
+.figsheet .fig {
+  break-inside: avoid;
+  margin: 0 0 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px dotted #b3bfb5;
+}
+
+/* ── 印刷 ──────────────────────────────────────── */
+
+@page { size: A4 portrait; margin: 14mm 12mm 16mm; }
+
+@media print {
+  .masthead, .pr__lede, .pr__setup, .pr__actions, .footnote { display: none !important; }
+  html, body { background: #fff !important; color: #000 !important; }
+  .pr { max-width: none; padding: 0; margin: 0; }
+  .paper { border: 0; padding: 0; margin: 0; background: #fff; }
+  .sheethead { position: running(head); }
+  /* 図解はダーク配色を持ち込まない */
+  .fig, .fig__svg { color: #101a15; }
+  .fig__cap { color: #3a463f; }
+  a[href]::after { content: none !important; }
+}

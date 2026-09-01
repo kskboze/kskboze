@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゴルフ規則 印刷用シート</title>
+<meta name="description" content="ゴルフ規則2023年版の全1043問から範囲を選び、問題用紙・解答用紙・図解シートをA4で印刷できます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/print.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <h1 class="masthead__title">ゴルフ規則 印刷用シート</h1>
+    <span class="masthead__meta"><a class="masthead__link" href="handbook.html">問題集 &rarr;</a></span>
+    <span class="masthead__meta"><a class="masthead__link" href="index.html">テスト &rarr;</a></span>
+    <span class="masthead__meta"><a class="masthead__link" href="cards.html">カード画像 &rarr;</a></span>
+  </div>
+</header>
+
+<main class="pr">
+
+  <p class="pr__lede">
+    紙で配りたいときのためのページです。出力の種類と範囲を選ぶと、下に刷り上がりがそのまま出ます。
+    <strong>印刷する</strong>を押すか <kbd>Ctrl</kbd>/<kbd>&#8984;</kbd> + <kbd>P</kbd> で、この設定パネルは消えて紙面だけが出ます。
+    ブラウザの印刷画面で「PDFに保存」を選べばPDFになります。
+  </p>
+
+  <div class="pr__setup">
+
+    <div class="field">
+      <div class="field__head">
+        <span class="field__label">出力の種類</span>
+      </div>
+      <div class="sheetpick" id="sheet-chips" role="group" aria-label="出力の種類"></div>
+    </div>
+
+    <div id="range-fields">
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">範囲</span>
+          <span class="field__hint" id="sel-hint"></span>
+        </div>
+        <div class="bands" id="cat-chips" role="group" aria-label="出題範囲"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head"><span class="field__label">難易度</span></div>
+        <div class="chips" id="level-chips" role="group" aria-label="難易度"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head"><span class="field__label">必修</span></div>
+        <div class="chips" id="must-chips" role="group" aria-label="必修"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">問題数</span>
+          <span class="field__hint">章の並び順のまま、均等に間引きます</span>
+        </div>
+        <div class="chips" id="count-chips" role="group" aria-label="問題数"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+          <span class="field__label">段組み</span>
+          <span class="field__hint">2段は紙が半分で済みます</span>
+        </div>
+        <div class="chips" id="cols-chips" role="group" aria-label="段組み"></div>
+      </div>
+
+      <div class="field">
+        <div class="field__head">
+            <span class="field__label">問題用紙の図解</span>
+            <span class="field__hint">図が答えの手がかりになる問題もあります。採点する試験なら省くのが安全です</span>
+          </div>
+        <div class="chips" id="fig-chips" role="group" aria-label="図解"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pr__actions actions">
+    <button class="btn btn--lg" id="print-btn" type="button">印刷する</button>
+  </div>
+
+  <div class="paper" id="paper"></div>
+
+  <p class="footnote">
+    <b>選択肢の並びは問題ごとに固定です。</b>同じ範囲を何度刷っても並びは変わらないので、
+    問題用紙と解答用紙の記号は必ず一致します。解答用紙は問題用紙と同じ設定のまま
+    「解答用紙」に切り替えて刷ってください。
+  </p>
+
+</main>
+
+<script src="data/categories.js"></script>
+<script src="data/categories.js"></script>
+<script src="data/q-updates.js"></script>
+<script src="data/q-foundation.js"></script>
+<script src="data/q-round.js"></script>
+<script src="data/q-play.js"></script>
+<script src="data/q-course.js"></script>
+<script src="data/q-procedure.js"></script>
+<script src="data/q-penalty.js"></script>
+<script src="data/q-admin.js"></script>
+<script src="data/q-onsite.js"></script>
+<script src="data/q-tricky.js"></script>
+<script src="data/q-terms.js"></script>
+<script src="data/q2-procedure.js"></script>
+<script src="data/q2-green.js"></script>
+<script src="data/q2-relief.js"></script>
+<script src="data/q2-play.js"></script>
+<script src="data/q2-committee.js"></script>
+<script src="data/q2-foundation.js"></script>
+<script src="data/q2-admin.js"></script>
+<script src="data/q3-tricky.js"></script>
+<script src="data/q3-onsite.js"></script>
+<script src="data/q4-search.js"></script>
+<script src="data/q4-improve.js"></script>
+<script src="data/q4-ballmoved.js"></script>
+<script src="data/q4-stroke.js"></script>
+<script src="data/q4-inmotion.js"></script>
+<script src="data/q4-bunker.js"></script>
+<script src="data/q4-penaltyarea.js"></script>
+<script src="data/q4-lostob.js"></script>
+<script src="data/q4-unplayable.js"></script>
+<script src="data/q4-disputes.js"></script>
+<script src="data/q4-formats.js"></script>
+<script src="data/q4-equipment.js"></script>
+<script src="data/q4-round.js"></script>
+<script src="data/q4-green.js"></script>
+<script src="data/q4-committee.js"></script>
+<script src="data/q4-terms.js"></script>
+<script src="data/q4-onsite.js"></script>
+<script src="data/q5-committee.js"></script>
+<script src="assets/figures.js"></script>
+<script src="assets/print.js"></script>
+
+</body>
+</html>

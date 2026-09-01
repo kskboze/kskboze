@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゴルフ規則 カード画像</title>
+<meta name="description" content="ゴルフ規則の問題を1問1枚のカードで表示します。tools/cards.js でPNGに書き出せます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Old+Mincho:wght@700&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/cards.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <h1 class="masthead__title">ゴルフ規則 カード画像</h1>
+    <span class="masthead__meta"><a class="masthead__link" href="print.html">印刷用シート &rarr;</a></span>
+    <span class="masthead__meta" id="cd-count">0枚</span>
+  </div>
+</header>
+
+<main class="cd">
+  <p class="cd__lede">
+    1問1枚のカードです。スライドに貼る、掲示する、SNSに載せるといった用途を想定しています。
+    URLの後ろに条件を付けると中身が変わります &mdash;
+    <code>?must=1&amp;limit=20</code>(必修から20枚)、<code>?cats=bunker</code>(バンカーだけ)、
+    <code>?answer=1</code>(答えと理由つき)、<code>?fig=0</code>(図解なし)、<code>?ids=x001,x002</code>(ID指定)。
+    PNGに書き出すには <code>node tools/cards.js</code> を実行してください。
+  </p>
+  <div class="cd__grid" id="cards"></div>
+</main>
+
+<script src="data/categories.js"></script>
+<script src="data/categories.js"></script>
+<script src="data/categories.js"></script>
+<script src="data/q-updates.js"></script>
+<script src="data/q-foundation.js"></script>
+<script src="data/q-round.js"></script>
+<script src="data/q-play.js"></script>
+<script src="data/q-course.js"></script>
+<script src="data/q-procedure.js"></script>
+<script src="data/q-penalty.js"></script>
+<script src="data/q-admin.js"></script>
+<script src="data/q-onsite.js"></script>
+<script src="data/q-tricky.js"></script>
+<script src="data/q-terms.js"></script>
+<script src="data/q2-procedure.js"></script>
+<script src="data/q2-green.js"></script>
+<script src="data/q2-relief.js"></script>
+<script src="data/q2-play.js"></script>
+<script src="data/q2-committee.js"></script>
+<script src="data/q2-foundation.js"></script>
+<script src="data/q2-admin.js"></script>
+<script src="data/q3-tricky.js"></script>
+<script src="data/q3-onsite.js"></script>
+<script src="data/q4-search.js"></script>
+<script src="data/q4-improve.js"></script>
+<script src="data/q4-ballmoved.js"></script>
+<script src="data/q4-stroke.js"></script>
+<script src="data/q4-inmotion.js"></script>
+<script src="data/q4-bunker.js"></script>
+<script src="data/q4-penaltyarea.js"></script>
+<script src="data/q4-lostob.js"></script>
+<script src="data/q4-unplayable.js"></script>
+<script src="data/q4-disputes.js"></script>
+<script src="data/q4-formats.js"></script>
+<script src="data/q4-equipment.js"></script>
+<script src="data/q4-round.js"></script>
+<script src="data/q4-green.js"></script>
+<script src="data/q4-committee.js"></script>
+<script src="data/q4-terms.js"></script>
+<script src="data/q4-onsite.js"></script>
+<script src="data/q5-committee.js"></script>
+<script src="assets/figures.js"></script>
+<script src="assets/cards.js"></script>
+
+</body>
+</html>
