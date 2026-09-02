@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'm01', must: true, cat: 'ballmoved', rule: '規則9.4b', level: 2, pen: 'one',
-  q: 'ジェネラルエリアで、プレーヤーが自分の止まっている球を偶然に動かしてしまった。裁定はどれか。',
+  q: 'ジェネラルエリアで、プレーヤーが自分の止まっている球を偶然に動かしてしまいました。裁定はどれですか。',
   choices: [
     '1打の罰を受け、元の箇所にリプレースする',
     '罰なしに元の箇所にリプレースする',
@@ -23,7 +23,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm02', must: true, cat: 'ballmoved', rule: '規則9.6', level: 2, pen: 'none',
-  q: '動物(外的影響)がプレーヤーの止まっている球を動かした。どうするか。',
+  q: '動物(外的影響)がプレーヤーの止まっている球を動かしました。どうすればよいですか。',
   choices: [
     '罰なしに元の箇所にリプレースする',
     '罰なしに、あるがままにプレーする',
@@ -40,7 +40,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm03', must: true, cat: 'ballmoved', rule: '規則9.3', level: 2, pen: 'none',
-  q: 'ジェネラルエリアで止まっていた球が、風によって動いた。どうするか。',
+  q: 'ジェネラルエリアで止まっていた球が、風によって動きました。どうすればよいですか。',
   choices: [
     '罰なしに、新しい位置からあるがままにプレーする',
     '元の箇所にリプレースする',
@@ -57,7 +57,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm04', cat: 'ballmoved', rule: '規則9.2b', level: 3, pen: 'info',
-  q: '球が動いた原因を判断する基準として正しいものはどれか。',
+  q: '球が動いた原因を判断する基準として正しいものはどれですか。',
   choices: [
     'プレーヤー、相手、外的影響が原因であることが「分かっている、または事実上確実」でなければ、自然の力が原因として扱う',
     '常にプレーヤーの責任とする',
@@ -73,7 +73,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm05', cat: 'ballmoved', rule: '規則13.1d', level: 2, pen: 'none',
-  q: 'ルースインペディメントを取り除こうとして、パッティンググリーン上の自分の球を動かした。裁定はどれか。',
+  q: 'ルースインペディメントを取り除こうとして、パッティンググリーン上の自分の球を動かしました。裁定はどれですか。',
   choices: [
     '罰はなく、元の箇所にリプレースする',
     '1打の罰を受けてリプレースする',
@@ -89,7 +89,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm06', cat: 'ballmoved', rule: '規則15.1b', level: 2, pen: 'one',
-  q: 'ジェネラルエリアで、球の近くの小枝(ルースインペディメント)を取り除いたところ、球が動いた。裁定はどれか。',
+  q: 'ジェネラルエリアで、球の近くの小枝(ルースインペディメント)を取り除いたところ、球が動きました。裁定はどれですか。',
   choices: [
     '1打の罰を受け、元の箇所にリプレースする',
     '罰なしにリプレースする',
@@ -106,7 +106,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm07', cat: 'ballmoved', rule: '規則9.5b', level: 3, pen: 'one',
-  q: 'マッチプレーで、相手がプレーヤーの止まっている球を偶然に動かした。裁定はどれか。',
+  q: 'マッチプレーで、相手がプレーヤーの止まっている球を偶然に動かしました。裁定はどれですか。',
   choices: [
     '相手が1打の罰を受け、球は元の箇所にリプレースする',
     '罰はなく、リプレースする',
@@ -123,7 +123,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm08', cat: 'ballmoved', rule: '規則9.1b', level: 2, pen: 'none',
-  q: 'ストロークのためのバックスイングを始めた後、その最中に球が動いた。どうするか。',
+  q: 'ストロークのためのバックスイングを始めた後、その最中に球が動きました。どうすればよいですか。',
   choices: [
     '球が動いたことを無視してストロークを完了し、その球をあるがままにプレーする',
     'ストロークをやめて球をリプレースする',
@@ -139,7 +139,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm09', cat: 'ballmoved', rule: '規則9.4', level: 2, pen: 'general',
-  q: '規則9.4bにより1打の罰でリプレースすべき球を、リプレースせずにその場所からプレーした。裁定はどれか。',
+  q: '規則9.4bにより1打の罰でリプレースすべき球を、リプレースせずにその場所からプレーしました。裁定はどれですか。',
   choices: [
     '誤所からのプレーとして一般の罰(1打の罰は適用されない)',
     '1打の罰と一般の罰の両方',
@@ -155,7 +155,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm10', cat: 'ballmoved', rule: '規則9.4b 例外', level: 2, pen: 'none',
-  q: '規則に基づいて球を拾い上げてよい場面で球を拾い上げた。裁定はどれか。',
+  q: '規則に基づいて球を拾い上げてよい場面で球を拾い上げました。裁定はどれですか。',
   choices: [
     '罰はない',
     '1打の罰',
@@ -171,7 +171,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm11', cat: 'ballmoved', rule: '規則9.7b', level: 3, pen: 'one',
-  q: 'パッティンググリーン以外の場所で球を拾い上げた後、プレーヤーが自分のボールマーカーを歩いていて偶然に蹴って動かしてしまった。裁定はどれか。',
+  q: 'パッティンググリーン以外の場所で球を拾い上げた後、プレーヤーが自分のボールマーカーを歩いていて偶然に蹴って動かしてしまいました。裁定はどれですか。',
   choices: [
     '1打の罰を受け、ボールマーカーまたは球を元の箇所に戻す',
     '罰はなく、元の箇所に戻す',
@@ -189,7 +189,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm12', cat: 'ballmoved', rule: '規則9.1a', level: 1, pen: 'info',
-  q: '球が「動いた」と判断されるのはどのような場合か。',
+  q: '球が「動いた」と判断されるのはどのような場合ですか。',
   choices: [
     '元の箇所を離れて別の箇所に止まり、それが肉眼で見ることができる場合',
     '少しでも揺れた場合',
@@ -205,7 +205,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm13', cat: 'ballmoved', rule: '規則9.6', level: 3, pen: 'none',
-  q: '他のプレーヤーが打った球が、プレーヤーの止まっている球に当たって動かした。どうするか。',
+  q: '他のプレーヤーが打った球が、プレーヤーの止まっている球に当たって動かしました。どうすればよいですか。',
   choices: [
     '罰はなく、動かされた球を元の箇所にリプレースする',
     '打った人が1打の罰',
@@ -221,7 +221,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'm14', cat: 'ballmoved', rule: '規則14.2b', level: 2, pen: 'info',
-  q: '球をリプレースできるのは誰か。',
+  q: '球をリプレースできるのは誰ですか。',
   choices: [
     'プレーヤー本人、またはその球を拾い上げた人・動かす原因となった人',
     'プレーヤー本人またはそのキャディー(誰が拾い上げたかを問わない)',
@@ -242,7 +242,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'a01', must: true, cat: 'stroke', rule: '規則10.2a', level: 1, pen: 'general',
-  q: 'ラウンド中にアドバイスを求めたり与えたりした場合の罰はどれか。',
+  q: 'ラウンド中にアドバイスを求めたり与えたりした場合の罰はどれですか。',
   choices: ['一般の罰', '1打の罰', '罰なし', '失格'],
   why: '規則10.2aにより、ラウンド中に自分のキャディーやパートナー(およびそのキャディー)以外の人にアドバイスを求めたり、コース上で競技している他のプレーヤーにアドバイスを与えたりすると一般の罰です。自分の判断でプレーすることがゴルフの技術の一部だという考え方です。',
   next: [
@@ -253,7 +253,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a02', must: true, cat: 'stroke', rule: 'アドバイスの定義', level: 2, pen: 'info',
-  q: '「アドバイス」に【含まれない】ものはどれか。',
+  q: '「アドバイス」に【含まれない】ものはどれですか。',
   choices: [
     '規則や競技の条件、コース上の物の位置、距離などの一般的な情報',
     'どのクラブを使うべきかという助言',
@@ -269,7 +269,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a03', must: true, cat: 'stroke', rule: '規則10.3a(1)', level: 1, pen: 'general',
-  q: 'プレーヤーが同時に持つことができるキャディーの人数はどれだけか。',
+  q: 'プレーヤーが同時に持つことができるキャディーの人数はどれだけですか。',
   choices: ['1人', '2人', '人数の制限はない', 'キャディーは認められない'],
   why: '規則10.3a(1)により、プレーヤーは一度に1人のキャディーしか持つことができません。複数のキャディーから援助を受けることは競技の公平性を損なうためです。ラウンド中にキャディーを交代することはできます。',
   next: [
@@ -280,7 +280,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a04', must: true, cat: 'stroke', rule: '規則10.2b(4)', level: 2, pen: 'general',
-  q: 'プレーヤーがストロークのためのスタンスをとり始めてから、キャディーが故意にプレーの線の後方に立つことはどう扱われるか。',
+  q: 'プレーヤーがストロークのためのスタンスをとり始めてから、キャディーが故意にプレーの線の後方に立つことはどのように扱われますか。',
   choices: [
     '認められず、違反すると一般の罰',
     '認められる',
@@ -297,7 +297,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a05', cat: 'stroke', rule: '規則10.1a', level: 2, pen: 'general',
-  q: '球を押し出したり、かき寄せたり、すくい上げたりして動かした。裁定はどれか。',
+  q: '球を押し出したり、かき寄せたり、すくい上げたりして動かしました。裁定はどれですか。',
   choices: [
     '一般の罰(そのストロークもカウントする)',
     '罰なし',
@@ -313,7 +313,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a06', cat: 'stroke', rule: '規則10.2b(1)', level: 2, pen: 'general',
-  q: '動いている球にクラブが当たった(意図的にストロークを行った場合)。裁定はどれか。',
+  q: '動いている球にクラブが当たりました(意図的にストロークを行った場合)。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -329,7 +329,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a07', cat: 'stroke', rule: '規則10.1c', level: 2, pen: 'general',
-  q: 'パッティンググリーン上で、ホールをまたいだり、プレーの線をまたいだ状態でストロークを行った。裁定はどれか。',
+  q: 'パッティンググリーン上で、ホールをまたいだり、プレーの線をまたいだ状態でストロークを行いました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -344,7 +344,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a08', cat: 'stroke', rule: '規則10.1d', level: 3, pen: 'general',
-  q: '球やホールに向けて、プレーの線を示す目印を置いてストロークを行った。裁定はどれか。',
+  q: '球やホールに向けて、プレーの線を示す目印を置いてストロークを行いました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -360,7 +360,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a09', cat: 'stroke', rule: '規則10.3c', level: 2, pen: 'varies',
-  q: 'キャディーが規則に違反した場合、その責任は誰が負うか。',
+  q: 'キャディーが規則に違反した場合、その責任は誰が負いますか。',
   choices: [
     'プレーヤーが負い、プレーヤーが罰を受ける',
     'キャディーが罰を受ける',
@@ -376,7 +376,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a10', cat: 'stroke', rule: '規則10.3b(2)', level: 2, pen: 'info',
-  q: 'キャディーがプレーヤーの承認なしに行うことができるものはどれか。',
+  q: 'キャディーがプレーヤーの承認なしに行うことができるものはどれですか。',
   choices: [
     'パッティンググリーン上で球をマークして拾い上げること',
     '救済を受けるために球をドロップすること',
@@ -392,7 +392,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a11', cat: 'stroke', rule: '規則10.2b(1)', level: 2, pen: 'general',
-  q: 'キャディーにプレーの線を示すために、ホールの近くに立ってもらった。ストロークを行う前にキャディーはどうすべきか。',
+  q: 'キャディーにプレーの線を示すために、ホールの近くに立ってもらいました。ストロークを行う前にキャディーはどうすべきでしょうか。',
   choices: [
     'ストロークを行う前にその場所を離れなければならない',
     'そのまま立っていてよい',
@@ -408,7 +408,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a12', cat: 'stroke', rule: '規則10.2b(2)', level: 2, pen: 'general',
-  q: 'プレーの線の後方に、風よけとしてキャディーに立ってもらった。裁定はどれか。',
+  q: 'プレーの線の後方に、風よけとしてキャディーに立ってもらいました。裁定はどれですか。',
   choices: [
     '物理的な援助や自然の力からの保護を受けたとして一般の罰',
     '罰なし',
@@ -424,7 +424,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a13', cat: 'stroke', rule: '規則10.2a', level: 3, pen: 'general',
-  q: '同伴競技者に「何番で打ったの?」と尋ねた。裁定はどれか。',
+  q: '同伴競技者に「何番で打ったの?」と尋ねました。裁定はどれですか。',
   choices: [
     'アドバイスを求めたとして一般の罰',
     '罰なし',
@@ -440,7 +440,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'a14', cat: 'stroke', rule: '規則10.2b(3)', level: 2, pen: 'general',
-  q: 'スタンスをとる際に、足の位置を示すためにクラブを地面に置き、そのままストロークを行った。裁定はどれか。',
+  q: 'スタンスをとる際に、足の位置を示すためにクラブを地面に置き、そのままストロークを行いました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -459,7 +459,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'n01', must: true, cat: 'inmotion', rule: '規則11.1a', level: 2, pen: 'none',
-  q: 'ストロークの後、動いている自分の球が偶然に自分自身やキャディー、自分の用具に当たった。裁定はどれか。',
+  q: 'ストロークの後、動いている自分の球が偶然に自分自身やキャディー、自分の用具に当たりました。裁定はどれですか。',
   choices: [
     '罰はなく、球はあるがままにプレーする',
     '1打の罰を受ける',
@@ -475,7 +475,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n02', must: true, cat: 'inmotion', rule: '規則11.1b 例外', level: 3, pen: 'none',
-  q: 'ストロークプレーで、パッティンググリーンからプレーした球が偶然にグリーン上の人や動物、動かせる障害物に当たった。裁定はどれか。',
+  q: 'ストロークプレーで、パッティンググリーンからプレーした球が偶然にグリーン上の人や動物、動かせる障害物に当たりました。裁定はどれですか。',
   choices: [
     'そのストロークはカウントせず、球を元の箇所にリプレースして再プレーしなければならない',
     '罰なしに、あるがままにプレーする',
@@ -493,7 +493,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n03', cat: 'inmotion', rule: '規則11.1b 例外2', level: 3, pen: 'general',
-  q: 'ストロークプレーで、パッティンググリーン上からプレーした球が、同じくグリーン上に止まっていた他の球に当たった。裁定はどれか。',
+  q: 'ストロークプレーで、パッティンググリーン上からプレーした球が、同じくグリーン上に止まっていた他の球に当たりました。裁定はどれですか。',
   choices: [
     '打った側が一般の罰を受け、球はあるがままにプレーする',
     '罰はない',
@@ -510,7 +510,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n04', cat: 'inmotion', rule: '規則11.2', level: 2, pen: 'general',
-  q: '動いている球の進路を故意に変えたり、故意に止めたりした。裁定はどれか。',
+  q: '動いている球の進路を故意に変えたり、故意に止めたりしました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -526,7 +526,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n05', cat: 'inmotion', rule: '規則11.3', level: 2, pen: 'general',
-  q: '動いている球に影響を及ぼすために、コース上の物(旗竿やレーキなど)を故意に動かしたり取り除いたりした。裁定はどれか。',
+  q: '動いている球に影響を及ぼすために、コース上の物(旗竿やレーキなど)を故意に動かしたり取り除いたりしました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -541,7 +541,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n06', cat: 'inmotion', rule: '規則11.1a', level: 2, pen: 'none',
-  q: 'ストロークした球が、同伴競技者やそのキャディーに偶然当たった。裁定はどれか。',
+  q: 'ストロークした球が、同伴競技者やそのキャディーに偶然当たりました。裁定はどれですか。',
   choices: [
     '誰にも罰はなく、球はあるがままにプレーする',
     '打った人が1打の罰',
@@ -557,7 +557,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n07', cat: 'inmotion', rule: '規則11.1a', level: 3, pen: 'none',
-  q: 'ストロークした球が偶然に人に当たり、その人の衣服やポケットの中に止まった。どうするか。',
+  q: 'ストロークした球が偶然に人に当たり、その人の衣服やポケットの中に止まりました。どうすればよいですか。',
   choices: [
     '罰なしに、球が止まったところの真下の箇所を基点として救済を受ける',
     'その人のポケットからプレーする',
@@ -574,7 +574,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n08', cat: 'inmotion', rule: '規則11.1b(2)', level: 3, pen: 'none',
-  q: 'ストロークした球が動いているカートに当たって進路が変わった。どうするか。',
+  q: 'ストロークした球が動いているカートに当たって進路が変わりました。どうすればよいですか。',
   choices: [
     '罰なしに、球が止まった場所からあるがままにプレーする',
     'ストロークをやり直す',
@@ -590,7 +590,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n09', cat: 'inmotion', rule: '規則11.1b(1)', level: 3, pen: 'none',
-  q: 'パッティンググリーン外からプレーした球が、グリーン上に止まっていた他のプレーヤーの球に当たった。ストロークプレーでの裁定はどれか。',
+  q: 'パッティンググリーン外からプレーした球が、グリーン上に止まっていた他のプレーヤーの球に当たりました。ストロークプレーでの裁定はどれですか。',
   choices: [
     '誰にも罰はなく、打った球はあるがままにプレーし、当てられた球はリプレースする',
     '打った人が一般の罰',
@@ -606,7 +606,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n10', cat: 'inmotion', rule: '規則11.2', level: 3, pen: 'general',
-  q: '動いている自分の球が、自分が故意に置いた物に当たった。裁定はどれか。',
+  q: '動いている自分の球が、自分が故意に置いた物に当たりました。裁定はどれですか。',
   choices: [
     '故意に影響を及ぼしたとして一般の罰',
     '罰なし',

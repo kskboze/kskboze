@@ -9,7 +9,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'c01', must: true, cat: 'changes2023', rule: '規則3.3b', level: 1, pen: 'none',
-  q: '2023年の規則改訂で、ストロークプレーにおけるスコアカードのハンディキャップの扱いはどうなったか。',
+  q: '2023年の規則改訂で、ストロークプレーにおけるスコアカードのハンディキャップの扱いはどのようになりましたか。',
   choices: [
     'スコアカードにハンディキャップを記入する必要はなく、間違ったハンディキャップを記入しても罰はない',
     '必ず記入しなければならず、記入漏れは失格となる',
@@ -26,7 +26,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c02', must: true, cat: 'changes2023', rule: '規則14.7a', level: 1, pen: 'info', fig: 'back-on-line',
-  q: '2023年の規則改訂で、後方線上の救済はどのように簡潔化されたか。',
+  q: '2023年の規則改訂で、後方線上の救済はどのように簡潔化されましたか。',
   choices: [
     '球を線上にドロップし、その球はどの方向にも1クラブレングスまで転がることができる',
     '線上の後方2クラブレングス以内にドロップする',
@@ -44,7 +44,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c03', must: true, cat: 'changes2023', rule: '規則4.1a(2)', level: 1, pen: 'info',
-  q: 'ラウンド中に(乱暴に扱った場合を除いて)クラブを損傷した場合、2023年規則でプレーヤーができることはどれか。',
+  q: 'ラウンド中に(乱暴に扱った場合を除いて)クラブを損傷した場合、2023年規則でプレーヤーができることはどれですか。',
   choices: [
     '取り替える、修理する、そのまま使用する のいずれも選択できる',
     '修理するか、そのまま使用するかのいずれかしか選べない',
@@ -62,7 +62,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c04', must: true, cat: 'changes2023', rule: '規則9.3 例外2', level: 2, pen: 'none',
-  q: '救済を受けてドロップし、止まった球が、その後で自然の力によって他のコースエリアに転がっていった。2023年規則ではどうするか。',
+  q: '救済を受けてドロップし、止まった球が、その後で自然の力によって他のコースエリアに転がっていきました。2023年規則ではどうすればよいですか。',
   choices: [
     '罰なしに、その球を元の箇所にリプレースしなければならない',
     'あるがままにプレーする',
@@ -80,7 +80,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c05', must: true, cat: 'changes2023', rule: '規則25', level: 1, pen: 'info',
-  q: '障がいを持つゴルファーのための規則の修正について、2023年からの扱いとして正しいものはどれか。',
+  q: '障がいを持つゴルファーのための規則の修正について、2023年からの扱いとして正しいものはどれですか。',
   choices: [
     '規則の一部(規則25)となり、すべての競技と該当するすべてのプレーヤーに施行される',
     '委員会がローカルルールとして採用した場合にのみ適用される',
@@ -97,7 +97,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c06', cat: 'changes2023', rule: '規則6.3b', level: 2, pen: 'one',
-  q: '2023年規則で、間違って取り替えた球をプレーしたことに対する罰はどれか。',
+  q: '2023年規則で、間違って取り替えた球をプレーしたことに対する罰はどれですか。',
   choices: ['1打の罰', '一般の罰(2打の罰)', '罰なし', '失格'],
   why: '規則が球の取り替えを認めていない場面で、別の球に取り替えてプレーしてしまうのが「誤って取り替えた球」です。2022年までは一般の罰でしたが、2023年から1打の罰に軽減されました。誤球(他人の球)をプレーする違反ほど重くはない、という考え方です。',
   next: [
@@ -109,7 +109,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c07', cat: 'changes2023', rule: '2023年改訂', level: 2, pen: 'info',
-  q: '2023年に改訂された「5つの重要な変更」に【含まれない】ものはどれか。',
+  q: '2023年に改訂された「5つの重要な変更」に【含まれない】ものはどれですか。',
   choices: [
     '球の捜索時間が5分から3分に短縮された',
     'ラウンド中に損傷したクラブを取り替えることができるようになった',
@@ -128,7 +128,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c08', cat: 'changes2023', rule: '規則14.3c', level: 2, pen: 'info', fig: 'drop-flow',
-  q: '後方線上の救済で線上に球をドロップしたところ、その球が1クラブレングスを超えて転がって止まった。どうするか。',
+  q: '後方線上の救済で線上に球をドロップしたところ、その球が1クラブレングスを超えて転がって止まりました。どうすればよいですか。',
   choices: [
     '再ドロップしなければならない',
     'そのままあるがままにプレーする',
@@ -146,7 +146,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c09', cat: 'changes2023', rule: '規則4.1b(4)', level: 3, pen: 'info',
-  q: 'ラウンド中にクラブヘッドをカートにぶつけて損傷させた(乱暴に扱ったわけではない)。取り替えについて正しいものはどれか。',
+  q: 'ラウンド中にクラブヘッドをカートにぶつけて損傷させました(乱暴に扱ったわけではない)。取り替えについて正しいものはどれですか。',
   choices: [
     '不当に遅延することなく取り替えることができ、取り替えたクラブは損傷したクラブに取って代わる',
     'どのようなクラブにも取り替えられ、そのクラブは14本の制限に数えない',
@@ -163,7 +163,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c10', cat: 'changes2023', rule: '規則9.3 例外2', level: 3, pen: 'none',
-  q: '2023年の変更で新設された「自然に動かされた球」の規定が適用されるのはどのような場合か。',
+  q: '2023年の変更で新設された「自然に動かされた球」の規定が適用されるのはどのような場合ですか。',
   choices: [
     '救済を受けて止まった球が、自然の力で他のコースエリアやOBに移動した場合',
     'あるがままにプレーしていた球が風で動いた場合すべて',
@@ -180,7 +180,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c11', cat: 'changes2023', rule: '規則25.2', level: 2, pen: 'info',
-  q: '規則25で修正が認められている、視覚障がいを持つプレーヤーへの援助として正しいものはどれか。',
+  q: '規則25で修正が認められている、視覚障がいを持つプレーヤーへの援助として正しいものはどれですか。',
   choices: [
     'エイド(援助者)を伴うことができ、そのエイドはスタンスをとることやプレーの線を合わせることを援助できる',
     'エイドは同伴できるが、いかなる援助もできない',
@@ -196,7 +196,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c12', cat: 'changes2023', rule: '規則25.4', level: 3, pen: 'info',
-  q: '規則25で、移動補助具(車椅子など)を使用するプレーヤーについて修正されるのはどの点か。',
+  q: '規則25で、移動補助具(車椅子など)を使用するプレーヤーについて修正されるのはどの点ですか。',
   choices: [
     '移動補助具を使ってスタンスをとることが認められ、ドロップやスタンスに関する手続きが修正される',
     '罰打がすべて免除される',
@@ -212,7 +212,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c13', cat: 'changes2023', rule: '規則3.3b(4)', level: 3, pen: 'varies',
-  q: '2023年規則で、スコアカードの提出後に、プレーヤーが知らなかった罰打が含まれていなかったことが判明した。原則としてどうなるか。',
+  q: '2023年規則で、スコアカードの提出後に、プレーヤーが知らなかった罰打が含まれていなかったことが判明しました。原則としてどうなりますか。',
   choices: [
     '失格とはならず、委員会がその罰打を加えてスコアを訂正する',
     '常に失格となる',
@@ -229,7 +229,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c14', cat: 'changes2023', rule: '規則14.3b', level: 2, pen: 'general', fig: 'back-on-line',
-  q: '後方線上の救済で、線から1クラブレングス横にずらした位置にドロップし、そのままプレーした。ストロークプレーでの裁定はどれか。',
+  q: '後方線上の救済で、線から1クラブレングス横にずらした位置にドロップし、そのままプレーしました。ストロークプレーでの裁定はどれですか。',
   choices: [
     '誤所からのプレーとして一般の罰',
     '罰なし',
@@ -247,7 +247,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c15', cat: 'changes2023', rule: '規則4.1a(2)', level: 2, pen: 'info',
-  q: 'ラウンド中に自分のクラブを乱暴に扱って損傷させた。2023年規則ではそのクラブはどう扱われるか。',
+  q: 'ラウンド中に自分のクラブを乱暴に扱って損傷させました。2023年規則ではそのクラブはどのように扱われますか。',
   choices: [
     '取り替えることはできないが、修理することやそのまま使用することはできる',
     '他のクラブに取り替えることができる',
@@ -264,7 +264,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'c16', cat: 'changes2023', rule: '規則9.3', level: 3, pen: 'none',
-  q: 'グリーン上でマークして球を拾い上げ、リプレースした後、その球が風で動いてホールに近づいた。どうするか。',
+  q: 'グリーン上でマークして球を拾い上げ、リプレースした後、その球が風で動いてホールに近づいました。どうすればよいですか。',
   choices: [
     '罰なしに元の箇所にリプレースする',
     'あるがままにプレーする',
@@ -284,7 +284,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'd01', cat: 'clarifications', rule: '詳説5.2b/3', level: 2, pen: 'general',
-  q: '詳説5.2b/3によれば、ストロークプレーのラウンド前の「コース上で練習すること」に含まれるものはどれか。',
+  q: '詳説5.2b/3によれば、ストロークプレーのラウンド前の「コース上で練習すること」に含まれるものはどれですか。',
   choices: [
     '球を転がしたり、表面をこすることによってパッティンググリーン面をテストすること',
     'ストロークを行うことだけ',
@@ -301,7 +301,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd02', cat: 'clarifications', rule: '詳説5.2b/3', level: 2, pen: 'general',
-  q: '詳説5.2b/3で、プレーヤーがラウンド前に1つのパッティンググリーン面を3回こすった。規則5.2bの違反は何回になるか。',
+  q: '詳説5.2b/3で、プレーヤーがラウンド前に1つのパッティンググリーン面を3回こすりました。規則5.2bの違反は何回になりますか。',
   choices: ['1回', '3回', '2回', '違反にはならない'],
   why: 'この詳説は、罰の数え方を明確にしています。1つのパッティンググリーン面をこすった場合、同じグリーン面を何回こすっても、そのプレーヤーは規則5.2bに1度だけ違反したことになります。回数分の罰が積み上がることはありません。',
   next: [
@@ -312,7 +312,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd03', cat: 'clarifications', rule: '詳説8.1a/10', level: 2, pen: 'none',
-  q: '詳説8.1a/10によれば、スプリンクラーヘッドが飛び出ている場合、プレーヤーはどうすることができるか。',
+  q: '詳説8.1a/10によれば、スプリンクラーヘッドが飛び出ている場合、プレーヤーはどうすることができますか。',
   choices: [
     '球をプレーする前に、そのスプリンクラーヘッドを押し下げることができる',
     'そのまま触れずにプレーしなければならない',
@@ -329,7 +329,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd04', cat: 'clarifications', rule: '詳説8.1a/10', level: 2, pen: 'none',
-  q: '排水管の蓋が取り除かれている。詳説8.1a/10に基づくと、プレーヤーはどうすることができるか。',
+  q: '排水管の蓋が取り除かれています。詳説8.1a/10に基づくと、プレーヤーはどうすることができますか。',
   choices: [
     '蓋を所定の位置に戻すことができ、罰はない',
     '蓋には一切触れてはならない',
@@ -346,7 +346,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd05', cat: 'clarifications', rule: '詳説10.2b(3)/2', level: 2, pen: 'info',
-  q: '詳説10.2b(3)/2によれば、自立式パターの特定の使用に対する規則10.2b(3)の適用はいつから施行されるか。',
+  q: '詳説10.2b(3)/2によれば、自立式パターの特定の使用に対する規則10.2b(3)の適用はいつから施行されますか。',
   choices: [
     '2025年1月1日から',
     '2023年1月1日から',
@@ -362,7 +362,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd06', cat: 'clarifications', rule: '詳説10.2b(3)/2', level: 3, pen: 'none',
-  q: '2024年のラウンドで、プレーヤーがスタンスをとる援助とするために自立式パターを球の直後に立たせて使用した。詳説10.2b(3)/2に基づく裁定はどれか。',
+  q: '2024年のラウンドで、プレーヤーがスタンスをとる援助とするために自立式パターを球の直後に立たせて使用しました。詳説10.2b(3)/2に基づく裁定はどれですか。',
   choices: [
     '罰はない(2025年1月1日までは認められる)',
     '一般の罰',
@@ -378,7 +378,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd07', cat: 'clarifications', rule: '詳説10.2b(3)/1', level: 2, pen: 'none',
-  q: '詳説10.2b(3)/1によれば、プレーヤーがスタンスをとる援助として球の後ろにクラブヘッドを置くことはどう扱われるか。',
+  q: '詳説10.2b(3)/1によれば、プレーヤーがスタンスをとる援助として球の後ろにクラブヘッドを置くことはどのように扱われますか。',
   choices: [
     '認められる',
     '一般の罰となる',
@@ -395,7 +395,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd08', cat: 'clarifications', rule: '詳説14.3b(4)/1', level: 3, pen: 'general', fig: 'back-on-line',
-  q: '詳説14.3b(4)/1の例で、後方線上の救済を受ける際に線上から1クラブレングスほど横に球をドロップした。この球はどのような状態か。',
+  q: '詳説14.3b(4)/1の例で、後方線上の救済を受ける際に線上から1クラブレングスほど横に球をドロップしました。この球はどのような状態ですか。',
   choices: [
     'どこに止まったかにかかわらず誤所にあり、再ドロップしなければならない',
     '結果として後方線上に止まれば正しい場所である',
@@ -411,7 +411,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd09', cat: 'clarifications', rule: '詳説14.3b(4)/1', level: 3, pen: 'general',
-  q: '詳説14.3b(4)/1で、誤りを訂正せずにストロークを行った場合の一般の罰は、どの規則に基づいて適用されるか。',
+  q: '詳説14.3b(4)/1で、誤りを訂正せずにストロークを行った場合の一般の罰は、どの規則に基づいて適用されますか。',
   choices: [
     '規則14.7a(誤所からのプレー)',
     '規則14.3b(ドロップの方法)',
@@ -431,7 +431,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'd13', cat: 'clarifications', rule: '詳説5.2b/3', level: 3, pen: 'general',
-  q: 'ストロークプレーのラウンド前にコース上で練習して規則5.2bに違反した。罰はどのホールに適用されるか。',
+  q: 'ストロークプレーのラウンド前にコース上で練習して規則5.2bに違反しました。罰はどのホールに適用されますか。',
   choices: [
     '最初のホールに一般の罰が適用される',
     'すべてのホールに1打ずつ加算される',
@@ -447,7 +447,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd14', cat: 'clarifications', rule: '詳説8.1a/10', level: 3, pen: 'general',
-  q: '動かせない障害物の一部を、所定の位置に戻すのではなく、自分に有利な位置まで動かした。ストロークプレーでの裁定はどれか。',
+  q: '動かせない障害物の一部を、所定の位置に戻すのではなく、自分に有利な位置まで動かしました。ストロークプレーでの裁定はどれですか。',
   choices: [
     'ストロークに影響を及ぼす状態を改善したとして一般の罰',
     '罰なし',
@@ -463,7 +463,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd15', cat: 'clarifications', rule: '詳説10.2b/1', level: 2, pen: 'info',
-  q: '詳説10.2b/1が扱っている、アラインメントを援助するための自立式パターの使用についての結論はどれか。',
+  q: '詳説10.2b/1が扱っている、アラインメントを援助するための自立式パターの使用についての結論はどれですか。',
   choices: [
     '認められないが、その適用は2025年1月1日まで遅延されている',
     '無条件に認められる',
@@ -479,7 +479,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'd16', cat: 'clarifications', rule: '追加の詳説', level: 1, pen: 'info',
-  q: '「2023年ゴルフ規則の追加の詳説」は通常どのくらいの頻度で更新されるか。',
+  q: '「2023年ゴルフ規則の追加の詳説」は通常どのくらいの頻度で更新されますか。',
   choices: [
     '四半期ごと(1月、4月、7月、10月)',
     '毎月',

@@ -7,7 +7,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't01', must: true, cat: 'tricky', rule: '規則15.1b', level: 2, pen: 'one',
-  q: 'フェアウェイで、球の近くの落ち葉を取り除いたら球が動いた。裁定はどれか。',
+  q: 'フェアウェイで、球の近くの落ち葉を取り除いたら球が動きました。裁定はどれですか。',
   choices: [
     '1打の罰を受け、球を元の箇所にリプレースする',
     '罰なしにリプレースする',
@@ -20,7 +20,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't02', must: true, cat: 'tricky', rule: '規則15.2b', level: 2, pen: 'none',
-  q: 'フェアウェイで、球の近くの空き缶を取り除いたら球が動いた。裁定はどれか。',
+  q: 'フェアウェイで、球の近くの空き缶を取り除いたら球が動きました。裁定はどれですか。',
   choices: [
     '罰はなく、球を元の箇所にリプレースする',
     '1打の罰を受けてリプレースする',
@@ -36,7 +36,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't03', must: true, cat: 'tricky', rule: '規則9.4b / 13.1d', level: 2, pen: 'varies',
-  q: 'プレーヤーが偶然に自分の止まっている球を動かした。罰が変わるのはどの違いによるか。',
+  q: 'プレーヤーが偶然に自分の止まっている球を動かしました。罰が変わるのはどの違いによりますか。',
   choices: [
     'パッティンググリーン上かどうか',
     'フェアウェイかラフか',
@@ -49,7 +49,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't04', must: true, cat: 'tricky', rule: '規則9.3', level: 3, pen: 'none',
-  q: 'グリーン上の球が風で動いた。リプレースするか、あるがままにプレーするかを決めるのはどれか。',
+  q: 'グリーン上の球が風で動きました。リプレースするか、あるがままにプレーするかを決めるのはどれですか。',
   choices: [
     'その前にマークして拾い上げ、リプレースしていたかどうか',
     '動いた距離',
@@ -65,7 +65,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't05', must: true, cat: 'tricky', rule: '規則16.1b / 17.1d(3)', level: 2, pen: 'varies',
-  q: '救済エリアが1クラブレングスか2クラブレングスかを分けるものはどれか。',
+  q: '救済エリアが1クラブレングスか2クラブレングスかを分けるものはどれですか。',
   choices: [
     '罰なしの救済は1クラブレングス、罰ありのラテラル救済は2クラブレングス',
     'ジェネラルエリアは1、それ以外は2',
@@ -78,7 +78,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't06', cat: 'tricky', rule: '規則17.1d(2) / 19.2b', level: 3, pen: 'one',
-  q: '後方線上の救済で、ペナルティーエリアとアンプレヤブルでは何が違うか。',
+  q: '後方線上の救済で、ペナルティーエリアとアンプレヤブルでは何が違いますか。',
   choices: [
     '基点が違う。PAは縁を最後に横切った地点、アンプレヤブルは球があった箇所',
     '救済エリアの広さが違う',
@@ -94,7 +94,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't07', must: true, cat: 'tricky', rule: '規則16.1c / 19.3b', level: 3, pen: 'varies',
-  q: 'バンカー内の球をバンカーの外に出したい。罰打が少なくて済むのはどちらか。',
+  q: 'バンカー内の球をバンカーの外に出したいと考えています。罰打が少なくて済むのはどちらですか。',
   choices: [
     '一時的な水など異常なコース状態からの救済(1罰打)。アンプレヤブルは2罰打',
     'アンプレヤブル(1罰打)。異常なコース状態は2罰打',
@@ -107,7 +107,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't08', cat: 'tricky', rule: '規則19.3a', level: 2, pen: 'one',
-  q: 'バンカー内の球をアンプレヤブルとし、1罰打でラテラル救済を選んだ。ドロップする場所はどこか。',
+  q: 'バンカー内の球をアンプレヤブルとし、1罰打でラテラル救済を選びました。ドロップする場所はどこですか。',
   choices: [
     'バンカーの中',
     'バンカーの外',
@@ -123,7 +123,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't09', must: true, cat: 'tricky', rule: '規則17.1a / 18.2a(2)', level: 3, pen: 'info',
-  q: 'ペナルティーエリアとOBでは、球が「その中にある」と判断する基準がどう違うか。',
+  q: 'ペナルティーエリアとOBでは、球が「その中にある」と判断する基準がどう違いますか。',
   choices: [
     'PAは球の一部でも触れていればPA内。OBは球全体が境界縁の外にある場合だけOB',
     'どちらも球の一部でよい',
@@ -139,7 +139,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't10', must: true, cat: 'tricky', rule: '規則14.3b(1) / 14.2b(1)', level: 3, pen: 'info',
-  q: 'ドロップとリプレースで、行える人の範囲はどう違うか。',
+  q: 'ドロップとリプレースで、行える人の範囲はどう違いますか。',
   choices: [
     'ドロップはプレーヤー自身だけ。リプレースは拾い上げた人・動かした人もできる',
     'どちらもプレーヤー自身だけ',
@@ -152,7 +152,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't11', cat: 'tricky', rule: '規則14.3a / 14.2a', level: 2, pen: 'info',
-  q: '元の球ではなく別の球を使えるのはどちらか。',
+  q: '元の球ではなく別の球を使えるのはどちらですか。',
   choices: [
     'ドロップするとき(救済を受けるとき)は別の球でよい。リプレースは原則として元の球',
     'どちらも別の球でよい',
@@ -167,7 +167,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't12', must: true, cat: 'tricky', rule: '規則6.3c / 6.3b', level: 2, pen: 'varies',
-  q: '「誤球をプレーした」と「誤って取り替えた球をプレーした」で、罰と処置はどう違うか。',
+  q: '「誤球をプレーした」と「誤って取り替えた球をプレーした」で、罰と処置はどう違いますか。',
   choices: [
     '誤球は一般の罰で訂正が必須。誤って取り替えた球は1打の罰で訂正は不要',
     'どちらも一般の罰',
@@ -183,7 +183,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't13', must: true, cat: 'tricky', rule: '規則1.3c(2)', level: 1, pen: 'general',
-  q: '同じ「一般の罰」でも、マッチプレーとストロークプレーで何が違うか。',
+  q: '同じ「一般の罰」でも、マッチプレーとストロークプレーでは何が違いますか。',
   choices: [
     'マッチプレーはそのホールの負け、ストロークプレーは2打の加算',
     'マッチプレーは1打、ストロークプレーは2打',
@@ -195,7 +195,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't14', cat: 'tricky', rule: '規則5.2a / 5.2b', level: 2, pen: 'varies',
-  q: 'ラウンド前にそのコースで練習することについて、正しいものはどれか。',
+  q: 'ラウンド前にそのコースで練習することについて、正しいものはどれですか。',
   choices: [
     'マッチプレーでは認められ、ストロークプレーでは認められない',
     'どちらも認められない',
@@ -207,7 +207,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't15', cat: 'tricky', rule: '規則3.3b(3)', level: 2, pen: 'varies',
-  q: 'スコアカードのスコアが実際と違っていた。多い場合と少ない場合でどう違うか。',
+  q: 'スコアカードのスコアが実際と違っていました。多い場合と少ない場合でどう違いますか。',
   choices: [
     '少ない場合は原則失格。多い場合はそのスコアがそのまま成立する',
     'どちらも失格',
@@ -222,7 +222,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't16', must: true, cat: 'tricky', rule: '規則18.2a(1) / 13.3a / 5.6b', level: 2, pen: 'info',
-  q: '規則が定める時間として正しい組み合わせはどれか。',
+  q: '規則が定める時間として正しい組み合わせはどれですか。',
   choices: [
     '球の捜索3分／ホールにせり出した球10秒／ストロークの推奨40秒',
     '球の捜索5分／ホールにせり出した球10秒／ストロークの推奨30秒',
@@ -235,7 +235,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't17', cat: 'tricky', rule: '規則5.3a', level: 2, pen: 'varies',
-  q: 'スタート時刻に遅れた場合の罰は、何分を境に変わるか。',
+  q: 'スタート時刻に遅れた場合の罰は、何分を境に変わりますか。',
   choices: [
     '5分。5分以内なら最初のホールに一般の罰、5分を超えると失格',
     '3分',
@@ -251,7 +251,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't18', must: true, cat: 'tricky', rule: '規則13.2a / 13.2b', level: 2, pen: 'varies',
-  q: '球が旗竿に当たった。罰があるのはどの場合か。',
+  q: '球が旗竿に当たりました。罰があるのはどのような場合ですか。',
   choices: [
     '旗竿の付き添いを頼んでいたのに抜かれず当たった場合',
     '立てたままにして当たった場合',
@@ -263,7 +263,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't19', cat: 'tricky', rule: '規則13.1c(1) / 15.1a', level: 3, pen: 'varies',
-  q: '砂やバラバラの土を取り除けるのはどこか。',
+  q: '砂やバラバラの土を取り除けるのはどこですか。',
   choices: [
     'パッティンググリーン上だけ',
     'コース上のどこでも',
@@ -276,7 +276,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't20', cat: 'tricky', rule: '規則13.1c(2)', level: 2, pen: 'varies',
-  q: 'グリーン上で修理できないものはどれか。',
+  q: 'グリーン上で修理できないものはどれですか。',
   choices: [
     'エアレーションホール、散水や雨による溝、自然の摩耗',
     'ボールマーク',
@@ -291,7 +291,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't21', must: true, cat: 'tricky', rule: '規則16.3a', level: 3, pen: 'varies',
-  q: '目玉の球(地面にくい込んだ球)の罰なしの救済が受けられないのはどれか。',
+  q: '目玉の球(地面にくい込んだ球)の罰なしの救済が受けられないのはどれですか。',
   choices: [
     'バンカー、ペナルティーエリア、および刈っていない区域の砂の中',
     'ラフ',
@@ -308,7 +308,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't22', must: true, cat: 'tricky', rule: '規則18.3a', level: 2, pen: 'info',
-  q: '暫定球を打てるのはどちらか。',
+  q: '暫定球を打てるのはどちらですか。',
   choices: [
     'OBかもしれない、またはペナルティーエリアの外で紛失かもしれない場合',
     'ペナルティーエリアの中で紛失かもしれない場合',
@@ -321,7 +321,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't23', cat: 'tricky', rule: '規則18.3c(2)', level: 3, pen: 'info',
-  q: '暫定球を打った後、元の球が3分以内にコース上で見つかった。プレーヤーは選べるか。',
+  q: '暫定球を打った後、元の球が3分以内にコース上で見つかりました。プレーヤーは選べますか。',
   choices: [
     '選べない。元の球でプレーを続けなければならない',
     'どちらでも選べる',
@@ -337,7 +337,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't24', must: true, cat: 'tricky', rule: '規則10.3b', level: 3, pen: 'varies',
-  q: 'キャディーが球を拾い上げるとき、お客様の承認が必要なのはどちらか。',
+  q: 'キャディーが球を拾い上げるとき、お客様の承認が必要なのはどちらですか。',
   choices: [
     'パッティンググリーン以外の場所。グリーン上は承認なしでよい',
     'パッティンググリーン上。それ以外は承認なしでよい',
@@ -352,7 +352,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't25', must: true, cat: 'tricky', rule: '規則17.1d', level: 2, pen: 'one',
-  q: '黄杭と赤杭のペナルティーエリアで、救済の選択肢はどう違うか。',
+  q: '黄杭と赤杭のペナルティーエリアで、救済の選択肢はどう違いますか。',
   choices: [
     '赤は黄の2つに加えてラテラル救済が使える。増えるのはこの1つだけ',
     '赤は罰打が不要',
@@ -365,7 +365,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't26', cat: 'tricky', rule: '規則17.3 / 16.2', level: 3, pen: 'varies',
-  q: 'ペナルティーエリア内の球について、唯一受けられる罰なしの救済はどれか。',
+  q: 'ペナルティーエリア内の球について、唯一受けられる罰なしの救済はどれですか。',
   choices: [
     '危険な動物がいる状態からの救済',
     '異常なコース状態からの救済',
@@ -380,7 +380,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't27', cat: 'tricky', rule: '規則11.1a / 11.1b', level: 3, pen: 'varies',
-  q: '動いている球が偶然に人に当たった。ストロークを再プレーするのはどの場合か。',
+  q: '動いている球が偶然に人に当たりました。ストロークを再プレーするのはどのような場合ですか。',
   choices: [
     'パッティンググリーンからプレーした球が、グリーン上の人・動物・動かせる障害物に当たった場合',
     'どの場合も再プレーする',
@@ -392,7 +392,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 't28', cat: 'tricky', rule: '規則11.1b', level: 3, pen: 'varies',
-  q: 'ストロークプレーで、打った球がグリーン上に止まっていた他の球に当たった。罰があるのはどの場合か。',
+  q: 'ストロークプレーで、打った球がグリーン上に止まっていた他の球に当たりました。罰があるのはどのような場合ですか。',
   choices: [
     '両方の球がストローク前にグリーン上にあった場合。打った側が一般の罰',
     'どの場合も一般の罰',
@@ -407,7 +407,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't29', must: true, cat: 'tricky', rule: 'アドバイスの定義', level: 2, pen: 'varies',
-  q: '次のうち、他の組のお客様に伝えても罰にならないものはどれか。',
+  q: '次のうち、他の組のお客様に伝えても罰にならないものはどれですか。',
   choices: [
     '風向き',
     '使ったクラブの番手',
@@ -423,7 +423,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 't30', cat: 'tricky', rule: '規則1.3c(4)', level: 3, pen: 'varies',
-  q: '1打の罰でリプレースすべき球を、リプレースせずに誤所からプレーした。罰はどうなるか。',
+  q: '1打の罰でリプレースすべき球を、リプレースせずに誤所からプレーしました。罰はどうなりますか。',
   choices: [
     '規則14.7aの一般の罰だけを受ける。1打の罰は重ねない',
     '1打の罰と一般の罰の両方を受ける',

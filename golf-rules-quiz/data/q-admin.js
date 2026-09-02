@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'z01', must: true, cat: 'disputes', rule: '規則20.1c(3)', level: 2, pen: 'info',
-  q: 'ストロークプレーで、プレーヤーが自分の権利や正しい手続きに疑問があり、どう進めるべきか分からない場合にできることはどれか。',
+  q: 'ストロークプレーで、プレーヤーが自分の権利や正しい手続きに疑問があり、どう進めるべきか分からない場合にできることはどれですか。',
   choices: [
     '2つの球をプレーして、後で委員会に裁定を求めることができる',
     '常に自分に有利な方法を選んでよい',
@@ -24,7 +24,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z02', cat: 'disputes', rule: '規則20.1b(1)', level: 2, pen: 'info',
-  q: 'マッチプレーで規則問題が生じた場合、プレーヤーはどうすべきか。',
+  q: 'マッチプレーで規則問題が生じた場合、プレーヤーはどうすべきでしょうか。',
   choices: [
     '相手と合意して解決するか、期限内に裁定を要請する',
     '2つの球をプレーする',
@@ -41,7 +41,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z03', cat: 'disputes', rule: '規則20.1b(1)', level: 3, pen: 'info',
-  q: 'マッチプレーで、両者が規則を誤って適用することに合意し、そのまま進んだ。どうなるか。',
+  q: 'マッチプレーで、両者が規則を誤って適用することに合意し、そのまま進みました。どうなりますか。',
   choices: [
     '規則違反であることを知らずに合意したのであれば、その結果は確定する',
     '常に両者が失格',
@@ -58,7 +58,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z04', cat: 'disputes', rule: '規則20.2', level: 3, pen: 'info',
-  q: 'ストロークプレーで、競技が終了した後に誤った裁定が判明した。原則としてどうなるか。',
+  q: 'ストロークプレーで、競技が終了した後に誤った裁定が判明しました。原則としてどうなりますか。',
   choices: [
     '競技が終了していれば、原則としてその裁定は確定する',
     '常に訂正される',
@@ -74,7 +74,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z05', cat: 'disputes', rule: '規則20.1a', level: 2, pen: 'varies',
-  q: '規則問題について裁定を求めるために、プレーを不当に遅らせた。どうなるか。',
+  q: '規則問題について裁定を求めるために、プレーを不当に遅らせました。どうなりますか。',
   choices: [
     '規則5.6aの不当の遅延として罰を受けることがある',
     '罰はない',
@@ -90,7 +90,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z06', cat: 'disputes', rule: '規則20.2b', level: 3, pen: 'info',
-  q: 'レフェリーの裁定に納得できない場合、プレーヤーはどうすることができるか。',
+  q: 'レフェリーの裁定に納得できない場合、プレーヤーはどうすることができますか。',
   choices: [
     '委員会に裁定を求めることができる(レフェリーの裁定は最終だが、委員会が判断を変えることもある)',
     '自分の判断でプレーしてよい',
@@ -106,7 +106,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z07', cat: 'disputes', rule: '規則20.1c(3)', level: 3, pen: 'dq',
-  q: '2つの球をプレーしたが、スコアカードを提出する前に委員会に報告しなかった。どうなるか。',
+  q: '2つの球をプレーしたが、スコアカードを提出する前に委員会に報告しませんでした。どうなりますか。',
   choices: [
     '失格',
     '一般の罰',
@@ -123,7 +123,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z08', cat: 'disputes', rule: '規則20.1c(4)', level: 3, pen: 'info',
-  q: '2つの球をプレーした場合、どちらのスコアが採用されるか。',
+  q: '2つの球をプレーした場合、どちらのスコアが採用されますか。',
   choices: [
     '規則に基づいて正しい方の球のスコア。プレーヤーが事前に選んだ球が正しければその球',
     '常に低い方のスコア',
@@ -139,7 +139,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z09', cat: 'disputes', rule: '規則20.1c(3)', level: 3, pen: 'info',
-  q: '2つの球をプレーする手続きが使えるのはどのような場合か。',
+  q: '2つの球をプレーする手続きが使えるのはどのような場合ですか。',
   choices: [
     'ストロークプレーで、プレーヤーが自分の権利や正しい手続きについて分からない場合',
     'マッチプレーを含むすべての場合',
@@ -156,7 +156,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'z10', cat: 'disputes', rule: '規則20.2', level: 3, pen: 'info',
-  q: '委員会が誤ってプレーヤーを失格にしたが、後にその誤りが判明した。どうなるか。',
+  q: '委員会が誤ってプレーヤーを失格にしたが、後にその誤りが判明しました。どうなりますか。',
   choices: [
     '失格は取り消され、そのプレーヤーの成績は復活する',
     '失格のまま確定する',
@@ -175,7 +175,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'y01', must: true, cat: 'formats', rule: '規則23.1', level: 2, pen: 'info',
-  q: 'フォアボール(ベストボール)とはどのような競技形式か。',
+  q: 'フォアボール(ベストボール)とはどのような競技形式ですか。',
   choices: [
     '2人1組のサイドで、各自が自分の球をプレーし、そのホールの良い方のスコアをサイドのスコアとする',
     '2人が交互に1つの球を打つ',
@@ -192,7 +192,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y02', must: true, cat: 'formats', rule: '規則22.1', level: 2, pen: 'info',
-  q: 'フォアサム(オルタネートショット)とはどのような競技形式か。',
+  q: 'フォアサム(オルタネートショット)とはどのような競技形式ですか。',
   choices: [
     '2人1組のサイドが1つの球を交互にストロークする',
     '各自が自分の球をプレーする',
@@ -209,7 +209,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y03', cat: 'formats', rule: '規則21.1', level: 2, pen: 'info',
-  q: 'ステーブルフォードとはどのような競技形式か。',
+  q: 'ステーブルフォードとはどのような競技形式ですか。',
   choices: [
     '各ホールの決められた目標スコアに対する点数を合計し、最も点数の多いプレーヤーが勝つ',
     '総打数を競う',
@@ -227,7 +227,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y04', cat: 'formats', rule: '規則21.3', level: 3, pen: 'info',
-  q: 'パー/ボギー競技とはどのような形式か。',
+  q: 'パー/ボギー競技とはどのような形式ですか。',
   choices: [
     '各ホールをパー(またはボギー)に対する勝ち負けとして数え、その差し引きで競う',
     '総打数を競う',
@@ -244,7 +244,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y05', cat: 'formats', rule: '規則23.8a', level: 3, pen: 'varies',
-  q: 'フォアボールで、パートナーの一方が規則違反をした場合のサイドへの影響として正しいものはどれか。',
+  q: 'フォアボールで、パートナーの一方が規則違反をした場合のサイドへの影響として正しいものはどれですか。',
   choices: [
     '違反の内容によって、そのパートナーだけに罰が適用される場合と、サイド全体に適用される場合がある',
     '常にサイド全体が失格となる',
@@ -261,7 +261,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y06', cat: 'formats', rule: '規則23.6', level: 2, pen: 'info',
-  q: 'フォアボールで、サイドのプレーの順番はどう決まるか。',
+  q: 'フォアボールで、サイドのプレーの順番はどのように決まりますか。',
   choices: [
     'サイドは、自分たちに最も良いと思う順番でプレーできる',
     '必ずホールから遠い方から打つ',
@@ -277,7 +277,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y07', cat: 'formats', rule: '規則22.3', level: 3, pen: 'general',
-  q: 'フォアサムで、ティーショットの順番を間違えてパートナーが打ってしまった。ストロークプレーでの裁定はどれか。',
+  q: 'フォアサムで、ティーショットの順番を間違えてパートナーが打ってしまいました。ストロークプレーでの裁定はどれですか。',
   choices: [
     '一般の罰。そのストロークは取り消し、正しい順番のパートナーが打ち直す',
     '罰なし',
@@ -294,7 +294,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y08', cat: 'formats', rule: '規則24.4', level: 3, pen: 'info',
-  q: 'チーム競技で、チームのキャプテンやアドバイスを与えることができる人について正しいものはどれか。',
+  q: 'チーム競技で、チームのキャプテンやアドバイスを与えることができる人について正しいものはどれですか。',
   choices: [
     '委員会が認めた場合、チームのアドバイス提供者1人がアドバイスを与えることができる',
     '誰でもアドバイスを与えられる',
@@ -310,7 +310,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y09', cat: 'formats', rule: '規則21.1c', level: 3, pen: 'info',
-  q: 'ステーブルフォードで、あるホールで点が得られないことが確定した。どうするか。',
+  q: 'ステーブルフォードで、あるホールで点が得られないことが確定しました。どうすればよいですか。',
   choices: [
     'ホールアウトしなくてもよく、そのホールは0点となる',
     '必ずホールアウトしなければならない',
@@ -327,7 +327,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y10', cat: 'formats', rule: '規則23.2b', level: 3, pen: 'info',
-  q: 'フォアボールのストロークプレーで、スコアカードにサイドのスコアを記入する際の注意点はどれか。',
+  q: 'フォアボールのストロークプレーで、スコアカードにサイドのスコアを記入する際の注意点はどれですか。',
   choices: [
     '各ホールについて、どちらのパートナーのスコアかが分かるように記入しなければならない',
     'サイドの合計だけ書けばよい',
@@ -343,7 +343,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y11', cat: 'formats', rule: '規則21.4', level: 3, pen: 'info',
-  q: 'スリーボールマッチプレーとはどのような形式か。',
+  q: 'スリーボールマッチプレーとはどのような形式ですか。',
   choices: [
     '3人がそれぞれ他の2人と個別にマッチをプレーする',
     '3人でチームを組む',
@@ -359,7 +359,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'y12', cat: 'formats', rule: '規則23.3b', level: 3, pen: 'info',
-  q: 'フォアボールで、パートナーの一方が先にホールアウトしてサイドのスコアが確定した。もう一方はどうするか。',
+  q: 'フォアボールで、パートナーの一方が先にホールアウトしてサイドのスコアが確定しました。もう一方はどうすればよいですか。',
   choices: [
     'ホールアウトする必要はなく、球を拾い上げてよい',
     '必ずホールアウトしなければならない',
@@ -378,7 +378,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'v01', must: true, cat: 'disability', rule: '規則25.1', level: 2, pen: 'info',
-  q: '規則25(障がいを持つプレーヤー)の適用について正しいものはどれか。',
+  q: '規則25(障がいを持つプレーヤー)の適用について正しいものはどれですか。',
   choices: [
     '2023年から規則の一部となり、委員会の採用を待たずにすべての競技に適用される',
     '委員会がローカルルールとして採用した場合にのみ適用される',
@@ -395,7 +395,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'v02', cat: 'disability', rule: '規則25.2', level: 2, pen: 'info',
-  q: '規則25.2が扱う、視覚障がいを持つプレーヤーへの修正として正しいものはどれか。',
+  q: '規則25.2が扱う、視覚障がいを持つプレーヤーへの修正として正しいものはどれですか。',
   choices: [
     'エイド(援助者)を伴うことができ、スタンスをとることやプレーの線に合わせることの援助を受けられる',
     'エイドは同伴できるが、いかなる援助もできない',
@@ -411,7 +411,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'v03', cat: 'disability', rule: '規則25.3', level: 3, pen: 'info',
-  q: '規則25.3が扱う、切断障がいを持つプレーヤーについての修正はどれか。',
+  q: '規則25.3が扱う、切断障がいを持つプレーヤーについての修正はどれですか。',
   choices: [
     '義肢の使用が認められ、規則4.3(用具の使用)の適用が修正される',
     '罰打がすべて免除される',
@@ -427,7 +427,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'v04', cat: 'disability', rule: '規則25.4', level: 2, pen: 'info',
-  q: '規則25.4で、移動補助具(車椅子など)を使用するプレーヤーについて修正されるのはどの点か。',
+  q: '規則25.4で、移動補助具(車椅子など)を使用するプレーヤーについて修正されるのはどの点ですか。',
   choices: [
     '移動補助具を使ってスタンスをとることが認められ、ドロップなどの手続きが修正される',
     '罰打がすべて免除される',
@@ -443,7 +443,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'v05', cat: 'disability', rule: '規則25.5', level: 3, pen: 'info',
-  q: '規則25.5が扱う、知的障がいを持つプレーヤーについての修正の考え方はどれか。',
+  q: '規則25.5が扱う、知的障がいを持つプレーヤーについての修正の考え方はどれですか。',
   choices: [
     'スーパーバイザーの援助が認められるなど、規則の理解と適用を支える修正が定められている',
     '罰が一切適用されない',
@@ -459,7 +459,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'v06', cat: 'disability', rule: '規則25.1', level: 3, pen: 'info',
-  q: '規則25の修正が適用されるプレーヤーが、修正されていない規則に違反した場合はどうなるか。',
+  q: '規則25の修正が適用されるプレーヤーが、修正されていない規則に違反した場合はどうなりますか。',
   choices: [
     '通常どおりその規則の罰が適用される',
     'すべての罰が免除される',

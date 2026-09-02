@@ -8,7 +8,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'n01c', must: true, cat: 'onsite', rule: '規則10.3c', level: 1, pen: 'varies',
-  q: 'キャディーが規則に違反する行動をとった。罰は誰が受けるか。',
+  q: 'キャディーが規則に違反する行動をとりました。罰は誰が受けますか。',
   choices: [
     'プレーヤーが受ける',
     'キャディーが受ける',
@@ -25,7 +25,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n02c', must: true, cat: 'onsite', rule: '規則10.3b(3)', level: 2, pen: 'info',
-  q: 'お客様が救済を受けることになった。キャディーが代わりに球をドロップしてよいか。',
+  q: 'お客様が救済を受けることになりました。キャディーが代わりに球をドロップしてよいですか。',
   choices: [
     'いけない。ドロップはプレーヤー自身がしなければならない',
     'よい。キャディーの通常の職務に含まれる',
@@ -42,7 +42,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n03c', must: true, cat: 'onsite', rule: '規則10.3b(3)', level: 3, pen: 'one',
-  q: 'キャディーが球をリプレースできるのはどのような場合か。',
+  q: 'キャディーが球をリプレースできるのはどのような場合ですか。',
   choices: [
     'そのキャディー自身が球を拾い上げた、または動かした場合',
     'いつでもできる',
@@ -59,7 +59,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n04c', must: true, cat: 'onsite', rule: '規則10.3b(3)', level: 2, pen: 'info',
-  q: 'お客様の球が木の根元にある。キャディーが「アンプレヤブルにしましょう」と決めてよいか。',
+  q: 'お客様の球が木の根元にあります。キャディーが「アンプレヤブルにしましょう」と決めてよいですか。',
   choices: [
     'アドバイスはできるが、決定はお客様がしなければならない',
     'キャディーが決めてよい',
@@ -75,7 +75,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n05c', must: true, cat: 'onsite', rule: '規則10.3b(1)', level: 2, pen: 'none',
-  q: 'パッティンググリーン上で、キャディーがお客様の球をマークして拾い上げ、拭いてリプレースした。お客様の承認は必要か。',
+  q: 'パッティンググリーン上で、キャディーがお客様の球をマークして拾い上げ、拭いてリプレースしました。お客様の承認は必要ですか。',
   choices: [
     '必要ない。規則で常に認められている行動である',
     'その都度の承認が必要',
@@ -92,7 +92,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n06c', cat: 'onsite', rule: '規則10.3b(2)', level: 3, pen: 'one',
-  q: 'フェアウェイでお客様の球が泥だらけになっている。キャディーが確認のために拾い上げるにはどうするか。',
+  q: 'フェアウェイでお客様の球が泥だらけになっています。キャディーが確認のために拾い上げるにはどうすればよいですか。',
   choices: [
     'その都度お客様の具体的な承認を得てから拾い上げる',
     '承認なしで拾い上げてよい',
@@ -109,7 +109,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n07c', must: true, cat: 'onsite', rule: '規則10.3b(1)', level: 1, pen: 'none',
-  q: 'キャディーが承認なしに常に行ってよい行動はどれか。',
+  q: 'キャディーが承認なしに常に行ってよい行動はどれですか。',
   choices: [
     'バンカーをならす、旗竿に付き添う、ルースインペディメントを取り除く',
     '救済を受けるかどうかを決める',
@@ -124,7 +124,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n08c', must: true, cat: 'onsite', rule: '規則10.2b(4)', level: 2, pen: 'general',
-  q: 'お客様がスタンスをとり始めた。キャディーはどこに立つべきか。',
+  q: 'お客様がスタンスをとり始めました。キャディーはどこに立つべきでしょうか。',
   choices: [
     'プレーの線の後方の延長線上を避けて立つ',
     'プレーの線の後方に立って狙いを確認する',
@@ -140,7 +140,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n09c', cat: 'onsite', rule: '規則8.1d', level: 3, pen: 'info',
-  q: 'お客様の球が止まった後、他の組のカートがそのライを踏んで荒らしてしまった。キャディーが元に戻してよいか。',
+  q: 'お客様の球が止まった後、他の組のカートがそのライを踏んで荒らしてしまいました。キャディーが元に戻してよいですか。',
   choices: [
     'お客様のその都度の承認があれば戻してよい',
     '承認なしで戻してよい',
@@ -156,7 +156,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n10c', cat: 'onsite', rule: '規則10.3b(3)', level: 2, pen: 'info',
-  q: 'マッチプレーで、相手のパットをコンシードするかどうかをキャディーが判断してよいか。',
+  q: 'マッチプレーで、相手のパットをコンシードするかどうかをキャディーが判断してよいですか。',
   choices: [
     'いけない。コンシードはプレーヤー本人が行う',
     'よい',
@@ -174,7 +174,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'n11c', must: true, cat: 'onsite', rule: 'アドバイスの定義', level: 1, pen: 'none',
-  q: '同じ組ではないお客様から「あのバンカーまで何ヤードですか」と聞かれた。答えてよいか。',
+  q: '同じ組ではないお客様から「あのバンカーまで何ヤードですか」と聞かれました。答えてよいですか。',
   choices: [
     '答えてよい。2点間の距離は公開されている情報でアドバイスではない',
     '答えると一般の罰になる',
@@ -190,7 +190,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n12c', must: true, cat: 'onsite', rule: 'アドバイスの定義', level: 2, pen: 'none',
-  q: '他の組のお客様から「今、風はどっち向きですか」と聞かれた。答えてよいか。',
+  q: '他の組のお客様から「今、風はどっち向きですか」と聞かれました。答えてよいですか。',
   choices: [
     '答えてよい。風向きは公開されている情報である',
     '答えると一般の罰になる',
@@ -206,7 +206,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n13c', must: true, cat: 'onsite', rule: '規則10.2a', level: 2, pen: 'general',
-  q: '他の組のお客様から「今の、何番で打ちました?」と聞かれた。どうなるか。',
+  q: '他の組のお客様から「今の、何番で打ちました?」と聞かれました。どうなりますか。',
   choices: [
     'クラブ選択はアドバイスにあたり、尋ねた側も答えた側も一般の罰',
     '公開されている情報なので罰はない',
@@ -223,7 +223,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n14c', must: true, cat: 'onsite', rule: '規則18.3a', level: 2, pen: 'info',
-  q: 'お客様のティーショットがOB方向へ飛んだ。キャディーとして何を勧めるべきか。',
+  q: 'お客様のティーショットがOB方向へ飛びました。キャディーとして何を勧めるべきでしょうか。',
   choices: [
     '暫定球をプレーすることを勧め、「暫定球」と宣言していただく',
     'そのまま前進して探すことを勧める',
@@ -240,7 +240,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n15c', must: true, cat: 'onsite', rule: '規則18.3a', level: 2, pen: 'info',
-  q: 'お客様の球が池(ペナルティーエリア)に入ったかもしれない。暫定球を勧めてよいか。',
+  q: 'お客様の球が池(ペナルティーエリア)に入ったかもしれません。暫定球を勧めてよいですか。',
   choices: [
     'いけない。ペナルティーエリアの中で紛失したかもしれない場合は暫定球を打てない',
     '勧めてよい',
@@ -256,7 +256,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n16c', must: true, cat: 'onsite', rule: '規則17.1d', level: 2, pen: 'one',
-  q: 'お客様の球が赤杭のペナルティーエリアに入った。案内すべき救済の選択肢はいくつか。',
+  q: 'お客様の球が赤杭のペナルティーエリアに入りました。案内すべき救済の選択肢はいくつですか。',
   choices: [
     '3つ(ストロークと距離・後方線上・ラテラル)。いずれも1打の罰',
     '2つ(ストロークと距離・後方線上)',
@@ -274,7 +274,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n17c', must: true, cat: 'onsite', rule: '規則16.1b', level: 2, pen: 'none',
-  q: 'お客様の球がカート道路の上に止まった。案内すべき手順はどれか。',
+  q: 'お客様の球がカート道路の上に止まりました。案内すべき手順はどれですか。',
   choices: [
     '完全な救済のニヤレストポイントを決め、そこから1クラブレングス以内でホールに近づかない範囲に罰なしでドロップ',
     '道路の横に罰なしでプレースする',
@@ -292,7 +292,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n18c', must: true, cat: 'onsite', rule: '規則13.1f', level: 2, pen: 'general',
-  q: 'お客様の球が隣のホールのグリーン(目的外グリーン)に乗った。どう案内するか。',
+  q: 'お客様の球が隣のホールのグリーン(目的外グリーン)に乗りました。どのように案内しますか。',
   choices: [
     'あるがままに打つことはできず、罰なしの救済を受けなければならない',
     'あるがままに打ってよい',
@@ -309,7 +309,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n19c', must: true, cat: 'onsite', rule: '規則18.2a(1)', level: 1, pen: 'info',
-  q: 'お客様の球が見つからない。捜索を打ち切るべきなのはいつか。',
+  q: 'お客様の球が見つかりません。捜索を打ち切るべきなのはいつですか。',
   choices: [
     '捜し始めてから3分',
     '捜し始めてから5分',
@@ -327,7 +327,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n20c', must: true, cat: 'onsite', rule: '規則7.4', level: 2, pen: 'none',
-  q: 'ラフで球を捜していて、キャディーがうっかりお客様の球を蹴って動かしてしまった。裁定はどれか。',
+  q: 'ラフで球を捜していて、キャディーがうっかりお客様の球を蹴って動かしてしまいました。裁定はどれですか。',
   choices: [
     '罰はなく、球を元の箇所にリプレースする',
     'お客様が1打の罰を受ける',
@@ -347,7 +347,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'n21c', must: true, cat: 'onsite', rule: '規則5.3a', level: 2, pen: 'varies',
-  q: '競技で、お客様がスタート時刻に3分遅れて到着した。裁定はどれか。',
+  q: '競技で、お客様がスタート時刻に3分遅れて到着しました。裁定はどれですか。',
   choices: [
     '最初のホールに一般の罰',
     '失格',
@@ -365,7 +365,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n22c', must: true, cat: 'onsite', rule: '規則5.7b', level: 1, pen: 'dq',
-  q: '落雷の危険があり、委員会が即時中断のサイレンを鳴らした。プレーヤーが1打だけ打ってから中断した場合の裁定はどれか。',
+  q: '落雷の危険があり、委員会が即時中断のサイレンを鳴らしました。プレーヤーが1打だけ打ってから中断した場合の裁定はどれですか。',
   choices: [
     '失格',
     '一般の罰',
@@ -382,7 +382,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n23c', must: true, cat: 'onsite', rule: '規則3.3b', level: 2, pen: 'info',
-  q: 'ストロークプレーの競技で、スコアカードの合計を計算する責任は誰にあるか。',
+  q: 'ストロークプレーの競技で、スコアカードの合計を計算する責任は誰にありますか。',
   choices: [
     '委員会',
     'プレーヤー',
@@ -399,7 +399,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n24c', cat: 'onsite', rule: '規則3.3b(3)', level: 2, pen: 'dq',
-  q: '提出されたスコアカードで、あるホールのスコアが実際より少なく記入されていた。原則としてどうなるか。',
+  q: '提出されたスコアカードで、あるホールのスコアが実際より少なく記入されていました。原則としてどうなりますか。',
   choices: [
     '失格。ただし提出前に知らなかった罰打による場合は例外がある',
     'そのスコアがそのまま成立する',
@@ -415,7 +415,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n25c', cat: 'onsite', rule: '規則20.1c(3)', level: 3, pen: 'info',
-  q: 'ストロークプレーの競技中、お客様から規則の判断を求められたが、その場で裁定できない。どう案内するのが適切か。',
+  q: 'ストロークプレーの競技中、お客様から規則の判断を求められたが、その場で裁定できません。どう案内するのが適切ですか。',
   choices: [
     '2つの球をプレーしていただき、提出前に委員会へ報告してもらう',
     'お客様に有利な方法を選んでいただく',
@@ -432,7 +432,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n26c', cat: 'onsite', rule: '規則5.6a', level: 2, pen: 'varies',
-  q: '不当にプレーを遅らせているプレーヤーへの罰は、どのように重くなるか。',
+  q: '不当にプレーを遅らせているプレーヤーへの罰は、どのように重くなりますか。',
   choices: [
     '1度目は1打の罰、2度目は一般の罰、3度目は失格',
     '常に1打の罰',
@@ -449,7 +449,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n27c', cat: 'onsite', rule: '規則1.2a', level: 2, pen: 'dq',
-  q: 'プレーヤーに重大な非行があった。委員会が科すことができる罰はどれか。',
+  q: 'プレーヤーに重大な非行がありました。委員会が科すことができる罰はどれですか。',
   choices: [
     '失格',
     '一般の罰',
@@ -466,7 +466,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n28c', cat: 'onsite', rule: '規則3.3c', level: 2, pen: 'dq',
-  q: 'ストロークプレーで、あるホールをホールアウトせずに次のホールへ進んだプレーヤーがいた。どう扱うか。',
+  q: 'ストロークプレーで、あるホールをホールアウトせずに次のホールへ進んだプレーヤーがいました。どのように扱いますか。',
   choices: [
     '次のホールのストローク前に戻ってホールアウトすれば罰なし。しなければ失格',
     'そのホールに一般の罰',
@@ -486,7 +486,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'n29c', must: true, cat: 'onsite', rule: 'ペナルティーエリアの定義', level: 2, pen: 'info',
-  q: '池に杭も線も設置していない。この池はどう扱われるか。',
+  q: '池に杭も線も設置していません。この池はどのように扱われますか。',
   choices: [
     'レッドペナルティーエリアとして扱う',
     'イエローペナルティーエリアとして扱う',
@@ -503,7 +503,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n30c', cat: 'onsite', rule: '一時的な水の定義', level: 3, pen: 'info',
-  q: '雨上がりのフェアウェイがぬかるんでいる。「一時的な水」として救済の対象になるのはどのような場合か。',
+  q: '雨上がりのフェアウェイがぬかるんでいます。「一時的な水」として救済の対象になるのはどのような場合ですか。',
   choices: [
     'プレーヤーが足で過度に踏み込まずに、スタンスをとる前か後に水が見えている場合',
     '地面が濡れていれば常に該当する',
@@ -519,7 +519,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n31c', must: true, cat: 'onsite', rule: '異常なコース状態の定義', level: 1, pen: 'info',
-  q: '「異常なコース状態」の4つに【含まれない】ものはどれか。',
+  q: '「異常なコース状態」の4つに【含まれない】ものはどれですか。',
   choices: [
     'ペナルティーエリアの中の水',
     '動物の穴',
@@ -535,7 +535,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n32c', cat: 'onsite', rule: '規則2.4', level: 2, pen: 'general',
-  q: '植栽保護のためプレー禁止区域を設定した。その区域に球が入った場合、プレーヤーはどうしなければならないか。',
+  q: '植栽保護のためプレー禁止区域を設定しました。その区域に球が入った場合、プレーヤーはどうしなければなりませんか。',
   choices: [
     'あるがままにプレーしてはならず、救済を受けなければならない',
     'あるがままにプレーしてもよい',
@@ -553,7 +553,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n33c', cat: 'onsite', rule: '規則12.1', level: 2, pen: 'info',
-  q: '大雨で砂が流され、バンカーの一部に砂がなくなっている。その部分に止まった球はどう扱われるか。',
+  q: '大雨で砂が流され、バンカーの一部に砂がなくなっています。その部分に止まった球はどのように扱われますか。',
   choices: [
     'バンカーとして設定された区域内であればバンカーの球として扱う',
     'ジェネラルエリアの球として扱う',
@@ -569,7 +569,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n34c', must: true, cat: 'onsite', rule: '規則15.2 / 16.1', level: 2, pen: 'info',
-  q: 'バンカーレーキと排水溝の格子蓋。救済の扱いはどう違うか。',
+  q: 'バンカーレーキと、排水溝の格子蓋。どちらも人工物ですが、規則上の扱いは同じではありません。救済の受け方はどう違いますか。',
   choices: [
     'レーキは動かせる障害物で取り除ける。格子蓋は動かせない障害物で規則16.1の救済を受ける',
     'どちらも取り除ける',
@@ -586,7 +586,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n35c', must: true, cat: 'onsite', rule: '規則13.1c(2)', level: 1, pen: 'none',
-  q: 'グリーン上でお客様が修理できる損傷はどこまでか。',
+  q: 'グリーン上でお客様が修理できる損傷はどこまでですか。',
   choices: [
     'ボールマーク、スパイクマーク、古いホールの埋跡など、ほとんどすべての損傷',
     'ボールマークだけ',
@@ -603,7 +603,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'n36c', must: true, cat: 'onsite', rule: '規則13.2a', level: 1, pen: 'none',
-  q: '旗竿をホールに立てたままパッティングして球が当たった。お客様にどう説明するか。',
+  q: '旗竿をホールに立てたままパッティングして球が当たりました。お客様にどのように説明しますか。',
   choices: [
     '罰はなく、そのままプレーを続けていただく',
     '一般の罰になる',

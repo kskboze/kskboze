@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'p01', must: true, cat: 'procedure', rule: '規則14.3b(2)', level: 1, pen: 'general', fig: 'drop-flow',
-  q: '球をドロップする正しい高さはどれか。',
+  q: '球をドロップする正しい高さはどれですか。',
   choices: ['膝の高さ', '肩の高さ', '腰の高さ', '地面すれすれ'],
   why: '規則14.3b(2)により、2019年からプレーヤーは膝の高さから球をドロップしなければなりません。「膝の高さ」とは、まっすぐ立ったときの地面から膝までの高さです。肩の高さからのドロップ(2018年まで)より球が救済エリアに留まりやすくなりました。',
   next: [
@@ -17,7 +17,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p02', must: true, cat: 'procedure', rule: '規則14.3c(2)', level: 2, pen: 'info', fig: 'drop-flow',
-  q: 'ドロップした球が救済エリアの外に止まった。どうするか。',
+  q: 'ドロップした球が救済エリアの外に止まりました。どうすればよいですか。',
   choices: [
     '再ドロップし、2回目も救済エリア外に止まったら、2回目のドロップで球が最初に地面に触れた箇所にプレースする',
     'そのままあるがままにプレーする',
@@ -34,7 +34,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p03', cat: 'procedure', rule: '規則14.2e', level: 3, pen: 'info',
-  q: 'リプレースした球が元の箇所に止まらない場合はどうするか。',
+  q: 'リプレースした球が元の箇所に止まらない場合はどうすればよいですか。',
   choices: [
     '2回目も止まらなければ、その球が止まる最も近い箇所(元の箇所よりホールに近づかず、同じコースエリア内)にプレースする',
     'ドロップに切り替える',
@@ -51,7 +51,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p04', must: true, cat: 'procedure', rule: '規則14.1a', level: 1, pen: 'one',
-  q: 'リプレースする球を拾い上げる前に、必ずしなければならないことはどれか。',
+  q: 'リプレースする球を拾い上げる前に、必ずしなければならないことはどれですか。',
   choices: [
     'その球の箇所をマークすること',
     '同伴競技者に知らせること',
@@ -68,7 +68,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p05', must: true, cat: 'procedure', rule: '規則14.7a', level: 2, pen: 'general',
-  q: '誤所から球をプレーした。ストロークプレーでの裁定はどれか。',
+  q: '誤所から球をプレーしました。ストロークプレーでの裁定はどれですか。',
   choices: [
     '一般の罰。重大な違反であれば正しい場所からプレーして訂正しなければならない',
     '1打の罰',
@@ -86,7 +86,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p06', cat: 'procedure', rule: '規則14.3d', level: 3, pen: 'varies',
-  q: '誤った方法でドロップした球(肩の高さからドロップした球など)を、そのままプレーしてしまった。裁定はどれか。',
+  q: '誤った方法でドロップした球(肩の高さからドロップした球など)を、そのままプレーしてしまいました。裁定はどれですか。',
   choices: [
     '球が救済エリア内にあれば1打の罰、救済エリア外にあれば一般の罰',
     '常に一般の罰',
@@ -102,7 +102,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p07', cat: 'procedure', rule: '規則14.3a', level: 2, pen: 'info',
-  q: '救済を受けてドロップするとき、元の球以外の球を使うことはできるか。',
+  q: '救済を受けてドロップするとき、元の球以外の球を使うことはできますか。',
   choices: [
     'できる。ドロップする場合は別の球を使ってよい',
     'できない。必ず元の球を使う',
@@ -118,7 +118,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p08', cat: 'procedure', rule: '規則14.1c', level: 2, pen: 'one',
-  q: '球を拾い上げて拭くことが認められない場面で球を拭いた。裁定はどれか。',
+  q: '球を拾い上げて拭くことが認められない場面で球を拭いました。裁定はどれですか。',
   choices: ['1打の罰', '罰なし', '一般の罰', '失格'],
   why: '規則14.1cにより、拾い上げた球は原則として拭くことができますが、いくつかの場面では拭くことが制限されます。①球を特定するため(特定に必要な範囲を超えて)、②球が損傷しているか確認するため、③球が他のプレーヤーの障害になるため、④救済が認められる状態か確認するため。これらの場面で拭くと1打の罰です。',
   next: [
@@ -129,7 +129,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p09', cat: 'procedure', rule: '規則14.3b(1)', level: 2, pen: 'info',
-  q: '救済を受けるとき、ドロップを行うことができるのは誰か。',
+  q: '救済を受けるとき、ドロップを行うことができるのは誰ですか。',
   choices: [
     'プレーヤー本人だけ',
     'プレーヤーまたはそのキャディー',
@@ -145,7 +145,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p10', cat: 'procedure', rule: '規則14.4', level: 2, pen: 'info',
-  q: '球がインプレーになるのはいつか。',
+  q: '球がインプレーになるのはいつですか。',
   choices: [
     'ドロップ、プレース、リプレースによって救済エリアなどに置かれたとき、またはティーイングエリアからストロークを行ったとき',
     '球をバッグから出したとき',
@@ -161,7 +161,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p11', cat: 'procedure', rule: '規則14.5', level: 3, pen: 'none',
-  q: '救済を受ける手続きの途中で誤りに気づいた。訂正できるのはどのような場合か。',
+  q: '救済を受ける手続きの途中で誤りに気づきました。訂正できるのはどのような場合ですか。',
   choices: [
     'ストロークを行う前であれば、罰なしに訂正できる',
     'いつでも訂正できる',
@@ -178,7 +178,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p12', cat: 'procedure', rule: '規則14.2d', level: 3, pen: 'info',
-  q: '球をリプレースするとき、元のライが変わってしまっていた(球が動いた後に誰かがそこを踏んだなど)。どうするか。',
+  q: '球をリプレースするとき、元のライが変わってしまっていました(球が動いた後に誰かがそこを踏んだなど)。どうすればよいですか。',
   choices: [
     '元のライにできるだけ近い状態に復元し、そこに球をリプレースする',
     'そのままリプレースする',
@@ -195,7 +195,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p13', cat: 'procedure', rule: '規則14.3b(2)', level: 2, pen: 'info',
-  q: 'ドロップした球が、救済エリアに落ちる前にプレーヤーの体や用具に当たった。どうするか。',
+  q: 'ドロップした球が、救済エリアに落ちる前にプレーヤーの体や用具に当たりました。どうすればよいですか。',
   choices: [
     '罰なしに再ドロップする(この回数は数えない)',
     'そのまま止まった場所からプレーする',
@@ -211,7 +211,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p14', cat: 'procedure', rule: '規則14.6', level: 3, pen: 'info',
-  q: '直前のストロークを行った箇所からプレーする場合(ストロークと距離の救済など)、どこからプレーするか。',
+  q: '直前のストロークを行った箇所からプレーする場合(ストロークと距離の救済など)、どこからプレーしますか。',
   choices: [
     'ジェネラルエリアなら直前のストロークの箇所から1クラブレングス以内でホールに近づかない救済エリアにドロップ、ティーイングエリアならその区域内から',
     '正確に同じ地点にプレースする',
@@ -228,7 +228,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p15', cat: 'procedure', rule: '規則14.7b', level: 3, pen: 'varies',
-  q: 'ストロークプレーで、誤所からのプレーが重大な違反にあたるかどうか判断がつかない。どうするのが適切か。',
+  q: 'ストロークプレーで、誤所からのプレーが重大な違反にあたるかどうか判断がつきません。どうするのが適切ですか。',
   choices: [
     '2つの球をプレーして、スコアカード提出前に委員会に報告する',
     '自分に有利な方を選ぶ',
@@ -245,7 +245,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'p16', cat: 'procedure', rule: '規則14.3b(3)', level: 2, pen: 'info',
-  q: '救済エリアの大きさを測るときのクラブレングスについて正しいものはどれか。',
+  q: '救済エリアの大きさを測るときのクラブレングスについて正しいものはどれですか。',
   choices: [
     'そのラウンドで持っているクラブのうち、パター以外で最も長いクラブの長さ',
     'ドライバーの長さと決まっている',
@@ -264,7 +264,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'f01', must: true, cat: 'freerelief', rule: '規則15.2a', level: 1, pen: 'none',
-  q: '動かせる障害物(バンカーレーキ、空き缶など)が球のすぐ近くにある。どう扱われるか。',
+  q: '動かせる障害物(バンカーレーキ、空き缶など)が球のすぐ近くにあります。どのように扱われますか。',
   choices: [
     'コース上のどこでも罰なしに取り除くことができ、球が動いた場合は罰なしにリプレースする',
     '取り除くと1打の罰を受ける',
@@ -281,7 +281,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f02', must: true, cat: 'freerelief', rule: '規則15.1a', level: 1, pen: 'none',
-  q: 'ルースインペディメント(石、葉、枝、動物の糞など)を取り除くことができる場所はどこか。',
+  q: 'ルースインペディメント(石、葉、枝、動物の糞など)を取り除くことができる場所はどこですか。',
   choices: [
     'コース上のどこでも(ペナルティーエリアやバンカーを含む)',
     'ジェネラルエリアだけ',
@@ -297,7 +297,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f03', must: true, cat: 'freerelief', rule: '規則16.1a', level: 1, pen: 'none', fig: 'nearest-point',
-  q: '動かせない障害物(カート道路など)が球やスタンス、スイング区域の障害になっている。どうすることができるか。',
+  q: '動かせない障害物(カート道路など)が球やスタンス、スイング区域の障害になっています。どうすることができますか。',
   choices: [
     '罰なしの救済を受けることができる',
     'あるがままにプレーしなければならない',
@@ -315,7 +315,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f04', must: true, cat: 'freerelief', rule: '規則16.3a', level: 2, pen: 'none', fig: 'embedded',
-  q: 'ジェネラルエリアで球が自らのピッチマークの中に食い込んでいた(目玉の球)。どうするか。',
+  q: 'ジェネラルエリアで球が自らのピッチマークの中に食い込んでいました(目玉の球)。どうすればよいですか。',
   choices: [
     '罰なしの救済を受けることができる',
     'あるがままにプレーしなければならない',
@@ -333,7 +333,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f05', must: true, cat: 'freerelief', rule: '規則16.1b', level: 2, pen: 'info', fig: 'nearest-point',
-  q: 'ジェネラルエリアで一時的な水(カジュアルウォーター)から救済を受ける場合、救済エリアの基点はどこか。',
+  q: 'ジェネラルエリアで一時的な水(カジュアルウォーター)から救済を受ける場合、救済エリアの基点はどこですか。',
   choices: [
     '完全な救済のニヤレストポイント',
     '球が止まっていた箇所',
@@ -351,7 +351,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f06', cat: 'freerelief', rule: '規則16.4', level: 2, pen: 'one',
-  q: '救済が認められる状態かどうかを確認するために球を拾い上げることについて、正しいものはどれか。',
+  q: '救済が認められる状態かどうかを確認するために球を拾い上げることについて、正しいものはどれですか。',
   choices: [
     '合理的に必要な場合はマークして罰なしに拾い上げられるが、球を拭くことはできない',
     '確認のために拾い上げることは認められない',
@@ -368,7 +368,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f07', cat: 'freerelief', rule: '規則16.1a(3)', level: 3, pen: 'info',
-  q: '球がラフの深い場所にあり、そこから打つのは難しいが、近くのカート道路がスタンスの障害になっている。救済について正しいものはどれか。',
+  q: '球がラフの深い場所にあり、そこから打つのは難しいが、近くのカート道路がスタンスの障害になっています。救済について正しいものはどれですか。',
   choices: [
     '救済を受けられるが、そのカート道路への障害が「明らかに不合理」なプレーの方向によるものであれば救済は受けられない',
     'いつでも自由に救済を受けられる',
@@ -384,7 +384,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f08', cat: 'freerelief', rule: '規則16.2', level: 2, pen: 'none',
-  q: '球の近くに毒ヘビがいて危険な状態にある。どうすることができるか。',
+  q: '球の近くに毒ヘビがいて危険な状態にあります。どうすることができますか。',
   choices: [
     '危険な動物がいる状態として、罰なしの救済を受けることができる',
     'あるがままにプレーしなければならない',
@@ -400,7 +400,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f09', cat: 'freerelief', rule: '規則16.1e', level: 3, pen: 'none',
-  q: '球が異常なコース状態の中で紛失したことが「分かっている、または事実上確実」である。どうするか。',
+  q: '球が異常なコース状態の中で紛失したことが「分かっている、または事実上確実」です。どうすればよいですか。',
   choices: [
     '球が異常なコース状態の縁を最後に横切った地点を基点として、罰なしの救済を受ける',
     '紛失球としてストロークと距離の救済を受ける',
@@ -417,7 +417,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f10', cat: 'freerelief', rule: '規則15.1a', level: 2, pen: 'info',
-  q: '次のうち、ルースインペディメントに【あたらない】ものはどれか。',
+  q: '次のうち、ルースインペディメントに【あたらない】ものはどれですか。',
   choices: [
     '露、霜、水',
     '落ち葉や小枝',
@@ -433,7 +433,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f11', cat: 'freerelief', rule: '規則16.1d', level: 2, pen: 'info',
-  q: 'パッティンググリーン上で異常なコース状態から救済を受ける場合、球はどうするか。',
+  q: 'パッティンググリーン上で異常なコース状態から救済を受ける場合、球はどうすればよいですか。',
   choices: [
     '完全な救済のニヤレストポイントにプレースする',
     '1クラブレングス以内にドロップする',
@@ -450,7 +450,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f12', cat: 'freerelief', rule: '規則16.1a(2)', level: 3, pen: 'info',
-  q: '球がペナルティーエリア内にあり、そこに一時的な水がたまっている。異常なコース状態からの罰なしの救済は受けられるか。',
+  q: '球がペナルティーエリア内にあり、そこに一時的な水がたまっています。異常なコース状態からの罰なしの救済は受けられますか。',
   choices: [
     '受けられない。ペナルティーエリア内では規則16.1の救済は適用されない',
     '受けられる',
@@ -466,7 +466,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f13', cat: 'freerelief', rule: '規則16.3a(2)', level: 3, pen: 'info',
-  q: '球が砂の中に食い込んでいるが、その場所はバンカーである。目玉の球の救済は受けられるか。',
+  q: '球が砂の中に食い込んでいるが、その場所はバンカーです。目玉の球の救済は受けられますか。',
   choices: [
     '受けられない。規則16.3はジェネラルエリアにだけ適用される',
     '受けられる',
@@ -482,7 +482,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f14', cat: 'freerelief', rule: '規則15.3c', level: 3, pen: 'general',
-  q: '同伴競技者のボールマーカーが自分のプレーの障害になっている。どうすることができるか。',
+  q: '同伴競技者のボールマーカーが自分のプレーの障害になっています。どうすることができますか。',
   choices: [
     'そのボールマーカーを動かすよう求めることができる',
     '自分で勝手に動かす',
@@ -500,7 +500,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f15', cat: 'freerelief', rule: '規則16.1', level: 2, pen: 'info',
-  q: '「異常なコース状態」に含まれない ものはどれか。',
+  q: '「異常なコース状態」に含まれない ものはどれですか。',
   choices: [
     'ペナルティーエリアの水',
     '動物の穴',
@@ -516,7 +516,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'f16', cat: 'freerelief', rule: '規則16.1c(2)', level: 3, pen: 'varies',
-  q: 'バンカー内の球が動物の穴の障害を受けているが、バンカー内には完全な救済のニヤレストポイントがない。どうするか。',
+  q: 'バンカー内の球が動物の穴の障害を受けているが、バンカー内には完全な救済のニヤレストポイントがありません。どうすればよいですか。',
   choices: [
     'バンカー内で最大限の救済を受けられる箇所を基点にするか、1打の罰でバンカー外の後方線上の救済を受ける',
     '罰なしでバンカーの外にドロップできる',

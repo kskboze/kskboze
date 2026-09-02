@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'b01', must: true, cat: 'basics', rule: '罰の定義', level: 1, pen: 'general',
-  q: 'ストロークプレーで「一般の罰」とは何打の罰か。',
+  q: 'ストロークプレーで「一般の罰」とは何打の罰ですか。',
   choices: ['2打', '1打', '3打', '罰打はなく、そのホールの負けとなる'],
   why: '規則には罰の重さが4段階あります。「罰なし」「1打の罰」「一般の罰」「失格」です。一般の罰は、ストロークプレーでは2打の罰、マッチプレーではそのホールの負けを意味します。同じ「一般の罰」という言葉が、競技形式によって違う結果になる点が重要です。',
   next: [
@@ -18,7 +18,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b02', must: true, cat: 'basics', rule: '罰の定義', level: 1, pen: 'general',
-  q: 'マッチプレーで一般の罰を受けた場合はどうなるか。',
+  q: 'マッチプレーで一般の罰を受けた場合はどうなりますか。',
   choices: ['そのホールの負けとなる', '2打の罰を受ける', '1打の罰を受ける', '失格となる'],
   why: 'マッチプレーはホールごとに勝敗を決める形式なので、打数を加算しても意味がありません。そのため一般の罰は「そのホールの負け」という形をとります。1打の罰はマッチプレーでも1打の加算です。',
   next: [
@@ -30,7 +30,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b03', cat: 'basics', rule: '規則1.3c(4)', level: 3, pen: 'varies',
-  q: '1つのホールで複数の規則違反があった。罰がいくつ科されるかを決めるものはどれか。',
+  q: '1つのホールで複数の規則違反がありました。罰がいくつ科されるかを決めるものはどれですか。',
   choices: [
     '違反と違反の間に「介在する出来事」があったかどうか',
     '違反した規則が同じか違うか',
@@ -48,7 +48,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b04', must: true, cat: 'basics', rule: '規則3.3b(3)', level: 2, pen: 'dq',
-  q: 'ストロークプレーで、あるホールについて実際より少ないスコアを記入したスコアカードを提出した(知らなかった罰打による場合を除く)。裁定はどれか。',
+  q: 'ストロークプレーで、あるホールについて実際より少ないスコアを記入したスコアカードを提出しました(知らなかった罰打による場合を除く)。裁定はどれですか。',
   choices: ['失格', 'そのホールに2打の罰が加えられる', '委員会が正しいスコアに訂正する', '罰はない'],
   why: 'スコアカードの正確さはストロークプレーの根幹です。実際より少ないスコアを提出すれば、その競技での順位が不当に有利になるため失格となります。逆に多いスコアを提出した場合は、自分が不利になるだけなのでそのまま成立します。',
   next: [
@@ -61,7 +61,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b05', cat: 'basics', rule: '規則3.3b(3)', level: 2, pen: 'none',
-  q: 'ストロークプレーで、スコアカードに記入したスコアが実際より多かった場合はどうなるか。',
+  q: 'ストロークプレーで、スコアカードに記入したスコアが実際より多かった場合はどうなりますか。',
   choices: [
     'その記入されたスコアがそのまま成立する',
     '委員会が正しいスコアに訂正する',
@@ -76,7 +76,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b06', must: true, cat: 'basics', rule: '規則1.1', level: 1, pen: 'info', fig: 'course-areas',
-  q: 'ゴルフのゲームの原則として規則1.1が示しているものはどれか。',
+  q: 'ゴルフのゲームの原則として規則1.1が示しているものはどれですか。',
   choices: [
     'クラブで球を打ち、コースはあるがままにプレーし、球はあるがままにプレーする',
     '常に最も有利なライを選んでプレーする',
@@ -92,7 +92,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b07', cat: 'basics', rule: '規則1.2a', level: 2, pen: 'dq',
-  q: 'プレーヤーの行動基準(規則1.2)に重大な違反があった場合、委員会が科すことができる最も重い罰はどれか。',
+  q: 'プレーヤーの行動基準(規則1.2)に重大な違反があった場合、委員会が科すことができる最も重い罰はどれですか。',
   choices: ['失格', '一般の罰', '1打の罰', '罰を科すことはできない'],
   why: '規則1.2aは、誠実に行動すること、他人に配慮すること、コースを保護することをプレーヤーに求めています。この基準そのものに罰はありませんが、重大な非行(著しく不作法な行為、他人への危害、意図的な不正など)があった場合、委員会はプレーヤーを失格にすることができます。',
   next: [
@@ -103,7 +103,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b08', cat: 'basics', rule: '規則3.3c', level: 2, pen: 'dq',
-  q: 'ストロークプレーで、プレーヤーがホールアウトしないまま次のホールのティーイングエリアからストロークを行った。裁定はどれか。',
+  q: 'ストロークプレーで、プレーヤーがホールアウトしないまま次のホールのティーイングエリアからストロークを行いました。裁定はどれですか。',
   choices: ['失格', '一般の罰', '1打の罰', '罰はない'],
   why: 'ストロークプレーは全ホールの総打数を competing するので、各ホールでホールアウトすることが前提です。ホールアウトしないまま先へ進むと、そのホールのスコアが成立しません。訂正の機会を逃すと失格となります。',
   next: [
@@ -115,7 +115,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b09', cat: 'basics', rule: '規則3.2 / 3.3', level: 1, pen: 'info',
-  q: 'マッチプレーとストロークプレーの違いとして正しいものはどれか。',
+  q: 'マッチプレーとストロークプレーの違いとして正しいものはどれですか。',
   choices: [
     'マッチプレーはホールごとの勝敗を競い、ストロークプレーはラウンドの総打数を競う',
     'マッチプレーには罰の規定がない',
@@ -130,7 +130,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b10', cat: 'basics', rule: '規則3.2b(1)', level: 2, pen: 'info',
-  q: 'マッチプレーで、プレーヤーが相手のパットをコンシード(認める)した。その後どうなるか。',
+  q: 'マッチプレーで、プレーヤーが相手のパットをコンシード(認める)しました。その後どうなりますか。',
   choices: [
     'そのストロークは終わったものとして扱われ、コンシードを取り消すことはできない',
     'プレーヤーはいつでもコンシードを取り消せる',
@@ -147,7 +147,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b11', cat: 'basics', rule: '規則3.2c', level: 3, pen: 'info',
-  q: 'マッチプレーでハンディキャップを適用する場合、正しいものはどれか。',
+  q: 'マッチプレーでハンディキャップを適用する場合、正しいものはどれですか。',
   choices: [
     'ハンディキャップストロークはホールごとに適用し、そのホールの正味スコアで勝敗を決める',
     'ラウンド全体の総打数から差し引く',
@@ -163,7 +163,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b12', cat: 'basics', rule: '規則1.3b(1)', level: 3, pen: 'varies',
-  q: 'プレーヤーが自分の違反を知りながら、それを無視して規則を適用しなかった。裁定はどれか。',
+  q: 'プレーヤーが自分の違反を知りながら、それを無視して規則を適用しませんでした。裁定はどれですか。',
   choices: [
     '失格となる',
     'その違反の罰だけを受ける',
@@ -179,7 +179,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b13', must: true, cat: 'basics', rule: '規則2.2', level: 2, pen: 'info', fig: 'course-areas',
-  q: '「ジェネラルエリア」とはどこを指すか。',
+  q: '「ジェネラルエリア」とはどこを指しますか。',
   choices: [
     'ティーイングエリア、ペナルティーエリア、バンカー、プレーするホールのパッティンググリーンを除くコース全体',
     'フェアウェイだけ',
@@ -195,7 +195,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b14', cat: 'basics', rule: '規則2.4', level: 2, pen: 'general',
-  q: '委員会がコース上に設けた「プレー禁止区域」に球が止まった。プレーヤーはどうしなければならないか。',
+  q: '委員会がコース上に設けた「プレー禁止区域」に球が止まりました。プレーヤーはどうしなければなりませんか。',
   choices: [
     'その球をあるがままにプレーしてはならず、必ず救済を受けなければならない',
     'あるがままにプレーしてもよい',
@@ -212,7 +212,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b15', cat: 'basics', rule: '規則1.3c(1)', level: 2, pen: 'info',
-  q: '罰打はどのように扱われるか。',
+  q: '罰打はどのように扱われますか。',
   choices: [
     'プレーヤーのそのホールのスコアに加えられ、ストロークの数とは別に数える',
     'ストロークの数を1つ減らす',
@@ -228,7 +228,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'b16', cat: 'basics', rule: '規則3.1b', level: 1, pen: 'info',
-  q: 'ストロークプレーで、プレーヤーのスコアを記録する責任を負うのは誰か。',
+  q: 'ストロークプレーで、プレーヤーのスコアを記録する責任を負うのは誰ですか。',
   choices: [
     'マーカー(委員会が指定した人、または委員会が承認した人)',
     'プレーヤー本人だけ',
@@ -248,7 +248,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'e01', must: true, cat: 'equipment', rule: '規則4.1b(1)', level: 1, pen: 'general',
-  q: 'ラウンド中にプレーヤーが持つことができるクラブの最大本数はどれか。',
+  q: 'ラウンド中にプレーヤーが持つことができるクラブの最大本数はどれですか。',
   choices: ['14本', '13本', '15本', '本数の制限はない'],
   why: '規則4.1b(1)により、プレーヤーは14本以内のクラブでラウンドを始め、ラウンド中も14本を超えるクラブを持つことはできません。クラブ選択の技術も競技の一部だという考え方です。',
   next: [
@@ -259,7 +259,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e02', cat: 'equipment', rule: '規則4.1b', level: 2, pen: 'general',
-  q: 'ストロークプレーで、15本のクラブを持ってラウンドを始めていたことに3番ホールで気づいた。罰はどれか。',
+  q: 'ストロークプレーで、15本のクラブを持ってラウンドを始めていたことに3番ホールで気づきました。罰はどれですか。',
   choices: [
     '違反が起きたホール1つにつき2打、1ラウンドにつき最大4打',
     '一律で2打の罰',
@@ -277,7 +277,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e03', must: true, cat: 'equipment', rule: '規則4.3a(1)', level: 2, pen: 'general',
-  q: 'ラウンド中の距離計測機器の使用について正しいものはどれか。',
+  q: 'ラウンド中の距離計測機器の使用について正しいものはどれですか。',
   choices: [
     '距離だけを計測する使用は認められるが、高低差や風などの情報を得ることは禁止されている',
     'どのような機能でも自由に使用できる',
@@ -294,7 +294,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e04', cat: 'equipment', rule: '規則4.2a(1)', level: 1, pen: 'general',
-  q: 'プレーヤーが使用してよい球について正しいものはどれか。',
+  q: 'プレーヤーが使用してよい球について正しいものはどれですか。',
   choices: [
     '用具規則の要件に適合する球でなければならない',
     'どのような球でも使用してよい',
@@ -310,7 +310,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e05', cat: 'equipment', rule: '規則4.2c', level: 2, pen: 'general',
-  q: 'ホールのプレー中に球が切れたり、ひびが入ったりした。どうするか。',
+  q: 'ホールのプレー中に球が切れたり、ひびが入ったりしました。どうすればよいですか。',
   choices: [
     '罰なしに別の球に取り替えることができ、元の球があった箇所からプレーする',
     'そのままプレーを続けなければならない',
@@ -328,7 +328,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e06', cat: 'equipment', rule: '規則4.1a(1)', level: 2, pen: 'dq',
-  q: 'ストロークを行う際に、用具規則に適合しないクラブを使用した。罰はどれか。',
+  q: 'ストロークを行う際に、用具規則に適合しないクラブを使用しました。罰はどれですか。',
   choices: ['失格', '一般の罰', '1打の罰', '罰なし'],
   why: '規則4.1a(1)により、適合しないクラブでストロークを行うと失格です。クラブ本数の超過(一般の罰)より重い扱いになっているのは、適合しないクラブが競技の公平性を根本から損なうためです。',
   next: [
@@ -339,7 +339,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e07', cat: 'equipment', rule: '規則4.1b(2)', level: 2, pen: 'general',
-  q: 'ラウンド中、14本未満だったのでクラブを1本追加したい。認められないのはどれか。',
+  q: 'ラウンド中、14本未満だったのでクラブを1本追加したいと考えています。認められないのはどれですか。',
   choices: [
     'コース上でプレーしている他のプレーヤーからクラブを借りて追加すること',
     '自分の車から自分のクラブを取ってきて追加すること',
@@ -355,7 +355,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e08', cat: 'equipment', rule: '規則4.1c(1)', level: 3, pen: 'general',
-  q: '14本を超えるクラブを持っていたことに気づいた。「プレーから除外する」ためにはどうするか。',
+  q: '14本を超えるクラブを持っていたことに気づきました。「プレーから除外する」ためにはどうすればよいですか。',
   choices: [
     '同伴競技者やマーカーに明確に告げるなど、除外する意思をはっきり示す',
     'そのクラブをバッグから出してカートに置くだけでよい',
@@ -372,7 +372,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e09', cat: 'equipment', rule: '規則4.3a(4)', level: 2, pen: 'general',
-  q: 'ラウンド中にプレーの援助となる手袋やグリップ剤の使用について正しいものはどれか。',
+  q: 'ラウンド中にプレーの援助となる手袋やグリップ剤の使用について正しいものはどれですか。',
   choices: [
     '用具規則に適合する手袋や、グリップを握るための材料を使用できる',
     '手袋の使用は一切禁止されている',
@@ -387,7 +387,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e10', cat: 'equipment', rule: '規則4.3a(2)', level: 2, pen: 'general',
-  q: 'ラウンド中に、風の向きを知るために芝を空中に放り投げた。裁定はどれか。',
+  q: 'ラウンド中に、風の向きを知るために芝を空中に放り投げました。裁定はどれですか。',
   choices: [
     '罰はない',
     '一般の罰',
@@ -402,7 +402,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e11', cat: 'equipment', rule: '規則4.2a(2)', level: 3, pen: 'general',
-  q: 'プレーヤーがプレー特性を意図的に変えた球でストロークを行った。罰はどれか。',
+  q: 'プレーヤーがプレー特性を意図的に変えた球でストロークを行いました。罰はどれですか。',
   choices: ['失格', '一般の罰', '1打の罰', '罰なし'],
   why: '規則4.2a(2)により、球を故意に傷つけたり、加熱したり、物質を塗ったりしてプレー特性を変えた球でストロークを行うと失格です。適合しないクラブの使用と同じく、競技の公平性を根本から損なう行為とみなされます。',
   next: [
@@ -413,7 +413,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e12', cat: 'equipment', rule: '規則4.1a(3)', level: 3, pen: 'dq',
-  q: 'ラウンド中に、クラブの性能を意図的に変える調整を行い、そのクラブでストロークを行った。罰はどれか。',
+  q: 'ラウンド中に、クラブの性能を意図的に変える調整を行い、そのクラブでストロークを行いました。罰はどれですか。',
   choices: ['失格', '一般の罰', '1打の罰', '罰なし'],
   why: '規則4.1a(3)により、ラウンド中にクラブの性能を意図的に変えて(調整機能を使う、重さを変えるなど)、そのクラブでストロークを行うと失格です。ラウンドを通じて同じ用具で戦うという前提を守るための規定です。',
   next: [
@@ -424,7 +424,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e13', cat: 'equipment', rule: '規則4.3a(6)', level: 3, pen: 'general',
-  q: 'ラウンド中に、そのラウンドで行ったストロークの映像を見て自分のスイングを分析した。裁定はどれか。',
+  q: 'ラウンド中に、そのラウンドで行ったストロークの映像を見て自分のスイングを分析しました。裁定はどれですか。',
   choices: [
     'プレーに援助となる助言を得るために使用すれば一般の罰',
     '罰はない',
@@ -440,7 +440,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'e14', cat: 'equipment', rule: '規則4.1b(3)', level: 2, pen: 'general',
-  q: 'ラウンド中にクラブを紛失した(乱暴に扱ったわけでもなく、損傷したわけでもない)。取り替えについて正しいものはどれか。',
+  q: 'ラウンド中にクラブを紛失しました(乱暴に扱ったわけでもなく、損傷したわけでもない)。取り替えについて正しいものはどれですか。',
   choices: [
     '取り替えることはできない',
     '別のクラブに取り替えることができる',

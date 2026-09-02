@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'r01', must: true, cat: 'round', rule: '規則6.3a', level: 1, pen: 'info',
-  q: 'ホールをプレーしている間、球についてプレーヤーが守らなければならないことはどれか。',
+  q: 'ホールをプレーしている間、球についてプレーヤーが守らなければならないことはどれですか。',
   choices: [
     '規則が取り替えを認める場合を除き、ティーイングエリアからプレーした球でホールアウトする',
     'いつでも自由に球を取り替えることができる',
@@ -21,7 +21,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r02', must: true, cat: 'round', rule: '規則5.6b', level: 1, pen: 'info',
-  q: 'ストロークを行うための推奨時間として規則5.6bが示しているのはどれか。',
+  q: 'ストロークを行うための推奨時間として規則5.6bが示しているのはどれですか。',
   choices: ['40秒以内', '30秒以内', '60秒以内', '時間の目安は示されていない'],
   why: '規則5.6bの推奨では、プレーヤーは自分の順番になり、球にたどり着いてストロークを行える状況になってから40秒以内にストロークを行うべきとされています。これは推奨であり、これを超えただけで自動的に罰があるわけではありません。',
   next: [
@@ -32,7 +32,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r03', cat: 'round', rule: '規則5.6a', level: 2, pen: 'varies',
-  q: 'プレーヤーが不当にプレーを遅らせた場合の罰の段階として正しいものはどれか。',
+  q: 'プレーヤーが不当にプレーを遅らせた場合の罰の段階として正しいものはどれですか。',
   choices: [
     '1度目は1打の罰、2度目は一般の罰、3度目は失格',
     '1度目から一般の罰',
@@ -47,7 +47,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r04', cat: 'round', rule: '規則5.2b', level: 2, pen: 'general',
-  q: 'ストロークプレーのラウンド前に、その日プレーするコース上で練習することについて正しいものはどれか。',
+  q: 'ストロークプレーのラウンド前に、その日プレーするコース上で練習することについて正しいものはどれですか。',
   choices: [
     '原則として認められない(最初のホール近くのパッティンググリーンでのパッティングやチッピングなどを除く)',
     '自由に認められている',
@@ -63,7 +63,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r05', cat: 'round', rule: '規則5.5b', level: 2, pen: 'general',
-  q: 'ラウンド中、2つのホールの間でプレーヤーができる練習はどれか。',
+  q: 'ラウンド中、2つのホールの間でプレーヤーができる練習はどれですか。',
   choices: [
     '終えたばかりのホールのグリーンや練習グリーン、次のティーイングエリア近くでのパッティングやチッピング',
     '一切の練習が禁止されている',
@@ -79,7 +79,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r06', cat: 'round', rule: '規則5.5a', level: 2, pen: 'general',
-  q: 'ホールのプレー中に練習ストロークを行った。裁定はどれか。',
+  q: 'ホールのプレー中に練習ストロークを行いました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -94,7 +94,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r07', must: true, cat: 'round', rule: '規則5.7b', level: 2, pen: 'dq',
-  q: '雷などの差し迫った危険により、委員会がプレーの即時中断を宣言した。プレーヤーはどうしなければならないか。',
+  q: '雷などの差し迫った危険により、委員会がプレーの即時中断を宣言しました。プレーヤーはどうしなければなりませんか。',
   choices: [
     'ただちにプレーを中止しなければならず、違反すると失格となる',
     'そのホールを終えてから中止すればよい',
@@ -111,7 +111,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r08', cat: 'round', rule: '規則5.7a', level: 3, pen: 'dq',
-  q: 'プレーヤーが委員会の許可なく自分の判断でプレーを中断した。原則としてどうなるか。',
+  q: 'プレーヤーが委員会の許可なく自分の判断でプレーを中断しました。原則としてどうなりますか。',
   choices: [
     '失格となる',
     '一般の罰',
@@ -127,7 +127,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r09', cat: 'round', rule: '規則6.1b', level: 2, pen: 'general',
-  q: 'ストロークプレーで、ティーイングエリアの外から球をプレーした。裁定はどれか。',
+  q: 'ストロークプレーで、ティーイングエリアの外から球をプレーしました。裁定はどれですか。',
   choices: [
     '一般の罰を受け、ティーイングエリア内から改めてプレーして訂正しなければならない',
     'そのままプレーを続ける',
@@ -145,7 +145,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r10', cat: 'round', rule: '規則6.2b(1)', level: 2, pen: 'info',
-  q: 'ティーイングエリアの範囲はどのように決まるか。',
+  q: 'ティーイングエリアの範囲はどのように決まりますか。',
   choices: [
     '2つのティーマーカーの前端を結ぶ線を前縁とし、そこから後方2クラブレングスの長方形',
     'ティーマーカーを結ぶ線上のみ',
@@ -161,7 +161,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r11', cat: 'round', rule: '規則6.2b(6)', level: 2, pen: 'none',
-  q: 'ティーイングエリアでティーアップした球が、ストロークを行う前に落ちてしまった。どうするか。',
+  q: 'ティーイングエリアでティーアップした球が、ストロークを行う前に落ちてしまいました。どうすればよいですか。',
   choices: [
     '罰なしに、ティーイングエリア内のどこにでも改めてティーアップできる',
     '落ちた位置からプレーしなければならない',
@@ -177,7 +177,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r12', cat: 'round', rule: '規則6.4b', level: 2, pen: 'none',
-  q: 'ストロークプレーで、プレーの順番を間違えて先に打ってしまった。裁定はどれか。',
+  q: 'ストロークプレーで、プレーの順番を間違えて先に打ってしまいました。裁定はどれですか。',
   choices: [
     '罰はない',
     '一般の罰',
@@ -193,7 +193,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r13', cat: 'round', rule: '規則5.3a', level: 2, pen: 'dq',
-  q: 'プレーヤーがスタート時刻に5分遅れてスタート地点に到着した。原則としてどうなるか。',
+  q: 'プレーヤーがスタート時刻に5分遅れてスタート地点に到着しました。原則としてどうなりますか。',
   choices: [
     '最初のホールに一般の罰を受ける',
     '失格',
@@ -209,7 +209,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r14', cat: 'round', rule: '規則5.4', level: 2, pen: 'general',
-  q: 'ストロークプレーで、委員会が組み合わせたグループを離れて別のグループでプレーした。裁定はどれか。',
+  q: 'ストロークプレーで、委員会が組み合わせたグループを離れて別のグループでプレーしました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '失格',
@@ -224,7 +224,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r15', must: true, cat: 'round', rule: '規則6.3c(1)', level: 2, pen: 'general',
-  q: 'ストロークプレーでプレーヤーが誤球をプレーした。裁定はどれか。',
+  q: 'ストロークプレーでプレーヤーが誤球をプレーしました。裁定はどれですか。',
   choices: [
     '一般の罰を受け、正しい球でプレーして誤りを訂正しなければならない',
     '罰なしにそのまま続行する',
@@ -243,7 +243,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'r16', cat: 'round', rule: '規則6.5', level: 2, pen: 'info',
-  q: 'ホールのプレーが終了する(そのホールを終える)のはいつか。',
+  q: 'ホールのプレーが終了する(そのホールを終える)のはいつですか。',
   choices: [
     'ストロークプレーではホールアウトしたとき、マッチプレーではホールアウト・コンシード・ホールの決着がついたとき',
     '球がグリーンに乗ったとき',
@@ -261,7 +261,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 's01', must: true, cat: 'search', rule: '規則18.2a(1)', level: 1, pen: 'info',
-  q: '球を探すことができる時間はどれだけか。',
+  q: '球を探すことができる時間はどれだけですか。',
   choices: ['3分', '5分', '2分', '制限はない'],
   why: 'プレーヤーやキャディーが球を探し始めてから3分以内に見つけて特定できなければ、その球は紛失球となります。2019年の改訂で5分から3分に短縮されました。プレーのペースを保つための変更です。',
   next: [
@@ -273,7 +273,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's02', must: true, cat: 'search', rule: '規則7.4', level: 2, pen: 'none',
-  q: '球を探している間に、プレーヤーが自分の球を偶然に動かしてしまった。裁定はどれか。',
+  q: '球を探している間に、プレーヤーが自分の球を偶然に動かしてしまいました。裁定はどれですか。',
   choices: [
     '罰はなく、その球を元の箇所にリプレースしなければならない',
     '1打の罰を受けてリプレースする',
@@ -291,7 +291,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's03', cat: 'search', rule: '規則8.1a', level: 2, pen: 'none',
-  q: '球を探すために、砂の中の球を掘り起こしたり、長い草を分けたりすることは認められるか。',
+  q: '球を探すために、砂の中の球を掘り起こしたり、長い草を分けたりすることは認められますか。',
   choices: [
     '球を見つけて特定するための合理的な行為として認められる',
     '一切認められない',
@@ -307,7 +307,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's04', cat: 'search', rule: '規則7.2', level: 2, pen: 'info',
-  q: '自分の球を特定する方法として認められないものはどれか。',
+  q: '自分の球を特定する方法として認められないものはどれですか。',
   choices: [
     '球のメーカーとモデルが同じであることだけを根拠に自分の球とすること',
     '球に付けた自分の識別マークで特定すること',
@@ -323,7 +323,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's05', cat: 'search', rule: '規則7.3', level: 2, pen: 'one',
-  q: '球を特定するために球を拾い上げる際、必要な手続きを踏まなかった。罰はどれか。',
+  q: '球を特定するために球を拾い上げる際、必要な手続きを踏みませんでした。罰はどれですか。',
   choices: ['1打の罰', '罰なし', '一般の罰', '失格'],
   why: '規則7.3により、特定のために球を拾い上げるときは、事前に箇所をマークしなければならず、球を拭くことは特定に必要な範囲を超えてはいけません。この手続きを踏まないと1打の罰です。',
   next: [
@@ -336,7 +336,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's06', cat: 'search', rule: '規則7.4', level: 3, pen: 'none',
-  q: '球を探している間に、同伴競技者がプレーヤーの球を偶然に動かしてしまった。裁定はどれか。',
+  q: '球を探している間に、同伴競技者がプレーヤーの球を偶然に動かしてしまいました。裁定はどれですか。',
   choices: [
     '罰はなく、その球を元の箇所にリプレースする',
     '同伴競技者が1打の罰を受ける',
@@ -352,7 +352,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's07', cat: 'search', rule: '規則7.1b', level: 3, pen: 'none',
-  q: '捜索中に砂の中の球を掘り起こしたため、球のライが変わってしまった。どうするか。',
+  q: '捜索中に砂の中の球を掘り起こしたため、球のライが変わってしまいました。どうすればよいですか。',
   choices: [
     '元のライを復元しなければならないが、球の一部を見えるように残してよい',
     'そのままプレーする',
@@ -368,7 +368,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 's08', cat: 'search', rule: '規則7.1a', level: 3, pen: 'general',
-  q: '球を探す過程で、合理的な範囲を超えてストロークに影響を及ぼす状態を改善してしまった。裁定はどれか。',
+  q: '球を探す過程で、合理的な範囲を超えてストロークに影響を及ぼす状態を改善してしまいました。裁定はどれですか。',
   choices: [
     '規則8.1aの違反として一般の罰',
     '罰なし',
@@ -386,7 +386,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'i01', must: true, cat: 'improve', rule: '規則8.1a', level: 1, pen: 'general',
-  q: '規則8.1aが禁じている「ストロークに影響を及ぼす状態」に含まれないものはどれか。',
+  q: '規則8.1aが禁じている「ストロークに影響を及ぼす状態」に含まれないものはどれですか。',
   choices: [
     'ホールまでの距離',
     '球のライ',
@@ -402,7 +402,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i02', cat: 'improve', rule: '規則8.1a(1)', level: 2, pen: 'general',
-  q: 'スイングの邪魔になる小枝を、球をプレーする前に折った。裁定はどれか。',
+  q: 'スイングの邪魔になる小枝を、球をプレーする前に折りました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -419,7 +419,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i03', cat: 'improve', rule: '規則8.1b(3)', level: 2, pen: 'none',
-  q: 'ディボット跡を直したり、目土を踏み固めたりすることが認められるのはどのような場合か。',
+  q: 'ディボット跡を直したり、目土を踏み固めたりすることが認められるのはどのような場合ですか。',
   choices: [
     'コースの保護のために行う場合(自分のストロークに影響を及ぼす状態を改善しない範囲)',
     'いつでも自由に行える',
@@ -435,7 +435,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i04', cat: 'improve', rule: '規則8.1b(5)', level: 2, pen: 'none',
-  q: 'スタンスをとる際に足で砂や土をならして足場を作った。裁定はどれか。',
+  q: 'スタンスをとる際に足で砂や土をならして足場を作りました。裁定はどれですか。',
   choices: [
     '認められず、一般の罰',
     '罰なし',
@@ -451,7 +451,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i05', cat: 'improve', rule: '規則8.1c', level: 3, pen: 'varies',
-  q: '規則8.1aに違反して状態を改善してしまったが、まだストロークを行っていない。罰を避けられるのはどのような場合か。',
+  q: '規則8.1aに違反して状態を改善してしまったが、まだストロークを行っていません。罰を避けられるのはどのような場合ですか。',
   choices: [
     '動かした、曲げた、折ったものを元の状態に戻すことができ、実際に戻した場合',
     'いつでも戻せば罰を避けられる',
@@ -467,7 +467,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i06', cat: 'improve', rule: '規則8.1a(2)', level: 2, pen: 'general',
-  q: '自分のスイングの邪魔にならないよう、球の近くに落ちていたレーキを動かした。裁定はどれか。',
+  q: '自分のスイングの邪魔にならないよう、球の近くに落ちていたレーキを動かしました。裁定はどれですか。',
   choices: [
     '罰はない(動かせる障害物は規則15.2により取り除ける)',
     '一般の罰',
@@ -482,7 +482,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i07', cat: 'improve', rule: '規則8.2', level: 3, pen: 'general',
-  q: '止まっている自分の球がOBに転がりそうだったので、故意に球の後ろにレーキを置いて止まるようにした。裁定はどれか。',
+  q: '止まっている自分の球がOBに転がりそうだったので、故意に球の後ろにレーキを置いて止まるようにしました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -498,7 +498,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i08', cat: 'improve', rule: '規則8.1d', level: 3, pen: 'none',
-  q: '球が止まった後に、動物が掘った穴によってライが悪化した。どうすることができるか。',
+  q: '球が止まった後に、動物が掘った穴によってライが悪化しました。どうすることができますか。',
   choices: [
     '罰なしに元のライを復元することができる',
     'あるがままにプレーしなければならない',
@@ -514,7 +514,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i09', cat: 'improve', rule: '規則8.1a(4)', level: 2, pen: 'general',
-  q: 'プレーの線の後方に立っている木の枝に、露が付いていて視界が悪い。枝を揺らして露を落とした。裁定はどれか。',
+  q: 'プレーの線の後方に立っている木の枝に、露が付いていて視界がよくありません。枝を揺らして露を落としました。裁定はどれですか。',
   choices: [
     'プレーの線を改善したとして一般の罰',
     '罰なし',
@@ -530,7 +530,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'i10', cat: 'improve', rule: '規則8.1b(1)', level: 2, pen: 'none',
-  q: 'ストロークのためにフェアにスタンスをとる過程で、足元の草が押しつぶされた。裁定はどれか。',
+  q: 'ストロークのためにフェアにスタンスをとる過程で、足元の草が押しつぶされました。裁定はどれですか。',
   choices: [
     '罰はない',
     '一般の罰',

@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'w01', must: true, cat: 'penaltyarea', rule: '規則17.1d', level: 2, pen: 'one', fig: 'penalty-area',
-  q: '球がイエローペナルティーエリアに入った。認められる救済の選択肢はどれか。',
+  q: '球がイエローペナルティーエリアに入りました。認められる救済の選択肢はどれですか。',
   choices: [
     'ストロークと距離の救済、または後方線上の救済(いずれも1打の罰)',
     'ラテラル救済(2クラブレングス)のみ',
@@ -22,7 +22,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w02', must: true, cat: 'penaltyarea', rule: '規則17.1d(3)', level: 2, pen: 'one', fig: 'penalty-area',
-  q: 'レッドペナルティーエリアで追加的に認められる救済はどれか。',
+  q: 'レッドペナルティーエリアで追加的に認められる救済はどれですか。',
   choices: [
     '球が最後に縁を横切ったと推定される地点から2クラブレングス以内でホールに近づかないラテラル救済',
     '罰なしのドロップ',
@@ -40,7 +40,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w03', must: true, cat: 'penaltyarea', rule: '規則17.1b', level: 2, pen: 'none',
-  q: 'ペナルティーエリア内で球をあるがままにプレーする場合、地面に触れたりルースインペディメントを取り除くことはどう扱われるか。',
+  q: 'ペナルティーエリア内で球をあるがままにプレーする場合、地面に触れたりルースインペディメントを取り除くことはどのように扱われますか。',
   choices: [
     '罰なしに認められる',
     '一般の罰を受ける',
@@ -57,7 +57,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w04', cat: 'penaltyarea', rule: '規則17.1c', level: 3, pen: 'one',
-  q: '球がペナルティーエリアの中で紛失したことが「分かっている、または事実上確実」とは言えない場合、どうするか。',
+  q: '球がペナルティーエリアの中で紛失したことが「分かっている、または事実上確実」とは言えない場合、どうすればよいですか。',
   choices: [
     '紛失球として扱い、ストロークと距離の救済を受けなければならない',
     'ペナルティーエリアの救済を受ける',
@@ -74,7 +74,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w05', cat: 'penaltyarea', rule: '規則17.1a', level: 2, pen: 'info',
-  q: '球の一部がペナルティーエリアの縁にかかり、一部はジェネラルエリアにある。この球はどこにあると扱われるか。',
+  q: '球の一部がペナルティーエリアの縁にかかり、一部はジェネラルエリアにあります。この球はどこにあると扱われますか。',
   choices: [
     'ペナルティーエリア内にある',
     'ジェネラルエリアにある',
@@ -90,7 +90,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w06', cat: 'penaltyarea', rule: '規則17.2a', level: 3, pen: 'one',
-  q: 'ペナルティーエリアからプレーした球が、再び同じペナルティーエリア(または別のペナルティーエリア)に入った。救済の選択肢について正しいものはどれか。',
+  q: 'ペナルティーエリアからプレーした球が、再び同じペナルティーエリア(または別のペナルティーエリア)に入りました。救済の選択肢について正しいものはどれですか。',
   choices: [
     '規則17.1の救済に加え、そのペナルティーエリアからのストロークを行った箇所を基点とする選択肢もある',
     'ストロークと距離しか選べない',
@@ -106,7 +106,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w07', cat: 'penaltyarea', rule: 'ペナルティーエリアの定義', level: 2, pen: 'info',
-  q: 'ペナルティーエリアの色が示されていない(杭も線もない)場合、そのペナルティーエリアはどう扱われるか。',
+  q: 'ペナルティーエリアの色が示されていない(杭も線もない)場合、そのペナルティーエリアはどのように扱われますか。',
   choices: [
     'レッドペナルティーエリアとして扱う',
     'イエローペナルティーエリアとして扱う',
@@ -122,7 +122,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w08', cat: 'penaltyarea', rule: '規則17.3', level: 3, pen: 'info',
-  q: 'ペナルティーエリア内の球について、規則16.1(異常なコース状態)や規則19(アンプレヤブル)の救済は受けられるか。',
+  q: 'ペナルティーエリア内の球について、規則16.1(異常なコース状態)や規則19(アンプレヤブル)の救済は受けられますか。',
   choices: [
     'どちらも受けられない。規則17.1の救済だけが選択肢となる',
     'どちらも受けられる',
@@ -138,7 +138,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w09', cat: 'penaltyarea', rule: '規則17.1d(2)', level: 3, pen: 'one', fig: 'back-on-line',
-  q: 'ペナルティーエリアの後方線上の救済で、基点となるのはどこか。',
+  q: 'ペナルティーエリアの後方線上の救済で、基点となるのはどこですか。',
   choices: [
     '球がペナルティーエリアの縁を最後に横切ったと推定される地点',
     '球が実際に止まった地点',
@@ -156,7 +156,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w10', must: true, cat: 'penaltyarea', rule: '規則17.1', level: 1, pen: 'none',
-  q: 'ペナルティーエリア内の球をあるがままにプレーすることはできるか。',
+  q: 'ペナルティーエリア内の球をあるがままにプレーすることはできますか。',
   choices: [
     'できる。罰はない',
     'できない',
@@ -172,7 +172,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w11', cat: 'penaltyarea', rule: '規則17.1e', level: 3, pen: 'one',
-  q: 'ペナルティーエリアの一部として設定されたプレー禁止区域に球がある。どうしなければならないか。',
+  q: 'ペナルティーエリアの一部として設定されたプレー禁止区域に球があります。どうしなければなりませんか。',
   choices: [
     'あるがままにプレーしてはならず、規則17.1の救済(1打の罰)を受けなければならない',
     'あるがままにプレーできる',
@@ -189,7 +189,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w12', cat: 'penaltyarea', rule: '規則17.1d', level: 2, pen: 'one',
-  q: 'ペナルティーエリアからの救済でドロップする救済エリアが、再びそのペナルティーエリアの中になってしまう場合、その救済は有効か。',
+  q: 'ペナルティーエリアからの救済でドロップする救済エリアが、再びそのペナルティーエリアの中になってしまう場合、その救済は有効ですか。',
   choices: [
     '無効。救済エリアはペナルティーエリアの外でなければならない',
     '有効',
@@ -205,7 +205,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w13', cat: 'penaltyarea', rule: '規則17.2b', level: 3, pen: 'one',
-  q: 'ペナルティーエリアからプレーした球が、そのペナルティーエリアの外で紛失またはOBになった。どうするか。',
+  q: 'ペナルティーエリアからプレーした球が、そのペナルティーエリアの外で紛失またはOBになりました。どうすればよいですか。',
   choices: [
     'ストロークと距離の救済を受ける。加えて、規則17.2bによりペナルティーエリア外を基点とする選択肢もある',
     '罰なしでドロップする',
@@ -221,7 +221,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'w14', must: true, cat: 'penaltyarea', rule: '規則17.1d(3)', level: 2, pen: 'one',
-  q: 'レッドペナルティーエリアのラテラル救済で、救済エリアの大きさはどれだけか。',
+  q: 'レッドペナルティーエリアのラテラル救済で、救済エリアの大きさはどれだけですか。',
   choices: [
     '基点から2クラブレングス以内',
     '基点から1クラブレングス以内',
@@ -242,7 +242,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'o01', must: true, cat: 'lostob', rule: '規則6.3c', level: 1, pen: 'one', fig: 'stroke-count',
-  q: 'ティーショットがOBになった。どうするか。',
+  q: 'ティーショットがOBになりました。どうすればよいですか。',
   choices: [
     '1打の罰を加えて、直前のストロークを行った場所から再びプレーする',
     '罰なしで打ち直す',
@@ -260,7 +260,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o02', must: true, cat: 'lostob', rule: '規則18.3a', level: 2, pen: 'info', fig: 'provisional',
-  q: 'プレーヤーが暫定球をプレーできるのはどのような場合か。',
+  q: 'プレーヤーが暫定球をプレーできるのはどのような場合ですか。',
   choices: [
     '球がペナルティーエリア以外の場所で紛失したかもしれない、またはOBかもしれない場合',
     '球がペナルティーエリアに入ったかもしれない場合',
@@ -277,7 +277,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o03', must: true, cat: 'lostob', rule: '規則18.3b', level: 2, pen: 'general', fig: 'provisional',
-  q: '暫定球を打つとき、「暫定球をプレーする」と告げなかった。その球はどう扱われるか。',
+  q: '暫定球を打つとき、「暫定球をプレーする」と告げませんでした。その球はどのように扱われますか。',
   choices: [
     'その球がインプレーの球となり、元の球は紛失球となる(ストロークと距離)',
     '暫定球として扱われる',
@@ -293,7 +293,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o04', must: true, cat: 'lostob', rule: '規則18.3c(2)', level: 2, pen: 'info', fig: 'provisional',
-  q: '暫定球を打った後、3分以内に元の球がコース上で見つかった。どうするか。',
+  q: '暫定球を打った後、3分以内に元の球がコース上で見つかりました。どうすればよいですか。',
   choices: [
     '元の球でプレーを続け、暫定球は放棄する',
     '暫定球でプレーを続ける',
@@ -310,7 +310,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o05', must: true, cat: 'lostob', rule: '規則18.3c(3)', level: 2, pen: 'one', fig: 'provisional',
-  q: '暫定球を打った後、元の球が3分以内に見つからなかった。どうなるか。',
+  q: '暫定球を打った後、元の球が3分以内に見つかりませんでした。どうなりますか。',
   choices: [
     '暫定球がインプレーの球となり、ストロークと距離の1打の罰が適用される',
     '罰なしで暫定球を続ける',
@@ -327,7 +327,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o06', cat: 'lostob', rule: '規則18.3c(1)', level: 3, pen: 'info',
-  q: '暫定球が、元の球があると思われる場所よりホールに近い位置からプレーされた。その後どうなるか。',
+  q: '暫定球が、元の球があると思われる場所よりホールに近い位置からプレーされました。その後どうなりますか。',
   choices: [
     'その時点で暫定球がインプレーの球となり、元の球は紛失球となる',
     '暫定球のままである',
@@ -344,7 +344,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o07', must: true, cat: 'lostob', rule: 'OBの定義', level: 2, pen: 'info',
-  q: '球が「アウトオブバウンズ」と判断されるのはどのような場合か。',
+  q: '球が「アウトオブバウンズ」と判断されるのはどのような場合ですか。',
   choices: [
     '球全体がOB縁の外側にある場合',
     '球の一部でもOB縁の外側にあれば',
@@ -360,7 +360,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o08', cat: 'lostob', rule: 'OBの定義', level: 3, pen: 'info',
-  q: 'OBの境界が杭で示されている場合、境界線はどこを通るか。',
+  q: 'OBの境界が杭で示されている場合、境界線はどこを通りますか。',
   choices: [
     '杭のコース側の地表レベルの点を結ぶ線(その線は垂直に上下に及ぶ)',
     '杭の中心を結ぶ線',
@@ -376,7 +376,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o09', must: true, cat: 'lostob', rule: '規則18.2a(1)', level: 2, pen: 'info',
-  q: '球の捜索時間の3分は、いつから数え始めるか。',
+  q: '球の捜索時間の3分は、いつから数え始めますか。',
   choices: [
     'プレーヤーまたはキャディーが球を探し始めたとき',
     '球を打ったとき',
@@ -393,7 +393,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o10', cat: 'lostob', rule: '規則18.2b', level: 2, pen: 'one', fig: 'stroke-count',
-  q: 'セカンドショット(2打目)がOBになった。次のプレーは何打目になるか。',
+  q: 'セカンドショット(2打目)がOBになりました。次のプレーは何打目になりますか。',
   choices: [
     '4打目',
     '3打目',
@@ -409,7 +409,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o11', cat: 'lostob', rule: '規則18.1', level: 2, pen: 'one',
-  q: 'プレーヤーはいつでもストロークと距離の救済を受けることができるか。',
+  q: 'プレーヤーはいつでもストロークと距離の救済を受けることができますか。',
   choices: [
     'できる。球がどこにあっても、1打の罰でいつでも直前のストロークの箇所から打ち直せる',
     '球が紛失またはOBのときだけできる',
@@ -426,7 +426,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o12', cat: 'lostob', rule: '規則18.2a(2)', level: 3, pen: 'info',
-  q: 'コース上で球が見つかったが、それが自分の球かどうか特定できない。どうなるか。',
+  q: 'コース上で球が見つかったが、それが自分の球かどうか特定できません。どうなりますか。',
   choices: [
     '特定できなければ紛失球として扱う',
     'その球をプレーしてよい',
@@ -442,7 +442,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o13', cat: 'lostob', rule: '規則18.3a', level: 3, pen: 'info', fig: 'provisional',
-  q: '球がペナルティーエリアの中で紛失したかもしれない場合、暫定球を打つことはできるか。',
+  q: '球がペナルティーエリアの中で紛失したかもしれない場合、暫定球を打つことはできますか。',
   choices: [
     'できない',
     'できる',
@@ -458,7 +458,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'o14', cat: 'lostob', rule: '規則18.2b', level: 3, pen: 'general',
-  q: '紛失球となった後に球が見つかり、その球をプレーしてしまった。裁定はどれか。',
+  q: '紛失球となった後に球が見つかり、その球をプレーしてしまいました。裁定はどれですか。',
   choices: [
     '誤球のプレーとして一般の罰。正しい球でプレーして訂正しなければならない',
     '罰なし',
@@ -478,7 +478,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'u01', must: true, cat: 'unplayable', rule: '規則14.3a', level: 2, pen: 'one', fig: 'unplayable',
-  q: 'ジェネラルエリアでアンプレヤブルの救済を受ける場合の選択肢として、【正しくない】ものはどれか。',
+  q: 'ジェネラルエリアでアンプレヤブルの救済を受ける場合の選択肢として、【正しくない】ものはどれですか。',
   choices: [
     '罰なしにラテラルに2クラブレングス以内にドロップする',
     '1打の罰でストロークと距離の救済を受ける',
@@ -495,7 +495,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u02', must: true, cat: 'unplayable', rule: '規則19.1', level: 1, pen: 'info',
-  q: 'プレーヤーが自分の球をアンプレヤブルとすることができるのはどこか。',
+  q: 'プレーヤーが自分の球をアンプレヤブルとすることができるのはどこですか。',
   choices: [
     'ペナルティーエリアを除くコース上のどこでも',
     'ジェネラルエリアだけ',
@@ -511,7 +511,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u03', must: true, cat: 'unplayable', rule: '規則19.3a', level: 2, pen: 'one', fig: 'bunker-unplayable',
-  q: 'バンカー内の球をアンプレヤブルとして1打の罰で救済を受ける場合、球はどこにドロップすることになるか。',
+  q: 'バンカー内の球をアンプレヤブルとして1打の罰で救済を受ける場合、球はどこにドロップすることになりますか。',
   choices: [
     'バンカーの中(ストロークと距離を除く)',
     'バンカーの外',
@@ -528,7 +528,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u04', cat: 'unplayable', rule: '規則19.2b', level: 2, pen: 'one', fig: 'unplayable',
-  q: 'アンプレヤブルの後方線上の救済で、基点となるのはどこか。',
+  q: 'アンプレヤブルの後方線上の救済で、基点となるのはどこですか。',
   choices: [
     '球があった箇所',
     'ペナルティーエリアの縁を横切った地点',
@@ -545,7 +545,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u05', cat: 'unplayable', rule: '規則19.2c', level: 2, pen: 'one', fig: 'unplayable',
-  q: 'アンプレヤブルのラテラル救済で、救済エリアの大きさと条件はどれか。',
+  q: 'アンプレヤブルのラテラル救済で、救済エリアの大きさと条件はどれですか。',
   choices: [
     '球があった箇所から2クラブレングス以内、ホールに近づかない',
     '球があった箇所から1クラブレングス以内',
@@ -562,7 +562,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u06', cat: 'unplayable', rule: '規則19.2', level: 3, pen: 'one',
-  q: '木の上に止まっている球をアンプレヤブルとしたい。球の箇所はどこと考えるか。',
+  q: '木の上に止まっている球をアンプレヤブルとしたいと考えています。球の箇所はどこと考えますか。',
   choices: [
     '木の上の球の位置の真下の地点',
     '木の根元',
@@ -580,7 +580,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u07', cat: 'unplayable', rule: '規則19.1', level: 2, pen: 'info',
-  q: 'アンプレヤブルとすることを決められるのは誰か。',
+  q: 'アンプレヤブルとすることを決められるのは誰ですか。',
   choices: [
     'プレーヤー本人だけ',
     'プレーヤーとマーカー',
@@ -596,7 +596,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u08', cat: 'unplayable', rule: '規則19.3b', level: 3, pen: 'varies', fig: 'bunker-unplayable',
-  q: 'バンカー内の球について、2打の罰でバンカー外の後方線上の救済を受ける場合、線上のどこまで下がれるか。',
+  q: 'バンカー内の球について、2打の罰でバンカー外の後方線上の救済を受ける場合、線上のどこまで下がれますか。',
   choices: [
     '距離の制限はなく、線上ならどこまで下がってもよい',
     'バンカーから2クラブレングス以内',
@@ -613,7 +613,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u09', cat: 'unplayable', rule: '規則19.2a', level: 2, pen: 'one',
-  q: 'アンプレヤブルのストロークと距離の救済を選んだ場合、打数はどうなるか。',
+  q: 'アンプレヤブルのストロークと距離の救済を選んだ場合、打数はどうなりますか。',
   choices: [
     '打ったストロークはそのまま数え、1打の罰が加わる',
     '打ったストロークは取り消される',
@@ -630,7 +630,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u10', cat: 'unplayable', rule: '規則19.2', level: 3, pen: 'one',
-  q: 'アンプレヤブルの救済でドロップした球が、再び打てない場所(同じ茂みの中など)に止まった。どうするか。',
+  q: 'アンプレヤブルの救済でドロップした球が、再び打てない場所(同じ茂みの中など)に止まりました。どうすればよいですか。',
   choices: [
     '改めてアンプレヤブルを宣言して、さらに1打の罰で救済を受けられる',
     '罰なしでドロップし直せる',
@@ -647,7 +647,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u11', cat: 'unplayable', rule: '規則19.2c', level: 3, pen: 'one',
-  q: 'ジェネラルエリアの球をアンプレヤブルとしてラテラル救済を受けた結果、救済エリアがバンカーにかかっていた。バンカー内にドロップしてよいか。',
+  q: 'ジェネラルエリアの球をアンプレヤブルとしてラテラル救済を受けた結果、救済エリアがバンカーにかかっていました。バンカー内にドロップしてよいですか。',
   choices: [
     'よい。ジェネラルエリアの球の救済エリアはどのコースエリアでもかまわない',
     'いけない。ジェネラルエリア内でなければならない',
@@ -663,7 +663,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'u12', cat: 'unplayable', rule: '規則19.2', level: 2, pen: 'info',
-  q: 'アンプレヤブルの救済を受けるとき、元の球以外の球を使うことはできるか。',
+  q: 'アンプレヤブルの救済を受けるとき、元の球以外の球を使うことはできますか。',
   choices: [
     'できる。ドロップする場合は別の球を使ってよい',
     'できない',

@@ -5,7 +5,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'k01', must: true, cat: 'bunker', rule: '規則15.1a', level: 1, pen: 'none',
-  q: 'バンカー内にあるルースインペディメント(小石や葉など)はどう扱われるか。',
+  q: 'バンカー内にあるルースインペディメント(小石や葉など)はどのように扱われますか。',
   choices: [
     '罰なしに取り除くことができる',
     '取り除くと一般の罰を受ける',
@@ -22,7 +22,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k02', must: true, cat: 'bunker', rule: '規則12.2b(1)', level: 2, pen: 'general',
-  q: 'バンカー内で、球の直前や直後の砂に故意にクラブで触れた。裁定はどれか。',
+  q: 'バンカー内で、球の直前や直後の砂に故意にクラブで触れました。裁定はどれですか。',
   choices: ['一般の罰', '1打の罰', '罰なし', '失格'],
   why: '規則12.2b(1)により、バンカー内では3つの行為が禁じられています。①球の直前・直後の砂に故意に触れること、②練習スイングで砂に触れること、③バックスイングで砂に触れること。バンカーからのショットの難しさを保つための規定です。',
   next: [
@@ -34,7 +34,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k03', must: true, cat: 'bunker', rule: '規則19.3b', level: 2, pen: 'varies', fig: 'bunker-unplayable',
-  q: 'バンカー内の球をアンプレヤブルとして、バンカーの外に救済を受ける方法はどれか。',
+  q: 'バンカー内の球をアンプレヤブルとして、バンカーの外に救済を受ける方法はどれですか。',
   choices: [
     '合計2打の罰を加えて、後方線上の救済を受ける',
     '1打の罰でバンカーの外にドロップする',
@@ -52,7 +52,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k04', cat: 'bunker', rule: '規則12.2b(2)', level: 2, pen: 'none',
-  q: 'バンカー内で、次のプレーヤーのためにバンカーをならすことは、球をプレーする前でも認められるか。',
+  q: 'バンカー内で、次のプレーヤーのためにバンカーをならすことは、球をプレーする前でも認められますか。',
   choices: [
     'コースの保護のためであれば認められる(ストロークに影響を及ぼす状態を改善しない範囲)',
     '球をプレーする前は一切認められない',
@@ -68,7 +68,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k05', cat: 'bunker', rule: '規則12.2b(1)', level: 2, pen: 'general',
-  q: 'バンカー内で素振り(練習スイング)をした際にクラブが砂に触れた。裁定はどれか。',
+  q: 'バンカー内で素振り(練習スイング)をした際にクラブが砂に触れました。裁定はどれですか。',
   choices: [
     '一般の罰',
     '罰なし',
@@ -84,7 +84,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k06', cat: 'bunker', rule: '規則12.2b(2)', level: 3, pen: 'none',
-  q: 'バンカー内で転倒しそうになり、体を支えるために手を砂についた。裁定はどれか。',
+  q: 'バンカー内で転倒しそうになり、体を支えるために手を砂についました。裁定はどれですか。',
   choices: [
     '罰はない',
     '一般の罰',
@@ -100,7 +100,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k07', cat: 'bunker', rule: '規則12.2b(2)', level: 3, pen: 'none',
-  q: 'バンカーショットに失敗し、怒りに任せてクラブで砂を叩いた(次のストロークはそのバンカー内から行う)。裁定はどれか。',
+  q: 'バンカーショットに失敗し、怒りに任せてクラブで砂を叩きました(次のストロークはそのバンカー内から行う)。裁定はどれですか。',
   choices: [
     '砂の状態をテストする意図がなく、次のストロークに影響を及ぼす状態を改善しなければ罰はない',
     '必ず一般の罰',
@@ -117,7 +117,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k08', cat: 'bunker', rule: '規則12.2a', level: 2, pen: 'none',
-  q: 'バンカー内の球の近くにある動かせる障害物(レーキ、空き缶など)はどう扱われるか。',
+  q: 'バンカー内の球の近くにある動かせる障害物(レーキ、空き缶など)はどのように扱われますか。',
   choices: [
     '罰なしに取り除くことができ、球が動いた場合は罰なしにリプレースする',
     '取り除くと一般の罰',
@@ -134,7 +134,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k09', cat: 'bunker', rule: '規則16.1c', level: 3, pen: 'varies',
-  q: 'バンカー内の球が一時的な水に浸かっている。救済の選択肢として正しいものはどれか。',
+  q: 'バンカー内の球が一時的な水に浸かっています。救済の選択肢として正しいものはどれですか。',
   choices: [
     'バンカー内で罰なしの救済、または1打の罰でバンカー外の後方線上の救済',
     'バンカー外に罰なしでドロップできる',
@@ -151,7 +151,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k10', cat: 'bunker', rule: '規則12.1', level: 2, pen: 'info',
-  q: '球が「バンカー内にある」と判断されるのはどのような場合か。',
+  q: '球が「バンカー内にある」と判断されるのはどのような場合ですか。',
   choices: [
     '球の一部でもバンカーの砂に触れているか、砂があるべき場所(砂の中の境界内)にある場合',
     '球が完全に砂の上にある場合のみ',
@@ -167,7 +167,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k11', cat: 'bunker', rule: '規則12.2b(1)', level: 3, pen: 'general',
-  q: 'バンカー内で、球の後方の砂の状態を確かめるためにクラブを砂に軽く押し当てた。裁定はどれか。',
+  q: 'バンカー内で、球の後方の砂の状態を確かめるためにクラブを砂に軽く押し当てました。裁定はどれですか。',
   choices: [
     '砂の状態をテストしたとして一般の罰',
     '罰なし',
@@ -183,7 +183,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'k12', cat: 'bunker', rule: '規則12.2b(1) 例外', level: 3, pen: 'none',
-  q: 'バンカー内でストロークを行った後、球がまだバンカー内にある状態で、クラブが砂に触れた(ストロークの結果として)。裁定はどれか。',
+  q: 'バンカー内でストロークを行った後、球がまだバンカー内にある状態で、クラブが砂に触れました(ストロークの結果として)。裁定はどれですか。',
   choices: [
     '罰はない(ストロークを行う過程での接触)',
     '一般の罰',
@@ -201,7 +201,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 
 {
   id: 'g01', must: true, cat: 'green', rule: '規則13.1c(2)', level: 1, pen: 'none',
-  q: 'パッティンググリーン上のスパイクマークや古いホールの埋跡を修理することはどう扱われるか。',
+  q: 'パッティンググリーン上のスパイクマークや古いホールの埋跡を修理することはどのように扱われますか。',
   choices: [
     '罰なしに修理することが認められる',
     '一般の罰を受ける',
@@ -217,7 +217,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g02', must: true, cat: 'green', rule: '規則13.2a(1)', level: 1, pen: 'none',
-  q: '旗竿をホールに立てたままパッティングして、球が旗竿に当たった。裁定はどれか。',
+  q: '旗竿をホールに立てたままパッティングして、球が旗竿に当たりました。裁定はどれですか。',
   choices: [
     '罰はなく、球はあるがままにプレーする',
     '一般の罰を受ける',
@@ -233,7 +233,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g03', must: true, cat: 'green', rule: '規則13.1e', level: 2, pen: 'general',
-  q: 'ラウンド中に、パッティンググリーン面を故意にこすったり球を転がして面をテストすることはどう扱われるか。',
+  q: 'ラウンド中に、パッティンググリーン面を故意にこすったり球を転がして面をテストすることはどのように扱われますか。',
   choices: ['一般の罰', '罰なし', '1打の罰', '自分がプレーするグリーンでのみ認められる'],
   why: '規則13.1eにより、ラウンド中にパッティンググリーンやウェッジのグリーンの面を故意にこすったり、球を転がすことによってテストすることは禁じられており、一般の罰です。',
   next: [
@@ -244,7 +244,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g04', cat: 'green', rule: '規則13.1b', level: 1, pen: 'none',
-  q: 'パッティンググリーン上の球について正しいものはどれか。',
+  q: 'パッティンググリーン上の球について正しいものはどれですか。',
   choices: [
     'いつでもマークして拾い上げ、拭くことができる',
     '拾い上げることはできない',
@@ -260,7 +260,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g05', must: true, cat: 'green', rule: '規則13.1d(1)', level: 1, pen: 'none',
-  q: 'パッティンググリーン上で、プレーヤーが偶然に自分の球を動かしてしまった。裁定はどれか。',
+  q: 'パッティンググリーン上で、プレーヤーが偶然に自分の球を動かしてしまいました。裁定はどれですか。',
   choices: [
     '罰はなく、元の箇所にリプレースする',
     '1打の罰を受けてリプレースする',
@@ -276,7 +276,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g06', cat: 'green', rule: '規則13.1d(2)', level: 3, pen: 'none',
-  q: 'パッティンググリーン上でマークして拾い上げ、リプレースした球が、その後で風によって動いた。どうするか。',
+  q: 'パッティンググリーン上でマークして拾い上げ、リプレースした球が、その後で風によって動きました。どうすればよいですか。',
   choices: [
     '罰なしに元の箇所にリプレースする',
     'あるがままにプレーする',
@@ -292,7 +292,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g07', cat: 'green', rule: '規則13.1a', level: 2, pen: 'info',
-  q: '球が「パッティンググリーン上にある」と判断されるのはどのような場合か。',
+  q: '球が「パッティンググリーン上にある」と判断されるのはどのような場合ですか。',
   choices: [
     '球の一部でもパッティンググリーンに触れている場合',
     '球が完全にグリーン上にある場合のみ',
@@ -308,7 +308,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g08', must: true, cat: 'green', rule: '規則13.1f', level: 2, pen: 'general',
-  q: '球が他のホールのパッティンググリーン(目的外グリーン)に止まった。どうするか。',
+  q: '球が他のホールのパッティンググリーン(目的外グリーン)に止まりました。どうすればよいですか。',
   choices: [
     'あるがままにプレーしてはならず、罰なしの救済を受けなければならない',
     'あるがままにプレーしてもよい',
@@ -325,7 +325,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g09', cat: 'green', rule: '規則13.2b(1)', level: 2, pen: 'general',
-  q: '旗竿の付き添い(世話)を頼んだ場合、その人はいつ旗竿を抜くべきか。',
+  q: '旗竿の付き添い(世話)を頼んだ場合、その人はいつ旗竿を抜くべきでしょうか。',
   choices: [
     'ストローク後、球が旗竿に当たる前に抜く',
     '球が止まってから抜く',
@@ -342,7 +342,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g10', cat: 'green', rule: '規則13.1c(1)', level: 2, pen: 'none',
-  q: 'パッティンググリーン上の砂やバラバラの土を取り除くことはどう扱われるか。',
+  q: 'パッティンググリーン上の砂やバラバラの土を取り除くことはどのように扱われますか。',
   choices: [
     'パッティンググリーン上では罰なしに取り除くことができる',
     '取り除くと一般の罰',
@@ -358,7 +358,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g11', cat: 'green', rule: '規則13.3a', level: 2, pen: 'info',
-  q: '球がホールの縁にかかって止まった。ホールインと認められるまでプレーヤーは何秒待てるか。',
+  q: '球がホールの縁にかかって止まりました。ホールインと認められるまでプレーヤーは何秒待てますか。',
   choices: [
     'ホールに到達する妥当な時間に加えて10秒',
     '30秒',
@@ -374,7 +374,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g12', cat: 'green', rule: '規則13.3b', level: 3, pen: 'one',
-  q: 'ホールの縁にかかった球が、10秒の待ち時間を過ぎてからホールに落ちた。裁定はどれか。',
+  q: 'ホールの縁にかかった球が、10秒の待ち時間を過ぎてからホールに落ちました。裁定はどれですか。',
   choices: [
     'ホールインとして扱うが、1打の罰が加わる',
     '罰なしでホールイン',
@@ -390,7 +390,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g13', cat: 'green', rule: '規則15.3a', level: 2, pen: 'general',
-  q: '他のプレーヤーの球が自分のプレーの援助になると考え、その球をそのままにしておくよう合意した。ストロークプレーでの裁定はどれか。',
+  q: '他のプレーヤーの球が自分のプレーの援助になると考え、その球をそのままにしておくよう合意しました。ストロークプレーでの裁定はどれですか。',
   choices: [
     '合意した両者が一般の罰を受ける',
     '罰はない',
@@ -406,7 +406,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g14', cat: 'green', rule: '規則15.3b', level: 1, pen: 'info',
-  q: '他のプレーヤーの球が自分のプレーの障害になっている。どうすることができるか。',
+  q: '他のプレーヤーの球が自分のプレーの障害になっています。どうすることができますか。',
   choices: [
     'その球を拾い上げるよう求めることができる',
     '自分で勝手に拾い上げる',
@@ -423,7 +423,7 @@ window.GOLF_QUIZ_QUESTIONS.push.apply(window.GOLF_QUIZ_QUESTIONS, [
 },
 {
   id: 'g15', cat: 'green', rule: '規則13.2a(2)', level: 3, pen: 'none',
-  q: '旗竿を立てたままプレーすると決めた後、球が動いている間に気が変わって旗竿を抜いた。裁定はどれか。',
+  q: '旗竿を立てたままプレーすると決めた後、球が動いている間に気が変わって旗竿を抜きました。裁定はどれですか。',
   choices: [
     '動いている球に影響を及ぼす行為として一般の罰',
     '罰なし',
