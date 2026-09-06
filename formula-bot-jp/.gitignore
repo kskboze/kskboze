@@ -1,0 +1,5 @@
+# APIキーを書いたファイルは絶対にコミットしない
+.env
+
+node_modules/
+.DS_Store

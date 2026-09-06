@@ -1,0 +1,15 @@
+{
+  "name": "formula-bot-jp",
+  "version": "1.0.0",
+  "description": "やりたいことを日本語で書くだけで Excel / スプレッドシートの数式をつくる小さな Web アプリ",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

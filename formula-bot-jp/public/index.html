@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>関数ボット（日本語版）</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="logo"><span class="logo-mark">fx</span> 関数ボット</h1>
+      <p class="tagline">やりたいことを日本語で書くだけ。Excel / スプレッドシートの数式をつくります。</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ① モード選択 -->
+    <div class="modes" role="tablist" aria-label="モード">
+      <button class="mode is-active" role="tab" aria-selected="true" data-mode="generate">
+        日本語 → 数式
+      </button>
+      <button class="mode" role="tab" aria-selected="false" data-mode="explain">
+        数式 → 解説
+      </button>
+    </div>
+
+    <!-- ② 入力 -->
+    <form id="form" class="card">
+      <label class="field-label" for="input" id="input-label">やりたいことを日本語で書いてください</label>
+      <textarea
+        id="input"
+        name="input"
+        rows="4"
+        placeholder="例：B列の売上を合計して、消費税10%込みの金額を円未満切り捨てで出したい"
+      ></textarea>
+
+      <div class="examples" id="examples" aria-label="入力例">
+        <span class="examples-label">例をクリック:</span>
+      </div>
+
+      <div class="controls">
+        <div class="target">
+          <label>
+            <input type="radio" name="target" value="excel" checked />
+            <span>Excel</span>
+          </label>
+          <label>
+            <input type="radio" name="target" value="sheets" />
+            <span>スプレッドシート</span>
+          </label>
+        </div>
+        <button type="submit" class="submit" id="submit">
+          <span class="submit-text">数式をつくる</span>
+        </button>
+      </div>
+      <p class="hint">Ctrl（⌘）+ Enter でも実行できます</p>
+    </form>
+
+    <!-- ③ 結果 -->
+    <section id="status" class="status" hidden aria-live="polite"></section>
+
+    <section id="result" class="result" hidden>
+      <div class="formula-box">
+        <div class="formula-head">
+          <span class="formula-title">できあがった数式</span>
+          <button type="button" class="copy" id="copy">コピー</button>
+        </div>
+        <pre class="formula" id="formula"></pre>
+      </div>
+
+      <div class="card explain-card">
+        <h2 class="section-title">この数式がしていること</h2>
+        <p class="explanation" id="explanation"></p>
+
+        <div id="parts-wrap" hidden>
+          <h3 class="section-title small">部品ごとの意味</h3>
+          <dl class="parts" id="parts"></dl>
+        </div>
+
+        <div id="notes-wrap" class="notes" hidden>
+          <h3 class="section-title small">気をつけること</h3>
+          <p id="notes"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ APIキーが無くても役に立つ、日本の実務でよく使う数式集 -->
+    <section class="cheatsheet">
+      <h2 class="section-title">日本のオフィスでよく使う数式</h2>
+      <p class="cheatsheet-lead">AIを呼ばなくても使える早見表です。そのままコピーできます。</p>
+      <div class="cheatsheet-grid" id="cheatsheet"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>David Bressler さんの Formula Bot に着想を得た、日本語・日本の実務向けのつくり直しです。</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
