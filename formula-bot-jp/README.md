@@ -8,6 +8,21 @@ David Bressler さんの [Formula Bot](https://formulabot.com/) に着想を得�
 
 ---
 
+## 2つの版があります
+
+| | ブラウザ版（おすすめ） | ローカル版 |
+| --- | --- | --- |
+| 場所 | [claude.ai の Artifact](https://claude.ai/code/artifact/3fd8ff72-f6ac-4e34-a013-5f1843d5b3d4) | このフォルダ（`server.js`） |
+| ソース | `artifact/kansu-bot.html` | `server.js` + `public/` |
+| APIキー | **不要**（見ている人のClaudeを使います） | 必要（`.env`） |
+| 準備 | リンクを開くだけ | Node.js のインストール |
+| 向いている用途 | すぐ使う・人に配る | 中身を読んで学ぶ・自分で改造する |
+
+まず使ってみたいだけなら **ブラウザ版**を開いてください。
+以下はローカル版（`node server.js`）の手順です。
+
+---
+
 ## 動かしてみる（3ステップ）
 
 ### 1. Node.js が入っているか確認する
@@ -60,6 +75,7 @@ node server.js
 | `public/app.js` | ボタンが押されたときの動き。サーバーに質問を送って、答えを表示します |
 | `server.js` | サーバー。画面を配り、AI への橋渡しをします |
 | `prompt.js` | **このアプリの頭脳。** AI への指示文。日本の実務ルールを教えている場所 |
+| `artifact/kansu-bot.html` | ブラウザ版の全ソース。1ファイルに画面・処理・指示文が入っています |
 
 ---
 

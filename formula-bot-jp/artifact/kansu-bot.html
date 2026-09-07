@@ -1,0 +1,1017 @@
+<title>関数ボット 日本語版</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=M+PLUS+1+Code:wght@400;500&display=swap" />
+
+<style>
+/* ============ トークン ============ */
+:root {
+  --paper:      #e9ecee;
+  --surface:    #ffffff;
+  --surface-2:  #f3f5f6;
+  --rule:       #c9d1d7;
+  --rule-soft:  #dde3e7;
+  --ink:        #1b242e;
+  --ink-2:      #5c6874;
+  --ink-3:      #8b96a1;
+  --ai:         #264a75;
+  --ai-soft:    #e3eaf4;
+  --ai-line:    #b6c6dd;
+  --seal:       #b03127;
+  --seal-soft:  #f7e7e4;
+  --cell-bg:    #ffffff;
+  --code-ink:   #16202b;
+
+  --grid: 4px;
+  --w-max: 780px;
+
+  --font-display: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic UI", Meiryo, system-ui, sans-serif;
+  --font-code: "M PLUS 1 Code", "SFMono-Regular", Consolas, "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:      #12181e;
+    --surface:    #1a222b;
+    --surface-2:  #212b35;
+    --rule:       #33414e;
+    --rule-soft:  #28333d;
+    --ink:        #dde5ec;
+    --ink-2:      #9dabb8;
+    --ink-3:      #6f7d8a;
+    --ai:         #85aede;
+    --ai-soft:    #1e2c3e;
+    --ai-line:    #395270;
+    --seal:       #e2756a;
+    --seal-soft:  #33201e;
+    --cell-bg:    #1e2831;
+    --code-ink:   #dbe6f0;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper:      #12181e;
+  --surface:    #1a222b;
+  --surface-2:  #212b35;
+  --rule:       #33414e;
+  --rule-soft:  #28333d;
+  --ink:        #dde5ec;
+  --ink-2:      #9dabb8;
+  --ink-3:      #6f7d8a;
+  --ai:         #85aede;
+  --ai-soft:    #1e2c3e;
+  --ai-line:    #395270;
+  --seal:       #e2756a;
+  --seal-soft:  #33201e;
+  --cell-bg:    #1e2831;
+  --code-ink:   #dbe6f0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  /* 表計算の罫線を、ごく薄く敷く */
+  background-image:
+    linear-gradient(to right, var(--rule-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule-soft) 1px, transparent 1px);
+  background-size: 88px 30px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet {
+  max-width: var(--w-max);
+  margin: 0 auto;
+  padding: 0 20px 64px;
+}
+
+/* ============ ヘッダー ============ */
+.masthead {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 40px 0 18px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 26px;
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.3;
+  letter-spacing: .04em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.masthead .sub {
+  font-size: 13px;
+  color: var(--ink-2);
+  letter-spacing: .06em;
+  margin: 0;
+}
+
+/* ============ シートタブ（Excelのシート見出し風） ============ */
+.tabs {
+  display: flex;
+  gap: 3px;
+  padding-left: 10px;
+}
+
+.tab {
+  appearance: none;
+  border: 1px solid var(--rule);
+  border-bottom: none;
+  border-radius: 7px 7px 0 0;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 9px 20px 8px;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  transition: color .15s, background .15s;
+}
+
+.tab:hover { color: var(--ink); }
+
+.tab[aria-selected="true"] {
+  background: var(--surface);
+  color: var(--ai);
+  font-weight: 700;
+  border-color: var(--rule);
+  box-shadow: 0 -2px 0 var(--ai) inset;
+}
+
+.tab:focus-visible { outline: 2px solid var(--ai); outline-offset: 2px; }
+
+/* ============ 数式バー ============ */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 0 8px 8px 8px;
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: stretch;
+}
+
+.bar-gutter {
+  display: grid;
+  place-items: center;
+  border-right: 1px solid var(--rule);
+  background: var(--surface-2);
+  border-radius: 0 0 0 7px;
+}
+
+.fx {
+  font-family: var(--font-code);
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ai);
+}
+
+#input {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.8;
+  padding: 16px 18px;
+  resize: vertical;
+  min-height: 108px;
+}
+
+#input::placeholder { color: var(--ink-3); }
+#input:focus { outline: none; }
+.bar:focus-within { box-shadow: 0 0 0 2px var(--ai) inset; border-radius: 0 8px 0 0; }
+
+/* ============ 入力例 ============ */
+.suggest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px dashed var(--rule);
+}
+
+.suggest-label {
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--ink-3);
+  padding-right: 4px;
+}
+
+.chip {
+  appearance: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: var(--ai); color: var(--ai); background: var(--ai-soft); }
+.chip:focus-visible { outline: 2px solid var(--ai); outline-offset: 1px; }
+
+/* ============ 実行行 ============ */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--rule);
+  background: var(--surface-2);
+  border-radius: 0 0 7px 7px;
+}
+
+.targets { display: flex; gap: 4px; }
+
+.targets label {
+  font-size: 12.5px;
+  padding: 4px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.targets input { position: absolute; opacity: 0; pointer-events: none; }
+.targets input:checked + span { color: var(--ai); }
+.targets label:has(input:checked) { border-color: var(--ai); background: var(--ai-soft); color: var(--ai); font-weight: 700; }
+.targets label:has(input:focus-visible) { outline: 2px solid var(--ai); outline-offset: 2px; }
+
+.run-group { display: flex; align-items: center; gap: 10px; }
+
+.run {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: var(--ai);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .04em;
+  padding: 9px 24px;
+  cursor: pointer;
+}
+
+.run:hover { filter: brightness(1.12); }
+.run:disabled { opacity: .45; cursor: default; filter: none; }
+.run:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+.stop {
+  appearance: none;
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.stop:hover { border-color: var(--seal); color: var(--seal); }
+
+.keyhint { font-size: 11.5px; color: var(--ink-3); letter-spacing: .04em; }
+
+/* ============ 状態表示 ============ */
+.state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border: 1px solid var(--ai-line);
+  border-left: 3px solid var(--ai);
+  background: var(--ai-soft);
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.state.is-error {
+  border-color: var(--seal);
+  border-left-color: var(--seal);
+  background: var(--seal-soft);
+  color: var(--ink);
+}
+
+.pulse {
+  width: 9px; height: 9px; flex: none;
+  border-radius: 2px;
+  background: var(--ai);
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+.state.is-error .pulse { background: var(--seal); animation: none; }
+
+@keyframes blink { 50% { opacity: .2; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse { animation: none; }
+}
+
+.elapsed { margin-left: auto; font-family: var(--font-code); font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+/* ============ 結果：選択されたセル ============ */
+.answer { margin-top: 26px; }
+
+.answer-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.answer-head h2 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin: 0;
+}
+
+.badge {
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  padding: 1px 8px;
+  border: 1px solid var(--seal);
+  color: var(--seal);
+  border-radius: 2px;
+}
+
+.copy {
+  margin-left: auto;
+  appearance: none;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 12.5px;
+  padding: 4px 14px;
+  cursor: pointer;
+}
+
+.copy:hover { border-color: var(--ai); color: var(--ai); }
+
+/* セル選択の見た目（太枠＋右下のフィルハンドル） */
+.cell {
+  position: relative;
+  background: var(--cell-bg);
+  border: 2px solid var(--ai);
+  padding: 18px 20px;
+  overflow-x: auto;
+}
+
+.cell::after {
+  content: "";
+  position: absolute;
+  right: -4px; bottom: -4px;
+  width: 8px; height: 8px;
+  background: var(--ai);
+  border: 1px solid var(--surface);
+}
+
+#formula {
+  margin: 0;
+  font-family: var(--font-code);
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--code-ink);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ============ 解説 ============ */
+.prose {
+  margin: 22px 0 0;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: 20px 22px;
+}
+
+.prose h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.prose h3 + p { margin: 0; }
+.prose p { margin: 0; }
+
+/* 部品の内訳：行番号つき（内側から読む順番＝意味のある並び） */
+.breakdown { margin: 26px 0 0; }
+
+.breakdown-rows { border: 1px solid var(--rule); border-bottom: none; }
+
+.brow {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.brow-n {
+  display: grid;
+  place-items: center;
+  padding-top: 12px;
+  align-content: start;
+  background: var(--surface-2);
+  border-right: 1px solid var(--rule);
+  font-family: var(--font-code);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.brow-body { padding: 11px 16px 13px; min-width: 0; }
+
+.brow-code {
+  font-family: var(--font-code);
+  font-size: 13px;
+  color: var(--ai);
+  word-break: break-all;
+  margin-bottom: 2px;
+}
+
+.brow-mean { font-size: 13.5px; color: var(--ink-2); line-height: 1.75; }
+
+/* 注意 */
+.caution {
+  margin: 22px 0 0;
+  padding: 14px 18px;
+  border: 1px solid var(--seal);
+  border-left: 3px solid var(--seal);
+  background: var(--seal-soft);
+}
+
+.caution h3 {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: .1em;
+  margin: 0 0 4px;
+  color: var(--seal);
+}
+
+.caution p { margin: 0; font-size: 13.5px; }
+
+/* ============ 早見表 ============ */
+.cheat { margin-top: 56px; }
+
+.cheat-head { border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 0; }
+
+.cheat-head h2 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin: 0;
+}
+
+.cheat-head p { margin: 4px 0 0; font-size: 13px; color: var(--ink-2); }
+
+.recipes { border: 1px solid var(--rule); border-top: none; }
+
+.recipe {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.85fr) minmax(0, 1.15fr);
+  border-top: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.recipe-l { padding: 14px 16px; border-right: 1px solid var(--rule); background: var(--surface-2); }
+.recipe-l h3 { margin: 0; font-size: 13.5px; font-weight: 700; }
+.recipe-l p { margin: 3px 0 0; font-size: 12px; color: var(--ink-2); line-height: 1.7; }
+
+.recipe-r { padding: 14px 16px; min-width: 0; display: flex; align-items: center; gap: 10px; }
+
+.recipe-r code {
+  font-family: var(--font-code);
+  font-size: 12.5px;
+  color: var(--code-ink);
+  word-break: break-all;
+  flex: 1;
+  min-width: 0;
+}
+
+.mini {
+  appearance: none;
+  flex: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink-3);
+  font: inherit;
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.mini:hover { border-color: var(--ai); color: var(--ai); }
+
+@media (max-width: 560px) {
+  .recipe { grid-template-columns: minmax(0, 1fr); }
+  .recipe-l { border-right: none; border-bottom: 1px solid var(--rule); }
+  .bar { grid-template-columns: 40px 1fr; }
+}
+
+/* ============ 脚注 ============ */
+.colophon {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  line-height: 1.9;
+}
+
+.colophon p { margin: 0 0 4px; }
+.colophon a { color: var(--ai); }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <h1>関数ボット</h1>
+    <p class="sub">日本語で書くと、Excel／スプレッドシートの数式にします</p>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="モード">
+    <button class="tab" role="tab" aria-selected="true" data-mode="generate" id="tab-generate">日本語 → 数式</button>
+    <button class="tab" role="tab" aria-selected="false" data-mode="explain" id="tab-explain">数式 → 解説</button>
+  </div>
+
+  <section class="panel">
+    <div class="bar">
+      <div class="bar-gutter"><span class="fx">fx</span></div>
+      <textarea id="input" rows="4" aria-label="入力欄"
+        placeholder="例：B列の税抜金額に消費税10%を足して、円未満は切り捨てたい"></textarea>
+    </div>
+
+    <div class="suggest" id="suggest">
+      <span class="suggest-label">例</span>
+    </div>
+
+    <div class="actions">
+      <div class="targets">
+        <label><input type="radio" name="target" value="excel" checked /><span>Excel</span></label>
+        <label><input type="radio" name="target" value="sheets" /><span>スプレッドシート</span></label>
+      </div>
+      <div class="run-group">
+        <span class="keyhint">⌘ / Ctrl + Enter</span>
+        <button type="button" class="stop" id="stop" hidden>やめる</button>
+        <button type="button" class="run" id="run">数式をつくる</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="state" id="state" hidden>
+    <span class="pulse" aria-hidden="true"></span>
+    <span id="state-text"></span>
+    <span class="elapsed" id="elapsed"></span>
+  </div>
+
+  <section class="answer" id="answer">
+    <div class="answer-head">
+      <h2>できあがった数式</h2>
+      <span class="badge" id="badge">例</span>
+      <button type="button" class="copy" id="copy">コピー</button>
+    </div>
+
+    <div class="cell">
+      <pre id="formula">=ROUNDDOWN(SUM(B2:B100)*1.1,0)</pre>
+    </div>
+
+    <div class="prose">
+      <h3>この数式がしていること</h3>
+      <p id="explanation">B2からB100までの税抜金額をすべて足し合わせ、そこに1.1（＝消費税10%）を掛けて税込金額にしています。最後に ROUNDDOWN で小数点以下を切り捨て、1円未満が出ないようにしています。日本の請求実務では「切り捨て」を指定する会社が多いため、四捨五入の ROUND ではなく ROUNDDOWN を使っています。</p>
+
+      <div class="breakdown" id="breakdown">
+        <h3>内側から順に読むと</h3>
+        <div class="breakdown-rows" id="breakdown-rows"></div>
+      </div>
+    </div>
+
+    <div class="caution" id="caution">
+      <h3>気をつけること</h3>
+      <p id="notes">セル範囲 B2:B100 は仮のものです。ご自分の表に合わせて変えてください。軽減税率8%の商品が混ざっている場合は、税率ごとに列を分けて計算する必要があります。</p>
+    </div>
+  </section>
+
+  <section class="cheat">
+    <div class="cheat-head">
+      <h2>日本の事務でよく使う数式</h2>
+      <p>AIを呼ばずにそのまま使える早見表です。汎用のAIだと毎回説明が必要になるものを集めました。</p>
+    </div>
+    <div class="recipes" id="recipes"></div>
+  </section>
+
+  <footer class="colophon">
+    <p>David Bressler さんの Formula Bot に着想を得て、日本の実務（和暦・年度・消費税・全角半角・営業日）向けに作り直したものです。</p>
+    <p>数式はご自分の表で必ず検算してください。金額や日付の扱いは、社内ルールが優先です。</p>
+  </footer>
+</div>
+
+<script>
+// ============================================================
+//  画面の部品
+// ============================================================
+const el = (id) => document.getElementById(id);
+
+const input       = el("input");
+const suggestBox  = el("suggest");
+const runBtn      = el("run");
+const stopBtn     = el("stop");
+const stateBox    = el("state");
+const stateText   = el("state-text");
+const elapsedBox  = el("elapsed");
+const answerBox   = el("answer");
+const badge       = el("badge");
+const formulaBox  = el("formula");
+const explainBox  = el("explanation");
+const breakdown   = el("breakdown");
+const breakdownRows = el("breakdown-rows");
+const caution     = el("caution");
+const notesBox    = el("notes");
+const copyBtn     = el("copy");
+const recipesBox  = el("recipes");
+
+let mode = "generate";
+let sampleFn = null;      // Claude に聞く関数（使えないときは null のまま）
+let controller = null;    // 途中でやめるための係
+let timer = null;
+
+// ============================================================
+//  モードごとの文言と入力例
+// ============================================================
+const MODES = {
+  generate: {
+    button: "数式をつくる",
+    placeholder: "例：B列の税抜金額に消費税10%を足して、円未満は切り捨てたい",
+    heading: "できあがった数式",
+    examples: [
+      "A1の日付を「令和7年4月1日」の形にしたい",
+      "A1の日付が何年度か出したい（4月始まり）",
+      "B列の合計に消費税10%を足して円未満切り捨て",
+      "氏名から姓だけを取り出したい",
+      "商品コードで別シートの単価表を引きたい",
+      "A1から5営業日後の日付を出したい",
+      "重複している行に印をつけたい",
+    ],
+  },
+  explain: {
+    button: "解説してもらう",
+    placeholder: '例：=IFERROR(VLOOKUP(A2,商品マスタ!A:C,3,FALSE),"該当なし")',
+    heading: "読み解いた数式",
+    examples: [
+      '=TEXT(A1,"ggge年m月d日")',
+      "=YEAR(EDATE(A1,-3))",
+      '=IFERROR(VLOOKUP(A2,商品マスタ!A:C,3,FALSE),"")',
+      '=SUMIFS(C:C,A:A,">="&E1,A:A,"<="&E2)',
+      "=INDEX(C:C,MATCH(1,(A:A=F1)*(B:B=G1),0))",
+    ],
+  },
+};
+
+// ============================================================
+//  Claude への指示文（このアプリの頭脳）
+//  日本の事務で毎回つまずくところを、あらかじめ教えておきます。
+// ============================================================
+const JP_RULES = `
+【日本の実務ルール（必ず踏まえること）】
+- 年度は4月始まり3月終わり。年度を出すなら =YEAR(EDATE(A1,-3))
+- 和暦は TEXT の書式で。"ggge年m月d日"→令和7年4月1日、"ge"→R7
+- 曜日は =TEXT(A1,"aaa")→月、"aaaa"→月曜日
+- 消費税は標準10%・軽減8%。税込 =ROUNDDOWN(A1*1.1,0) のように端数処理を必ずセットで書く
+- 端数処理は ROUND(四捨五入)/ROUNDDOWN(切り捨て)/ROUNDUP(切り上げ)を明示する。請求金額は切り捨ての会社が多い
+- 全角半角は =ASC(A1)（半角化）/ =JIS(A1)（全角化）。名寄せは =ASC(TRIM(A1))
+- 氏名の姓名分割は全角スペースがあるので =LEFT(A1,FIND(" ",ASC(A1))-1) のように ASC を挟む
+- 郵便番号のハイフン挿入は =LEFT(A1,3)&"-"&RIGHT(A1,4)
+- 営業日は WORKDAY / NETWORKDAYS。日本の祝日は自動判定されないので祝日一覧の範囲が要る旨を必ず添える
+- 検索は XLOOKUP を勧めてよいが、Excel2019以前では使えないので INDEX+MATCH も添える
+- ふりがな PHONETIC は Excel専用（スプレッドシートには無い）
+`;
+
+function buildPrompt(text, target) {
+  const targetNote = target === "sheets"
+    ? "対象は Google スプレッドシート。ARRAYFORMULA / QUERY / FILTER を使ってよい。PHONETIC・ASC・JIS は使えないので代替策を書くこと。"
+    : "対象は Microsoft Excel（日本語版）。XLOOKUP など新しい関数を使うときは Excel2019以前では使えない旨を notes に書くこと。";
+
+  const task = mode === "explain"
+    ? `次の数式を、表計算がはじめての人にも分かるように読み解いてください。\n\n${text}`
+    : `次の「やりたいこと」を実現する数式をひとつ作ってください。\n\n${text}`;
+
+  return `あなたは日本のオフィス業務にとても詳しい、親切な表計算の先生です。
+相手はプログラミングも表計算もはじめての人です。専門用語には必ず短い言い添えを入れ、やさしい日本語で書いてください。
+
+${task}
+
+${targetNote}
+${JP_RULES}
+【書き方の約束】
+- formula は「=」から始め、そのまま貼り付けて動く形にする。引数の区切りは半角カンマ。
+- セル番地が分からないときは A1・B2 など仮の番地を使い、「ご自分の表に合わせて変えてください」と notes に書く。
+- parts は数式を内側から順に読み解いた並びにする（3〜6個）。
+- notes には、間違えやすい点・別のやり方を書く。無ければ空文字。
+
+【出力形式】JSONだけを返してください。前置きも後書きも不要です。
+{"formula":"=…","explanation":"3〜5文のやさしい説明","parts":[{"code":"部品","meaning":"その意味"}],"notes":"注意点"}`;
+}
+
+// ============================================================
+//  入力例のチップ
+// ============================================================
+function renderSuggestions() {
+  suggestBox.querySelectorAll(".chip").forEach((c) => c.remove());
+  for (const ex of MODES[mode].examples) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip";
+    chip.textContent = ex.length > 24 ? ex.slice(0, 23) + "…" : ex;
+    chip.title = ex;
+    chip.addEventListener("click", () => { input.value = ex; input.focus(); });
+    suggestBox.appendChild(chip);
+  }
+}
+
+// ============================================================
+//  モード切り替え（シート見出し）
+// ============================================================
+document.querySelectorAll(".tab").forEach((tab) => {
+  tab.addEventListener("click", () => {
+    mode = tab.dataset.mode;
+    document.querySelectorAll(".tab").forEach((t) => {
+      t.setAttribute("aria-selected", String(t === tab));
+    });
+    const m = MODES[mode];
+    runBtn.textContent = m.button;
+    input.placeholder = m.placeholder;
+    input.value = "";
+    document.querySelector(".answer-head h2").textContent = m.heading;
+    renderSuggestions();
+    input.focus();
+  });
+});
+
+// ============================================================
+//  状態表示
+// ============================================================
+function showState(text, isError = false) {
+  stateText.textContent = text;
+  stateBox.classList.toggle("is-error", isError);
+  stateBox.hidden = false;
+}
+
+function hideState() { stateBox.hidden = true; elapsedBox.textContent = ""; }
+
+function startClock() {
+  const t0 = Date.now();
+  elapsedBox.textContent = "0秒";
+  timer = setInterval(() => {
+    elapsedBox.textContent = Math.round((Date.now() - t0) / 1000) + "秒";
+  }, 1000);
+}
+
+function stopClock() { if (timer) { clearInterval(timer); timer = null; } }
+
+// ============================================================
+//  結果を描く
+// ============================================================
+function renderParts(parts) {
+  breakdownRows.textContent = "";
+  const list = Array.isArray(parts) ? parts : [];
+  for (const [i, part] of list.entries()) {
+    const row = document.createElement("div");
+    row.className = "brow";
+
+    const n = document.createElement("div");
+    n.className = "brow-n";
+    n.textContent = String(i + 1);
+
+    const body = document.createElement("div");
+    body.className = "brow-body";
+
+    const code = document.createElement("div");
+    code.className = "brow-code";
+    code.textContent = part && part.code ? String(part.code) : "";
+
+    const mean = document.createElement("div");
+    mean.className = "brow-mean";
+    mean.textContent = part && part.meaning ? String(part.meaning) : "";
+
+    body.append(code, mean);
+    row.append(n, body);
+    breakdownRows.appendChild(row);
+  }
+  breakdown.hidden = list.length === 0;
+}
+
+function renderAnswer(data) {
+  badge.hidden = true;
+  formulaBox.textContent = data.formula ? String(data.formula) : "（数式は作れませんでした）";
+  explainBox.textContent = data.explanation ? String(data.explanation) : "";
+  renderParts(data.parts);
+
+  const notes = data.notes ? String(data.notes).trim() : "";
+  notesBox.textContent = notes;
+  caution.hidden = notes === "";
+
+  answerBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+// 途中経過から formula だけを先に取り出して見せる小技
+function peekFormula(raw) {
+  const key = raw.indexOf('"formula"');
+  if (key === -1) return null;
+  const open = raw.indexOf('"', raw.indexOf(":", key) + 1);
+  if (open === -1) return null;
+
+  let out = "";
+  for (let i = open + 1; i < raw.length; i++) {
+    const ch = raw[i];
+    if (ch === "\\") { out += raw[i + 1] === "n" ? "\n" : raw[i + 1] || ""; i++; continue; }
+    if (ch === '"') break;
+    out += ch;
+  }
+  return out;
+}
+
+// ============================================================
+//  エラーの言い換え（コードごとに、次の一手が分かる日本語で）
+// ============================================================
+const ERROR_TEXT = {
+  not_granted: "AIの利用が許可されていません。実行時に出る確認ダイアログで「許可」を選んでください。",
+  rate_limited: "少し混み合っています。30秒ほど置いてから、もう一度お試しください。",
+  prompt_too_large: "入力が長すぎます。短く分けて聞いてみてください。",
+  invalid_json: "うまく形にできませんでした。もう一度押すか、もう少し具体的に書いてみてください。",
+  empty_completion: "答えが空で返ってきました。もう一度お試しください。",
+  refused: "この内容には答えられませんでした。表現を変えてみてください。",
+  session_expired: "ログインの有効期限が切れています。ページを再読み込みしてください。",
+  sampling_disabled: "このページではAIを使えない設定になっています。下の早見表はそのまま使えます。",
+  upstream_error: "通信がうまくいきませんでした。もう一度お試しください。",
+};
+
+// ============================================================
+//  実行
+// ============================================================
+async function run() {
+  const text = input.value.trim();
+  if (!text) {
+    showState("まずは入力欄に、やりたいことを書いてみてください。", true);
+    input.focus();
+    return;
+  }
+  if (!sampleFn) {
+    showState("この画面ではAIを呼べません。下の早見表はそのままお使いいただけます。", true);
+    return;
+  }
+
+  const target = document.querySelector('input[name="target"]:checked').value;
+
+  controller = new AbortController();
+  runBtn.disabled = true;
+  stopBtn.hidden = false;
+  showState("考えています。少しお待ちください。");
+  startClock();
+
+  try {
+    const data = await sampleFn.json(buildPrompt(text, target), {
+      signal: controller.signal,
+      modelTier: "default",
+      onText: ({ text: raw }) => {
+        const partial = peekFormula(raw);
+        if (partial) {
+          badge.hidden = true;
+          formulaBox.textContent = partial;
+          showState("書いています。");
+        }
+      },
+    });
+    hideState();
+    renderAnswer(data);
+  } catch (e) {
+    stopClock();
+    if (e && e.code === "cancelled") { hideState(); return; }
+    showState((e && ERROR_TEXT[e.code]) || "うまくいきませんでした。もう一度お試しください。", true);
+  } finally {
+    stopClock();
+    runBtn.disabled = false;
+    stopBtn.hidden = true;
+    controller = null;
+  }
+}
+
+runBtn.addEventListener("click", run);
+stopBtn.addEventListener("click", () => controller && controller.abort());
+
+input.addEventListener("keydown", (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "Enter") run();
+});
+
+// ============================================================
+//  コピー
+// ============================================================
+async function copyText(text, button, doneLabel = "コピーしました") {
+  const original = button.textContent;
+  try {
+    await navigator.clipboard.writeText(text);
+    button.textContent = doneLabel;
+  } catch {
+    button.textContent = "コピーできませんでした";
+  }
+  setTimeout(() => { button.textContent = original; }, 1600);
+}
+
+copyBtn.addEventListener("click", () => copyText(formulaBox.textContent, copyBtn));
+
+// ============================================================
+//  早見表（AIなしで動く部分）
+// ============================================================
+const RECIPES = [
+  { t: "和暦で表示する", c: '=TEXT(A1,"ggge年m月d日")', n: "「令和7年4月1日」の形に。\"ge\" なら R7。" },
+  { t: "年度を出す", c: "=YEAR(EDATE(A1,-3))", n: "3か月戻してから年を取ると、4月始まりの年度になります。" },
+  { t: "年度の期首日", c: "=DATE(YEAR(EDATE(A1,-3)),4,1)", n: "その日が属する年度の4月1日。" },
+  { t: "曜日を出す", c: '=TEXT(A1,"aaa")', n: "「月」の1文字。\"aaaa\" なら「月曜日」。" },
+  { t: "消費税10%込み・切り捨て", c: "=ROUNDDOWN(A1*1.1,0)", n: "軽減税率なら 1.08。端数処理は社内ルールに合わせて。" },
+  { t: "税込から税抜に戻す", c: "=ROUNDDOWN(A1/1.1,0)", n: "割り戻しは1円ずれやすいので端数指定が要ります。" },
+  { t: "全角を半角にそろえる", c: "=ASC(TRIM(A1))", n: "住所や電話番号の名寄せ前に。全角化は JIS。" },
+  { t: "姓だけを取り出す", c: '=LEFT(A1,FIND(" ",ASC(A1))-1)', n: "ASC を挟むと全角スペース区切りでも取れます。" },
+  { t: "郵便番号にハイフン", c: '=LEFT(A1,3)&"-"&RIGHT(A1,4)', n: "7桁が文字列で入っている前提。" },
+  { t: "5営業日後", c: "=WORKDAY(A1,5,祝日一覧)", n: "日本の祝日は自動判定されません。祝日の一覧が必要です。" },
+  { t: "見つからない時に空欄", c: '=IFERROR(VLOOKUP(A2,マスタ!A:C,3,FALSE),"")', n: "IFERROR で包むと #N/A が表に出ません。" },
+  { t: "期間で絞って合計", c: '=SUMIFS(C:C,A:A,">="&E1,A:A,"<="&E2)', n: "E1〜E2 に開始日と終了日を入れて使います。" },
+];
+
+for (const r of RECIPES) {
+  const row = document.createElement("div");
+  row.className = "recipe";
+
+  const left = document.createElement("div");
+  left.className = "recipe-l";
+  const h = document.createElement("h3");
+  h.textContent = r.t;
+  const p = document.createElement("p");
+  p.textContent = r.n;
+  left.append(h, p);
+
+  const right = document.createElement("div");
+  right.className = "recipe-r";
+  const code = document.createElement("code");
+  code.textContent = r.c;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "mini";
+  btn.textContent = "コピー";
+  btn.addEventListener("click", () => copyText(r.c, btn, "済"));
+  right.append(code, btn);
+
+  row.append(left, right);
+  recipesBox.appendChild(row);
+}
+
+// ============================================================
+//  はじめの状態：見本をひとつ出しておく
+// ============================================================
+renderSuggestions();
+renderParts([
+  { code: "SUM(B2:B100)", meaning: "B2からB100までの金額を、まとめて足します。" },
+  { code: "… * 1.1", meaning: "合計に1.1を掛けて、消費税10%を上乗せします。" },
+  { code: "ROUNDDOWN( … , 0)", meaning: "小数点以下を切り捨てて、1円単位にそろえます。0は「小数第0位まで」の意味です。" },
+]);
+
+// AIが使えるかどうかを確かめて、使えなければその旨を出す
+(async () => {
+  sampleFn = (window.claude && await window.claude.use("sample")) || null;
+  if (!sampleFn) {
+    runBtn.disabled = true;
+    showState("この画面ではAIを呼べません。下の早見表はそのままお使いいただけます。", true);
+  }
+})();
+</script>
