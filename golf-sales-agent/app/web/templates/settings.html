@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}設定｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<h1>設定</h1>
+<p class="lead">判定の基準となる数字を調整できます。運用しながら、自社の実態に合わせてください。</p>
+
+{% if saved %}
+  <div class="note ok"><b>保存しました</b>次に指示を作成するときから反映されます。</div>
+{% endif %}
+
+<div class="note info">
+  <b>AI（Claude）による文面作成：{{ ai_status }}</b>
+  APIキーが未設定でも、システムは完全に動作します（あらかじめ用意した文面が使われます）。
+  設定する場合は、プロジェクト直下の <code>.env</code> ファイルに
+  <code>ANTHROPIC_API_KEY=（キー）</code> と書いて、アプリを再起動してください。
+</div>
+
+<form method="post" action="/settings">
+  {% for group in groups %}
+    <h2>{{ group.title }}</h2>
+    {% if group.note %}<p class="mute" style="margin-top:-6px">{{ group.note }}</p>{% endif %}
+    <div class="card">
+      <div class="grid c2">
+      {% for key, label, hint in group['items'] %}
+        <div class="field">
+          <label for="{{ key }}">{{ label }}</label>
+          <input type="text" id="{{ key }}" name="{{ key }}" value="{{ values.get(key, '') }}">
+          <div class="hint">{{ hint }}</div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+  <p style="margin-top:20px">
+    <button class="btn primary" type="submit">設定を保存する</button>
+  </p>
+</form>
+
+<h2>用語の説明</h2>
+<div class="card">
+  <table>
+    <tbody>
+      <tr><td style="width:180px"><b>来場周期</b></td><td>そのお客様の来場間隔の中央値。平均ではなく中央値を使うのは、たまたま長く空いた1回に引きずられないためです。</td></tr>
+      <tr><td><b>予約リードタイム</b></td><td>ご予約日からプレー日までの日数。「次回来場の予測日 − リードタイム」が、ご案内を送るべき日になります。</td></tr>
+      <tr><td><b>ペース比</b></td><td>今の予約充足率 ÷ 例年の同じ時期・同じ曜日・同じ日数前の充足率。1.0で例年並み、0.7なら大きく出遅れです。</td></tr>
+      <tr><td><b>着地予測</b></td><td>確定実績 ＋ 現在の予約 ＋ 今後入る見込み。月末に最終的にいくらになるかの予測です。</td></tr>
+      <tr><td><b>想定反応率</b></td><td>案内を送ったうち、実際にご予約くださる割合。見込み売上はこの率を掛けて控えめに試算しています。</td></tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

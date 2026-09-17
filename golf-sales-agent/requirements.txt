@@ -1,0 +1,11 @@
+# ゴルフ場 営業指示エージェント - 必要なライブラリ
+# インストール:  pip install -r requirements.txt
+
+fastapi>=0.115            # Web画面とAPIの土台
+uvicorn[standard]>=0.34   # Webサーバー（アプリを起動する人）
+jinja2>=3.1               # HTML画面のテンプレート
+python-multipart>=0.0.20  # CSVアップロードの受け取り
+openpyxl>=3.1             # Excel(.xlsx)ファイルの読み込み
+
+# --- ここから下は「あれば便利」。無くてもアプリは動きます ---
+anthropic>=0.42           # AI(Claude)で案内文を作るときだけ使います

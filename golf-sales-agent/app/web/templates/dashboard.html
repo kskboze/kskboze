@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}ダッシュボード｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<div class="row-between">
+  <div>
+    <h1>ダッシュボード</h1>
+    <p class="lead">{{ today }}（{{ today_label }}）時点の全社状況です。</p>
+  </div>
+  <form method="post" action="/generate">
+    <label class="mute" style="margin-right:10px">
+      <input type="checkbox" name="use_ai" value="on" checked> AIで文面を作る
+    </label>
+    <button class="btn primary" type="submit">本日の指示を作成する</button>
+  </form>
+</div>
+
+{% if not has_data %}
+<div class="note warn">
+  <b>まだデータがありません</b>
+  「データ取込」から来場実績・予約データ・予算を取り込んでください。
+  まずは動きを見たい場合は、ターミナルで <code>python3 scripts/generate_sample_data.py</code> を実行するとサンプルデータが入ります。
+</div>
+{% endif %}
+
+<div class="grid c4">
+  <div class="stat {{ 'ok' if totals.ratio >= 100 else ('warn' if totals.ratio >= 90 else 'danger') }}">
+    <div class="label">今月（{{ this_month }}）達成予測</div>
+    <div class="value">{{ '%.1f'|format(totals.ratio) }}%</div>
+    <div class="sub">予測 {{ totals.forecast|yen }} / 予算 {{ totals.target|yen }}</div>
+  </div>
+  <div class="stat {{ 'ok' if next_totals.ratio >= 100 else ('warn' if next_totals.ratio >= 90 else 'danger') }}">
+    <div class="label">来月（{{ next_month }}）達成予測</div>
+    <div class="value">{{ '%.1f'|format(next_totals.ratio) }}%</div>
+    <div class="sub">予測 {{ next_totals.forecast|yen }} / 予算 {{ next_totals.target|yen }}</div>
+  </div>
+  <div class="stat">
+    <div class="label">本日の営業指示</div>
+    <div class="value">{{ summary.count }}<span style="font-size:15px">件</span></div>
+    <div class="sub">うち最優先 {{ summary.urgent }}件 ／ 完了 {{ summary.done }}件</div>
+  </div>
+  <div class="stat {{ 'danger' if weak_gap > 0 else '' }}">
+    <div class="label">30日以内の弱日</div>
+    <div class="value">{{ weak_days }}<span style="font-size:15px">日</span></div>
+    <div class="sub">空き見込み 約{{ weak_gap|comma }}名分</div>
+  </div>
+</div>
+
+<h2>コース別の予算達成状況</h2>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>ゴルフ場</th>
+      <th class="num">今月予算</th><th class="num">着地予測</th>
+      <th style="width:150px">今月の達成予測</th>
+      <th class="num">不足人数</th>
+      <th style="width:150px">来月の達成予測</th>
+      <th class="num">来月の不足人数</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for f in this_forecasts %}
+    {% set n = next_forecasts[loop.index0] %}
+    <tr>
+      <td class="course-name"><a href="/courses/{{ f.course_id }}"><b>{{ f.course_name }}</b></a></td>
+      <td class="num">{{ f.target_revenue|yen }}</td>
+      <td class="num">{{ f.forecast_revenue|yen }}</td>
+      <td>
+        <div class="bar-row">
+          <div class="bar {{ '' if f.achievement_pct >= 100 else ('warn' if f.achievement_pct >= 90 else 'danger') }}">
+            <span style="width: {{ [f.achievement_pct, 100]|min }}%"></span>
+          </div>
+          <b>{{ f.achievement_pct }}%</b>
+        </div>
+      </td>
+      <td class="num">{% if f.gap_players > 0 %}<b style="color:var(--danger)">{{ f.gap_players|comma }}名</b>{% else %}—{% endif %}</td>
+      <td>
+        <div class="bar-row">
+          <div class="bar {{ '' if n.achievement_pct >= 100 else ('warn' if n.achievement_pct >= 90 else 'danger') }}">
+            <span style="width: {{ [n.achievement_pct, 100]|min }}%"></span>
+          </div>
+          <b>{{ n.achievement_pct }}%</b>
+        </div>
+      </td>
+      <td class="num">{% if n.gap_players > 0 %}<b style="color:var(--danger)">{{ n.gap_players|comma }}名</b>{% else %}—{% endif %}</td>
+      <td class="num"><a class="btn small" href="/courses/{{ f.course_id }}">詳細</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="mute" style="margin-top:8px">
+  着地予測 ＝ 確定実績 ＋ 現在の予約 ＋ 例年の入り方から見た今後の見込み。
+  不足人数 ＝ 予算との差額 ÷ 平均単価。
+</p>
+
+<h2>本日の重要指示（上位8件）</h2>
+{% if top %}
+  {% for i in top %}
+  <a class="inst p{{ i.priority }} {{ 'done' if i.status=='done' }}" href="/instructions/{{ i.instruction_id }}">
+    <div class="meta">
+      <span class="badge p{{ i.priority }}">{{ PRIORITY_LABELS[i.priority] }}</span>
+      <span class="badge ch">{{ i.channel_label }}</span>
+      <span class="badge muted">{{ i.category }}</span>
+      {% if i.status=='done' %}<span class="badge done">完了</span>{% endif %}
+    </div>
+    <div class="title">{{ i.title }}</div>
+    <div class="why">{{ i.reason }}</div>
+    <div class="nums">
+      <span>対象 <b>{{ i.target_count|comma }}</b> 名</span>
+      <span>見込み <b>{{ i.expected_players|comma }}</b> 名 / <b>{{ i.expected_revenue|yen }}</b></span>
+      <span>期限 <b>{{ i.deadline }}</b></span>
+    </div>
+  </a>
+  {% endfor %}
+  <a class="btn" href="/instructions">すべての指示を見る（{{ summary.count }}件）</a>
+{% else %}
+  <div class="note info">
+    まだ本日の指示が作成されていません。右上の「本日の指示を作成する」を押してください。
+  </div>
+{% endif %}
+
+<h2>顧客ランクの構成</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>ランク</th><th class="num">人数</th><th class="num">順調</th><th class="num">離反予備軍</th><th class="num">休眠・離脱</th><th class="num">平均単価</th></tr></thead>
+  <tbody>
+  {% for r in ranks %}
+    <tr>
+      <td>{{ r.rank_label }}</td>
+      <td class="num">{{ r.count|comma }}</td>
+      <td class="num">{{ r.active|comma }}</td>
+      <td class="num" style="color:var(--warn)">{{ r.at_risk|comma }}</td>
+      <td class="num" style="color:var(--danger)">{{ r.sleeping|comma }}</td>
+      <td class="num">{{ r.avg_spend|comma }}円</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="mute" style="margin-top:8px">
+  F1が多くF2以降が少ない場合、「初回のお客様を2回目につなげられていない」状態です。
+  <a href="/customers">顧客分析</a>で詳しくご覧いただけます。
+</p>
+{% endblock %}

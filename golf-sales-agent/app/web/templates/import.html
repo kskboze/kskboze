@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}データ取込｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<h1>データ取込</h1>
+<p class="lead">予約管理システムから出力したCSV / Excelファイルを、ここから取り込みます。</p>
+
+{% if result %}
+  {% if result.ok %}
+    <div class="note ok">
+      <b>{{ result.summary() }}</b>
+      読み取った列：{{ result.mapped_columns.keys()|join('、') }}
+      {% if result.unmapped_columns %}<br>使わなかった列：{{ result.unmapped_columns|join('、') }}{% endif %}
+    </div>
+  {% else %}
+    <div class="note danger">
+      <b>取り込めませんでした</b>
+      {% for e in result.errors %}{{ e }}<br>{% endfor %}
+    </div>
+  {% endif %}
+  {% if result.ok and result.errors %}
+    <div class="note warn">
+      <b>一部の行は取り込めませんでした</b>
+      {% for e in result.errors %}{{ e }}<br>{% endfor %}
+    </div>
+  {% endif %}
+{% endif %}
+
+<div class="grid c3" style="margin-bottom:8px">
+  <div class="card">
+    <h3 style="margin-top:0">ファイルを選んで取り込む</h3>
+    <form method="post" action="/import" enctype="multipart/form-data">
+      <div class="field">
+        <label for="kind">データの種類</label>
+        <select name="kind" id="kind" required>
+          {% for key, label in kinds.items() %}
+            <option value="{{ key }}">{{ label }}（現在 {{ counts[key]|comma }}件）</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="file">ファイル（.csv / .xlsx）</label>
+        <input type="file" name="file" id="file" accept=".csv,.tsv,.xlsx,.xlsm" required>
+        <div class="hint">Shift_JIS（Excelの標準）のCSVもそのまま読み込めます。</div>
+      </div>
+      <button class="btn primary" type="submit">取り込む</button>
+    </form>
+    <p class="mute" style="margin-bottom:0">
+      同じデータを2回取り込んでも、IDが同じ行は上書きされるだけなので重複しません。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">取り込む順番</h3>
+    <ol style="padding-left:1.2em;margin:0">
+      <li>コースマスタ（8コース分）</li>
+      <li>顧客マスタ（お名前・連絡先・配信許諾）</li>
+      <li>来場実績（過去1年以上あると精度が上がります）</li>
+      <li>予約データ（今日以降の予約）</li>
+      <li>月次予算（今月・来月分）</li>
+    </ol>
+    <p class="mute" style="margin-bottom:0">
+      来場実績と予約データだけでも動きます。その場合、コースと顧客は自動で作られます。
+      ただし連絡先が無いお客様には案内を送れないため、顧客マスタも入れてください。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">現在のデータ量</h3>
+    <table>
+      <tbody>
+      {% for key, label in kinds.items() %}
+        <tr><td>{{ label }}</td><td class="num"><b>{{ counts[key]|comma }}</b> 件</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2>どんな列名でも読めるようにしてあります</h2>
+<p class="mute" style="margin-top:-6px">
+  CSVの見出しは、システムによって呼び方が違います。下の「読み取れる見出しの例」に
+  近い名前であれば、自動で判別します。全角・半角、括弧やスペースの違いは無視します。
+</p>
+{% for kind, label in kinds.items() %}
+<h3>{{ label }}</h3>
+<div class="table-wrap" style="margin-bottom:14px">
+<table>
+  <thead><tr><th style="width:190px">項目</th><th>読み取れる見出しの例</th></tr></thead>
+  <tbody>
+  {% for field, names in aliases[kind].items() %}
+    <tr>
+      <td><b>{{ names[0] }}</b></td>
+      <td class="mute">{{ names|join('、') }}、{{ field }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endfor %}
+
+<h2>取り込み履歴</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>日時</th><th>種類</th><th>ファイル名</th><th class="num">成功</th><th class="num">失敗</th><th>メッセージ</th></tr></thead>
+  <tbody>
+  {% for l in logs %}
+    <tr>
+      <td class="nowrap">{{ l.imported_at }}</td>
+      <td>{{ kinds.get(l.kind, l.kind) }}</td>
+      <td>{{ l.filename }}</td>
+      <td class="num">{{ l.rows_ok|comma }}</td>
+      <td class="num">{{ l.rows_ng|comma }}</td>
+      <td class="mute">{{ l.message or '' }}</td>
+    </tr>
+  {% else %}
+    <tr><td colspan="6" class="mute">まだ取り込み履歴はありません。</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

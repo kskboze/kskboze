@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}{{ course.name }}｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<p class="mute"><a href="/">← ダッシュボードへ戻る</a></p>
+<h1>{{ course.name }}</h1>
+<p class="lead">{{ course.area or '' }} ／ 定員 平日{{ course.capacity_weekday }}名・土日祝{{ course.capacity_weekend }}名{% if course.note %} ／ {{ course.note }}{% endif %}</p>
+
+<div class="grid c4">
+  <div class="stat {{ 'ok' if this_f.achievement_pct >= 100 else ('warn' if this_f.achievement_pct >= 90 else 'danger') }}">
+    <div class="label">今月（{{ this_month }}）達成予測</div>
+    <div class="value">{{ this_f.achievement_pct }}%</div>
+    <div class="sub">残り{{ this_f.days_left }}日</div>
+  </div>
+  <div class="stat {{ 'danger' if this_f.gap_players > 0 else 'ok' }}">
+    <div class="label">今月の不足</div>
+    <div class="value">{{ this_f.gap_players|comma }}<span style="font-size:15px">名</span></div>
+    <div class="sub">{% if this_f.needed_per_day %}1日あたり {{ this_f.needed_per_day }}名{% else %}達成見込み{% endif %}</div>
+  </div>
+  <div class="stat {{ 'ok' if next_f.achievement_pct >= 100 else ('warn' if next_f.achievement_pct >= 90 else 'danger') }}">
+    <div class="label">来月（{{ next_month }}）達成予測</div>
+    <div class="value">{{ next_f.achievement_pct }}%</div>
+    <div class="sub">予算 {{ next_f.target_revenue|yen }}</div>
+  </div>
+  <div class="stat {{ 'danger' if next_f.gap_players > 0 else 'ok' }}">
+    <div class="label">来月の不足</div>
+    <div class="value">{{ next_f.gap_players|comma }}<span style="font-size:15px">名</span></div>
+    <div class="sub">今月中に埋めておきたい分</div>
+  </div>
+</div>
+
+<h2>今月の売上の内訳（着地予測）</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>区分</th><th class="num">金額</th><th>説明</th></tr></thead>
+  <tbody>
+    <tr><td>① 確定実績</td><td class="num">{{ this_f.actual_revenue|yen }}</td><td class="mute">昨日までにプレーが終わった分</td></tr>
+    <tr><td>② 現在の予約</td><td class="num">{{ this_f.onbook_revenue|yen }}</td><td class="mute">本日以降ですでに入っている予約</td></tr>
+    <tr><td>③ 今後の見込み</td><td class="num">{{ this_f.pickup_revenue|yen }}</td><td class="mute">例年の入り方から見た、これから入る分</td></tr>
+    <tr style="font-weight:700"><td>着地予測（①＋②＋③）</td><td class="num">{{ this_f.forecast_revenue|yen }}</td><td class="mute">予算 {{ this_f.target_revenue|yen }}</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>需要カレンダー（弱日・強日の判定）</h2>
+<p class="mute" style="margin-top:-6px">
+  数字は現在の予約充足率です。色は、例年の同じ時期・同じ曜日と比べた勢いを表します。
+  <span class="badge" style="background:var(--ok);color:#fff">S 強日</span>
+  <span class="badge" style="background:var(--ok-lt);color:var(--ok)">A やや強</span>
+  <span class="badge muted">B 標準</span>
+  <span class="badge" style="background:var(--warn);color:#fff">C 弱日</span>
+  <span class="badge" style="background:var(--danger);color:#fff">D 最弱日</span>
+</p>
+<div class="card">
+  <div class="cal">
+    {% for d in ['月','火','水','木','金','土','日'] %}<div class="dow">{{ d }}</div>{% endfor %}
+  </div>
+  {% for week in weeks %}
+  <div class="cal" style="margin-bottom:4px">
+    {% for day in week %}
+      {% if day %}
+        <div class="cell g{{ day.grade }} {{ 'we' if day.is_weekend }}" title="{{ day.label }} 予約{{ day.onbook_players }}名／定員{{ day.capacity }}名・例年比{{ day.pace_pct }}%">
+          <div class="d">{{ day.label }}</div>
+          <div class="f">{{ day.fill_pct }}%</div>
+          <div><span class="g">{{ day.grade }}</span></div>
+          {% if day.gap_players %}<div class="mute" style="font-size:10px">空{{ day.gap_players }}</div>{% endif %}
+        </div>
+      {% else %}
+        <div class="cell empty"></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<h2>予約経路の構成（直近1年）</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>経路</th><th class="num">人数</th><th class="num">売上</th><th class="num">構成比</th><th style="width:180px"></th></tr></thead>
+  <tbody>
+  {% for c in channel_mix %}
+    <tr>
+      <td>{{ c.channel or '不明' }}</td>
+      <td class="num">{{ (c.players or 0)|comma }}</td>
+      <td class="num">{{ c.revenue|yen }}</td>
+      <td class="num">{{ c.share }}%</td>
+      <td><div class="bar"><span style="width:{{ c.share }}%"></span></div></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="mute" style="margin-top:8px">
+  ポータルサイト（楽天GORA・GDO・じゃらん等）の比率が高いほど送客手数料がかさみます。
+  自社WEBの比率を上げることが、単価改善の近道です。
+</p>
+
+<h2>このゴルフ場の本日の指示（{{ instructions|length }}件）</h2>
+{% for i in instructions %}
+  <a class="inst p{{ i.priority }} {{ 'done' if i.status=='done' }}" href="/instructions/{{ i.instruction_id }}">
+    <div class="meta">
+      <span class="badge p{{ i.priority }}">{{ PRIORITY_LABELS[i.priority] }}</span>
+      <span class="badge ch">{{ i.channel_label }}</span>
+      <span class="badge muted">{{ i.category }}</span>
+    </div>
+    <div class="title">{{ i.title }}</div>
+    <div class="nums">
+      <span>対象 <b>{{ i.target_count|comma }}</b> 名</span>
+      {% if i.expected_revenue %}<span>見込み <b>{{ i.expected_revenue|yen }}</b></span>{% endif %}
+    </div>
+  </a>
+{% else %}
+  <div class="note info">本日の指示はまだ作成されていません。</div>
+{% endfor %}
+{% endblock %}

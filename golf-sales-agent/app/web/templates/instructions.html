@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}本日の指示｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<div class="row-between">
+  <div>
+    <h1>本日の営業指示</h1>
+    <p class="lead">{{ run_date }}分 ／ 全{{ total }}件（表示中 {{ shown }}件）</p>
+  </div>
+  <div>
+    <a class="btn" href="/instructions.csv">一覧をCSVで保存</a>
+    <form method="post" action="/generate" style="display:inline">
+      <input type="hidden" name="use_ai" value="on">
+      <button class="btn primary" type="submit">作り直す</button>
+    </form>
+  </div>
+</div>
+
+<div class="grid c4" style="margin-bottom:18px">
+  <div class="stat"><div class="label">指示件数</div><div class="value">{{ summary.count }}</div><div class="sub">最優先 {{ summary.urgent }}件</div></div>
+  <div class="stat"><div class="label">対象のお客様</div><div class="value">{{ summary.targets|comma }}</div><div class="sub">延べ人数</div></div>
+  <div class="stat ok"><div class="label">見込み売上</div><div class="value">{{ summary.expected_revenue|yen }}</div><div class="sub">想定反応率で試算</div></div>
+  <div class="stat"><div class="label">完了</div><div class="value">{{ summary.done }}</div><div class="sub">／ {{ summary.count }}件</div></div>
+</div>
+
+<h2>ゴルフ場別の内訳</h2>
+<p class="mute" style="margin-top:-6px">ゴルフ場名をクリックすると、そのコースの指示だけに絞り込めます。</p>
+<div class="table-wrap" style="margin-bottom:22px">
+<table>
+  <thead>
+    <tr><th>ゴルフ場</th><th class="num">指示件数</th><th class="num">うち最優先</th>
+        <th class="num">対象人数</th><th class="num">見込み売上</th><th class="num">完了</th></tr>
+  </thead>
+  <tbody>
+  {% for c in course_summary %}
+    <tr>
+      <td class="course-name"><a href="/instructions?course={{ c.course_id }}"><b>{{ c.name }}</b></a></td>
+      <td class="num">{{ c.count }}</td>
+      <td class="num">{% if c.urgent %}<b style="color:var(--danger)">{{ c.urgent }}</b>{% else %}—{% endif %}</td>
+      <td class="num">{{ c.targets|comma }}</td>
+      <td class="num">{{ c.revenue|yen }}</td>
+      <td class="num">{{ c.done }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2>指示の一覧</h2>
+<form class="filters" method="get" action="/instructions">
+  <select name="course" onchange="this.form.submit()">
+    <option value="">すべてのゴルフ場</option>
+    {% for c in courses %}
+      <option value="{{ c.course_id }}" {{ 'selected' if selected_course==c.course_id }}>{{ c.name }}</option>
+    {% endfor %}
+  </select>
+  <select name="priority" onchange="this.form.submit()">
+    <option value="">すべての優先度</option>
+    {% for p, label in PRIORITY_LABELS.items() %}
+      <option value="{{ p }}" {{ 'selected' if selected_priority==p|string }}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <select name="rule" onchange="this.form.submit()">
+    <option value="">すべての施策</option>
+    {% for rid, name in RULE_INFO.items() %}
+      {% if rule_counts.get(rid) %}
+      <option value="{{ rid }}" {{ 'selected' if selected_rule==rid }}>{{ name }}（{{ rule_counts[rid] }}）</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+  {% if selected_course or selected_priority or selected_rule %}
+    <a class="btn small" href="/instructions">絞り込みを解除</a>
+  {% endif %}
+</form>
+
+{% if not grouped %}
+  <div class="note info">
+    <b>該当する指示がありません</b>
+    絞り込み条件を変えるか、「作り直す」を押して最新の指示を作成してください。
+  </div>
+{% endif %}
+
+{% for priority in [1,2,3,4] %}
+  {% if grouped.get(priority) %}
+    <h2>{{ PRIORITY_LABELS[priority] }}（{{ grouped[priority]|length }}件）</h2>
+    {% if priority == 1 %}
+      <p class="mute" style="margin:-6px 0 12px">
+        本日中に着手してください。売上への影響が大きく、時間的な猶予がないものです。
+      </p>
+    {% endif %}
+    {% for i in grouped[priority] %}
+      <a class="inst p{{ i.priority }} {{ 'done' if i.status=='done' }}" href="/instructions/{{ i.instruction_id }}">
+        <div class="meta">
+          <span class="badge p{{ i.priority }}">{{ PRIORITY_LABELS[i.priority] }}</span>
+          <span class="badge ch">{{ i.channel_label }}</span>
+          <span class="badge muted">{{ i.category }}</span>
+          {% if i.status=='done' %}<span class="badge done">完了</span>{% endif %}
+          {% if i.status=='skipped' %}<span class="badge muted">見送り</span>{% endif %}
+        </div>
+        <div class="title">{{ i.title }}</div>
+        <div class="why">{{ i.reason }}</div>
+        <div class="nums">
+          <span>対象 <b>{{ i.target_count|comma }}</b> 名</span>
+          {% if i.expected_revenue %}
+            <span>見込み <b>{{ i.expected_players|comma }}</b> 名 / <b>{{ i.expected_revenue|yen }}</b></span>
+          {% endif %}
+          {% if i.target_dates %}<span>対象日 <b>{{ i.target_dates }}</b></span>{% endif %}
+          <span>期限 <b>{{ i.deadline }}</b></span>
+        </div>
+      </a>
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block title %}顧客分析｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<h1>顧客分析</h1>
+<p class="lead">来場履歴から、お客様を来場回数・状態・来場周期で分類しています。</p>
+
+<h2>ランク別の状況（リピーターの動向）</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>ランク</th><th class="num">人数</th><th class="num">順調</th><th class="num">離反予備軍</th><th class="num">休眠・離脱</th><th class="num">平均単価</th><th></th></tr></thead>
+  <tbody>
+  {% for r in ranks %}
+    <tr>
+      <td><b>{{ r.rank_label }}</b></td>
+      <td class="num">{{ r.count|comma }}</td>
+      <td class="num" style="color:var(--ok)">{{ r.active|comma }}</td>
+      <td class="num" style="color:var(--warn)">{{ r.at_risk|comma }}</td>
+      <td class="num" style="color:var(--danger)">{{ r.sleeping|comma }}</td>
+      <td class="num">{{ r.avg_spend|comma }}円</td>
+      <td class="num"><a class="btn small" href="/customers?rank={{ r.rank_code }}">一覧</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<div class="note info" style="margin-top:12px">
+  <b>この表の見方</b>
+  F1（1回のみ）が多く、F2以降が急に少ない場合は「初回のお客様が2回目につながっていない」状態です。
+  リピーターを増やすには、F1→F2、F2→F3 の各段階に別々の施策が必要で、本システムはそれを自動で指示します。
+</div>
+
+<h2>来場周期の分布</h2>
+<p class="mute" style="margin-top:-6px">2回以上ご来場で、周期が実測できた方のみを集計しています。</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>来場周期</th><th class="num">人数</th><th class="num">平均単価</th><th>アプローチの目安</th></tr></thead>
+  <tbody>
+  {% for c in cycle_rows %}
+    <tr>
+      <td>{{ c.bucket[2:] }}</td>
+      <td class="num">{{ c.cnt|comma }}</td>
+      <td class="num">{{ (c.spend or 0)|round|int|comma }}円</td>
+      <td class="mute">
+        {% if c.bucket.startswith('a') %}前回来場から2週間後にご案内{% endif %}
+        {% if c.bucket.startswith('b') %}前回来場から1ヶ月後にご案内{% endif %}
+        {% if c.bucket.startswith('c') %}前回来場から2ヶ月後にご案内{% endif %}
+        {% if c.bucket.startswith('d') %}前回来場から3〜4ヶ月後にご案内{% endif %}
+        {% if c.bucket.startswith('e') %}季節の変わり目にご案内{% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2>今後2週間のアプローチ予定人数</h2>
+<p class="mute" style="margin-top:-6px">
+  「次回来場の予測日 − 予約リードタイム」がその日にあたるお客様の人数です。
+  この日に合わせてご案内すると、ちょうど検討されている時期に届きます。
+</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>日付</th><th class="num">対象人数</th><th style="width:60%"></th></tr></thead>
+  <tbody>
+  {% set maxcnt = (upcoming|map(attribute='cnt')|max) if upcoming else 1 %}
+  {% for u in upcoming %}
+    <tr>
+      <td>{{ u.approach_date }}{% if u.approach_date == today %} <span class="badge p1">本日</span>{% endif %}</td>
+      <td class="num">{{ u.cnt|comma }}名</td>
+      <td><div class="bar"><span style="width:{{ (u.cnt / maxcnt * 100)|round|int }}%"></span></div></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2>お客様を探す</h2>
+<form class="filters" method="get" action="/customers">
+  <input type="text" name="q" value="{{ q }}" placeholder="お名前 または 顧客ID">
+  <select name="rank">
+    <option value="">すべてのランク</option>
+    {% for code, label in RANK_LABELS.items() %}
+      <option value="{{ code }}" {{ 'selected' if selected_rank==code }}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <select name="status">
+    <option value="">すべての状態</option>
+    {% for code, label in STATUS_LABELS.items() %}
+      <option value="{{ code }}" {{ 'selected' if selected_status==code }}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <button class="btn primary small" type="submit">検索</button>
+  {% if q or selected_rank or selected_status %}<a class="btn small" href="/customers">条件をクリア</a>{% endif %}
+</form>
+
+<p class="mute">該当 {{ matched|comma }}名（売上上位100名まで表示）</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr><th>顧客ID</th><th>お名前</th><th>ランク</th><th>状態</th>
+        <th class="num">来場回数</th><th>最終来場</th><th class="num">周期</th>
+        <th>次回予測</th><th>案内推奨日</th><th class="num">累計売上</th></tr>
+  </thead>
+  <tbody>
+  {% for p in people %}
+    <tr>
+      <td>{{ p.customer_id }}</td>
+      <td>{{ p.name or '—' }}</td>
+      <td>{{ RANK_LABELS.get(p.rank_code, '—') }}</td>
+      <td>
+        {% if p.status_code == 'ACTIVE' %}<span style="color:var(--ok)">順調</span>
+        {% elif p.status_code == 'AT_RISK' %}<span style="color:var(--warn)">離反予備軍</span>
+        {% elif p.status_code in ('DORMANT','LOST') %}<span style="color:var(--danger)">{{ STATUS_LABELS.get(p.status_code) }}</span>
+        {% else %}—{% endif %}
+      </td>
+      <td class="num">{{ p.total_visits }}</td>
+      <td>{{ p.last_visit or '—' }}</td>
+      <td class="num">{{ p.cycle_days or '—' }}日{% if p.cycle_is_estimated %}<span class="mute">(推定)</span>{% endif %}</td>
+      <td>{{ p.next_expected_date or '—' }}</td>
+      <td>{{ p.approach_date or '—' }}</td>
+      <td class="num">{{ (p.total_revenue or 0)|comma }}円</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

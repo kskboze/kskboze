@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}営業指示エージェント{% endblock %}</title>
+<link rel="stylesheet" href="/static/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛳</text></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="head-inner">
+    <a class="brand" href="/">⛳ 営業指示エージェント<small>ゴルフ場営業統括本部</small></a>
+    <nav class="main">
+      <a href="/"             class="{{ 'on' if nav=='dashboard' }}">ダッシュボード</a>
+      <a href="/instructions" class="{{ 'on' if nav=='instructions' }}">本日の指示</a>
+      <a href="/customers"    class="{{ 'on' if nav=='customers' }}">顧客分析</a>
+      <a href="/import"       class="{{ 'on' if nav=='import' }}">データ取込</a>
+      <a href="/settings"     class="{{ 'on' if nav=='settings' }}">設定</a>
+    </nav>
+  </div>
+</header>
+<main>
+{% block body %}{% endblock %}
+</main>
+<footer class="site">
+  ゴルフ場 営業指示エージェント ／ 表示中の日付: {{ today }}
+</footer>
+</body>
+</html>

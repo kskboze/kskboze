@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}{{ inst.title }}｜営業指示エージェント{% endblock %}
+{% block body %}
+
+<p class="mute"><a href="/instructions">← 本日の指示一覧へ戻る</a></p>
+
+<div class="meta" style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px">
+  <span class="badge p{{ inst.priority }}">{{ PRIORITY_LABELS[inst.priority] }}</span>
+  <span class="badge ch">{{ inst.channel_label }}</span>
+  <span class="badge muted">{{ inst.category }}</span>
+  <span class="badge muted">{{ RULE_INFO.get(inst.rule_id, inst.rule_id) }}</span>
+  {% if inst.status=='done' %}<span class="badge done">完了</span>{% endif %}
+  {% if inst.ai_generated %}<span class="badge muted">AI作成文面</span>{% endif %}
+</div>
+
+<h1>{{ inst.title }}</h1>
+<p class="lead">{{ inst.course_name or '全コース' }} ／ 期限 {{ inst.deadline }}</p>
+
+<div class="grid c4" style="margin-bottom:18px">
+  <div class="stat"><div class="label">対象のお客様</div><div class="value">{{ inst.target_count|comma }}</div><div class="sub">名</div></div>
+  <div class="stat"><div class="label">想定反応率</div><div class="value">{{ (inst.response_rate * 100)|round|int }}%</div><div class="sub">設定値（実績で調整可）</div></div>
+  <div class="stat ok"><div class="label">見込み来場</div><div class="value">{{ inst.expected_players|comma }}</div><div class="sub">名（1組3.2名で換算）</div></div>
+  <div class="stat ok"><div class="label">見込み売上</div><div class="value">{{ inst.expected_revenue|yen }}</div><div class="sub">平均単価で試算</div></div>
+</div>
+
+<div class="grid c2">
+  <div class="card">
+    <h3 style="margin-top:0">なぜこの指示が出ているのか</h3>
+    <p style="margin:0">{{ inst.reason }}</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">具体的にやること</h3>
+    <p style="margin:0 0 10px">{{ inst.action }}</p>
+    {% if inst.target_dates %}
+      <p class="mute" style="margin:0"><b>対象日：</b>{{ inst.target_dates }}</p>
+    {% endif %}
+  </div>
+</div>
+
+{% if inst.channel != 'ops' %}
+<h2>お送りする文面</h2>
+{% if inst.sms_warning %}
+  <div class="note warn"><b>SMSの文字数にご注意ください</b>{{ inst.sms_warning }}</div>
+{% endif %}
+{% if inst.message_subject %}
+  <div class="subject">件名：{{ inst.message_subject }}</div>
+{% endif %}
+<div class="message" id="msg">{{ inst.message_body }}</div>
+<p style="margin-top:10px">
+  <button class="btn" type="button" onclick="copyMessage()">文面をコピー</button>
+  <a class="btn primary" href="/instructions/{{ inst.instruction_id }}/targets.csv">対象者リストをCSVで保存</a>
+  <span class="mute" id="copied" style="margin-left:8px"></span>
+</p>
+<p class="mute">
+  {{ '{お名前}' }} の部分は、配信ツールの差し込み機能（宛名タグ）に置き換えてお使いください。
+  （URL）にはご予約ページのアドレスを入れてください。
+</p>
+{% else %}
+<div class="note info">
+  <b>この指示は配信ではなく、運営側の作業です</b>
+  ポータルサイトの在庫・価格設定や、プラン構成の見直しを行ってください。
+</div>
+{% endif %}
+
+<h2>対象のお客様</h2>
+<p class="mute" style="margin-top:-6px">
+  {{ target_total|comma }}名中、先頭{{ targets|length }}名を表示しています。
+  全員分は上の「対象者リストをCSVで保存」からお受け取りください。
+</p>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>顧客ID</th><th>お名前</th><th>ランク</th><th>状態</th>
+      <th class="num">来場回数</th><th>最終来場</th>
+      <th class="num">来場周期</th><th>次回予測</th><th class="num">平均単価</th><th>連絡先</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in targets %}
+    <tr>
+      <td>{{ t.customer_id }}</td>
+      <td>{{ t.name or '—' }}</td>
+      <td>{{ RANK_LABELS.get(t.rank_code, t.rank_code or '—') }}</td>
+      <td>{{ STATUS_LABELS.get(t.status_code, t.status_code or '—') }}</td>
+      <td class="num">{{ t.total_visits or 0 }}</td>
+      <td>{{ t.last_visit or '—' }}</td>
+      <td class="num">{{ t.cycle_days or '—' }}日</td>
+      <td>{{ t.next_expected_date or '—' }}</td>
+      <td class="num">{{ (t.avg_spend or 0)|comma }}円</td>
+      <td class="mute">
+        {% if t.email %}メール{% endif %}
+        {% if t.line_id %} LINE{% endif %}
+        {% if t.phone %} 電話{% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<h2>この指示の状態</h2>
+<div class="card">
+  <p class="mute" style="margin-top:0">
+    「完了」にすると、対象のお客様に接触履歴が記録されます。
+    以後しばらくは、同じ方が他の指示の対象に選ばれないようになり、送りすぎを防げます。
+  </p>
+  <form method="post" action="/instructions/{{ inst.instruction_id }}/status" style="display:inline">
+    <input type="hidden" name="status" value="done">
+    <button class="btn primary" type="submit">完了にする</button>
+  </form>
+  <form method="post" action="/instructions/{{ inst.instruction_id }}/status" style="display:inline">
+    <input type="hidden" name="status" value="skipped">
+    <button class="btn" type="submit">今回は見送る</button>
+  </form>
+  <form method="post" action="/instructions/{{ inst.instruction_id }}/status" style="display:inline">
+    <input type="hidden" name="status" value="open">
+    <button class="btn" type="submit">未対応に戻す</button>
+  </form>
+</div>
+
+<script>
+function copyMessage() {
+  const text = document.getElementById('msg').innerText;
+  navigator.clipboard.writeText(text).then(function () {
+    document.getElementById('copied').textContent = 'コピーしました';
+    setTimeout(function () { document.getElementById('copied').textContent = ''; }, 2500);
+  });
+}
+</script>
+{% endblock %}
