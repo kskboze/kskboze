@@ -57,46 +57,95 @@
 
 ### 必要なもの
 
-* Python 3.10 以上（Windowsの方は [python.org](https://www.python.org/downloads/) からインストールしてください。
-  インストール時に「**Add Python to PATH**」に必ずチェックを入れてください）
+* Python 3.10 以上
+  * Windowsの方は [python.org](https://www.python.org/downloads/) からインストールしてください。
+    インストール画面の下にある「**Add Python to PATH**」に**必ずチェック**を入れてください。
+    （これを忘れると、後の手順で「python は認識されていません」というエラーになります）
 
-### ステップ1：起動する
+---
+
+### ステップ1：プログラムをパソコンに用意する
+
+まず、このプログラム一式をご自分のパソコンにダウンロードします。
+
+#### 方法A：ZIPファイルでダウンロードする（おすすめ・Gitが不要）
+
+1. ブラウザで次のアドレスを開くと、ZIPファイルのダウンロードが始まります。
+
+   ```
+   https://github.com/kskboze/kskboze/archive/refs/heads/claude/keen-gates-nkrkmp.zip
+   ```
+
+2. ダウンロードしたZIPファイルを**右クリック →「すべて展開」**で解凍します。
+3. 解凍してできた `kskboze-claude-keen-gates-nkrkmp` フォルダを、
+   デスクトップなど分かりやすい場所に置いてください。
+4. その中の **`golf-sales-agent`** フォルダが、このプログラム本体です。
+
+#### 方法B：Gitでダウンロードする
+
+Gitをお使いの場合は、PowerShell（Windows）またはターミナル（Mac）で次を実行します。
+
+```bash
+cd ~
+git clone -b claude/keen-gates-nkrkmp https://github.com/kskboze/kskboze.git
+cd kskboze/golf-sales-agent
+```
+
+---
+
+### ステップ2：サンプルデータで動きを見る
+
+実データの準備には時間がかかりますので、**まずは架空のデータで全機能を体験する**ことを
+強くおすすめします。8コース・約5万名・約10万件の実績が自動で作られます。
+
+**Windows の方**
+
+`golf-sales-agent` フォルダの中にある **`setup_sample.bat`** をダブルクリックしてください。
 
 **Mac / Linux の方**
 
 ```bash
 cd golf-sales-agent
-./start.sh
+python3 scripts/generate_sample_data.py
+python3 -m app.cli run
 ```
+
+---
+
+### ステップ3：起動する
 
 **Windows の方**
 
-`start.bat` をダブルクリックしてください。
+同じフォルダの **`start.bat`** をダブルクリックしてください。
 
-> 手動で動かす場合は次の3コマンドです。
-> ```bash
-> pip install -r requirements.txt
-> python3 -m app.cli init
-> python3 -m uvicorn app.main:app --port 8000
-> ```
-
-### ステップ2：ブラウザで開く
-
-http://127.0.0.1:8000 を開いてください。
-
-### ステップ3：まずはサンプルで動きを見る
-
-実データの準備には時間がかかりますので、まずは架空データで全機能を体験することをおすすめします。
+**Mac / Linux の方**
 
 ```bash
-python3 scripts/generate_sample_data.py   # 8コース・約5万名・約10万件の実績を自動生成
-python3 -m app.cli run                    # 本日の指示を作成
+./start.sh
 ```
 
-ブラウザを再読み込みすると、ダッシュボードに数字が入ります。
-実データを入れる際は `data/golf.db` を削除してから、画面の「データ取込」でご自分のCSVを取り込んでください。
+黒い画面（コマンドプロンプト／ターミナル）が開いたら、そのまま閉じずに、
+ブラウザで **http://127.0.0.1:8000** を開いてください。
+
+> 終了するときは、黒い画面で `Ctrl` + `C` を押してください。
 
 ---
+
+### 実データに入れ替えるとき
+
+サンプルで動きを確認したら、`data/golf.db` というファイルを削除してください。
+その後アプリを起動し、画面の「**データ取込**」からご自分のCSVを取り込みます。
+
+---
+
+### うまくいかないとき
+
+| 症状 | 原因と対処 |
+|---|---|
+| `cd : パス ... が存在しないため検出できません` | ステップ1のダウンロードがまだです。先にZIPを展開してください |
+| `python は認識されていません` | Pythonが未インストール、またはPATHに登録されていません。インストールし直し、「Add Python to PATH」にチェックを入れてください |
+| `start.sh` が動かない（Windows） | `start.sh` はMac/Linux用です。Windowsでは **`start.bat`** をお使いください |
+| ダブルクリックすると黒い画面が一瞬で消える | エラーが出ています。PowerShellでフォルダへ移動し、`.\start.bat` と入力して実行すると、内容が読めます |
 
 ## 画面の使い方
 
@@ -339,7 +388,9 @@ pip install anthropic
 
 | 症状 | 対処 |
 |---|---|
-| `python3: command not found` | Pythonが未インストールです。python.org からインストールしてください |
+| `python3: command not found` | Pythonが未インストールです。python.org からインストールしてください。Windowsでは `python3` ではなく `python` の場合があります |
+| `cd : パス ... が存在しないため検出できません` | プログラムのダウンロードがまだです。[はじめかた](#はじめかた3ステップ)のステップ1をご覧ください |
+| `start.sh` が実行できない（Windows） | Windowsでは `start.bat` をお使いください |
 | `ModuleNotFoundError: No module named 'fastapi'` | `pip install -r requirements.txt` を実行してください |
 | ブラウザで開けない | アプリを起動したターミナルを閉じていませんか。`./start.sh` をもう一度実行してください |
 | ポート8000が使用中 | `python3 -m uvicorn app.main:app --port 8001` のように番号を変えてください |
@@ -364,6 +415,7 @@ python3 -m unittest discover -s tests -v
 ```
 golf-sales-agent/
 ├── start.sh / start.bat        起動スクリプト
+├── setup_sample.bat            サンプルデータ作成（Windows用）
 ├── requirements.txt            必要なライブラリ
 ├── .env.example                APIキーなどの設定の雛形
 │

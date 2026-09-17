@@ -13,6 +13,8 @@ from __future__ import annotations
 from datetime import date, datetime, timedelta
 from urllib.parse import quote
 
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, File, Form, Request, UploadFile
 from fastapi.responses import HTMLResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
@@ -33,7 +35,14 @@ from app.engine.rules import RULE_INFO
 from app.exporter import instructions_csv, save_to_disk, targets_csv, to_bytes
 from app.importer import COLUMN_ALIASES, import_file
 
-app = FastAPI(title="ゴルフ場 営業指示エージェント")
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    """アプリの起動時に1回だけ、データベースの準備をします。"""
+    init_db()
+    yield
+
+
+app = FastAPI(title="ゴルフ場 営業指示エージェント", lifespan=lifespan)
 
 WEB_DIR = BASE_DIR / "app" / "web"
 app.mount("/static", StaticFiles(directory=WEB_DIR / "static"), name="static")
@@ -47,11 +56,6 @@ IMPORT_KINDS = {
     "reservations": "予約データ",
     "budgets": "月次予算",
 }
-
-
-@app.on_event("startup")
-def startup() -> None:
-    init_db()
 
 
 # ---------- テンプレートから使える小さな道具 ----------
